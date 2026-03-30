@@ -1,0 +1,30 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 10%;
+    gap: 40px;
+}
+
+
+@media (min-width: 48em) {
+    .hero {
+        flex-direction: row;
+        max-width: 720px;
+    }
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-img {
+    width: 100vw;
+    border-radius: 50px;
+    height: 100dvh;
+}
+
+.hero h1 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    margin-bottom: 20px;
+}

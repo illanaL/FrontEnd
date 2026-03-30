@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="./node_modules/flyonui/dist/flyonui.mjs"></script>
+
+    <link rel="stylesheet" href="styles/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>SOSLock</title>
+
+</head>
+
+<header class="header flex items-center justify-between px-6 py-4 bg-white shadow">
+    <!-- LOGO -->
+    <div class="logo flex items-center gap-3">
+        <img src="asset/logo SOSLock sans fond.png" alt="SOSLock" class="h-10">
+        <span class="tagline text-gray-700 font-medium">
+            Trouvez un serrurier fiable en quelques minutes
+        </span>
+    </div>
+
+    <!-- NAV + DROPDOWN CUSTOM -->
+    <div class="dropdown relative inline-flex">
+        <button id="dropdown-header" type="button" class="dropdown-toggle btn btn-primary" aria-haspopup="menu"
+            aria-expanded="false" aria-label="Dropdown">
+            menu
+            <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical"
+            aria-labelledby="dropdown-header">
+            <li class="dropdown-header gap-2">
+                <div class="avatar">
+                    <div class="w-10 rounded-full">
+                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-2.png" alt="User Avatar" />
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-base-content text-base font-semibold">Illana LAHIANY</h6>
+                    <small class="text-base-content/50 text-sm font-normal">illana@gmail.com</small>
+                </div>
+            </li>
+            <li><a class="dropdown-item" href="#">Mon profil</a></li>
+            <li><a class="dropdown-item" href="#">Mes demandes d'intervention en
+                    cours</a></li>
+            <li><a class="dropdown-item" href="#">Mes demandes terminées</a></li>
+            <li><a class="dropdown-item" href="#">Contact</a></li>
+        </ul>
+    </div>
+
+</header>
+
+<body>
+
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <p class="badge">Disponible 24h/24</p>
+            <h1>Dépannage serrurier rapide et fiable</h1>
+            <p>Fini les mauvaises surprises. Nous sélectionnons des artisans vérifiés pour une intervention rapide et au
+                juste prix.</p>
+
+            <a href="#" class="btn-primary">Faire une demande</a>
+        </div>
+
+        <div class="hero-img">
+            <img src="asset/serrure1.jpg" alt="Serrurier intervention">
+        </div>
+
+
+        <div class="hero-form">
+            <h3>Demande rapide</h3>
+            <input type="text" placeholder="Votre problème">
+            <input type="text" placeholder="Ville">
+            <button class="btn btn-primary">Envoyer</button>
+        </div>
+
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="steps">
+        <h2>Comment ça marche ?</h2>
+
+        <div class="steps-grid">
+            <div class="step">1. Décrivez votre problème</div>
+            <div class="step">2. On trouve un artisan</div>
+            <div class="step">3. Intervention rapide</div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <h1>Pourquoi nous choisir ?</h1>
+        <div>✔ Artisans vérifiés et sélectionnés</div>
+        <div>✔ Intervention rapide près de chez vous</div>
+        <div>✔ Prix clairs, sans surprise</div>
+        <div>✔ Accompagnement</div>
+    </section>
+    <section class="why">
+        <h2>Pourquoi ne pas appeler directement un serrurier ?</h2>
+
+        <p>
+            Parce qu’en urgence, il est difficile de savoir à qui faire confiance.
+            Entre les prix abusifs et les interventions douteuses, les mauvaises surprises sont fréquentes.
+        </p>
+
+        <p>
+            Notre plateforme agit comme un filtre : nous sélectionnons des professionnels sérieux pour vous garantir une
+            intervention rapide et transparente.
+        </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════ -->
+    <section class="services" id="services">
+
+        <div class="section-tag">Nos services</div>
+        <h2 class="section-title">Urgence ou rendez-vous,<br>on s'occupe de tout</h2>
+        <p class="section-desc">Du dépannage immédiat à l'installation sur mesure, nos serruriers certifiés
+            interviennent
+            pour tous vos besoins.</p>
+
+        <div class="services__grid">
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🚨</div>
+                <h3 class="service-card__title">Porte claquée / bloquée</h3>
+                <p class="service-card__desc">Vous êtes bloqué devant chez vous ? Un serrurier arrive en moins de 30
+                    minutes.</p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🔑</div>
+                <h3 class="service-card__title">Clé perdue ou volée</h3>
+                <p class="service-card__desc">Remplacement de serrure immédiat pour sécuriser votre logement après une
+                    perte
+                    ou un vol.</p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🪟</div>
+                <h3 class="service-card__title">Effraction / cambriolage</h3>
+                <p class="service-card__desc">Sécurisation rapide de votre domicile après une tentative d'effraction.
+                </p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">🔒</div>
+                <h3 class="service-card__title">Changement de serrure</h3>
+                <p class="service-card__desc">Upgrade vers une serrure multipoints ou connectée, planifié à votre
+                    convenance.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">🏠</div>
+                <h3 class="service-card__title">Installation de serrure</h3>
+                <p class="service-card__desc">Pose de serrure neuve sur porte d'entrée, chambre, cave ou garage.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">🛡️</div>
+                <h3 class="service-card__title">Volets roulant</h3>
+                <p class="service-card__desc">Installation de volets roulants, réparation.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA FINAL -->
+    <section class="cta" id="demande" aria-labelledby="cta-title">
+        <div class="cta__inner">
+
+            <span class="badge badge--cyan">Prêt à commencer ?</span>
+
+            <h2 class="cta__title" id="cta-title">
+                Résolvez votre problème<br>
+                <span class="cta__title-accent">maintenant</span>
+            </h2>
+
+            <p class="cta__desc">
+                Que ce soit une urgence à 3h du matin ou un rendez-vous planifié, SOSLock est là 24h/24, 7j/7.
+            </p>
+
+            <div class="cta__actions">
+                <a href="#" class="btn btn--urgent btn--lg">🚨 Intervention urgente</a>
+                <a href="#" class="btn btn--cyan btn--lg">📅 Prendre rendez-vous</a>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        const btn = document.getElementById('dropdown-header');
+        const menu = document.querySelector('.dropdown-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+<footer class="footer">
+    <p>© SOSLock - Tous droits réservés</p>
+</footer>

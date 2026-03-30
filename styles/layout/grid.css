@@ -1,0 +1,130 @@
+/* STEPS*/
+.steps {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.steps-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.step {
+    width: 30%;
+}
+
+/* ═══════════════════════════════════════
+       SERVICES
+    ════════════════════════════════════════ */
+.services {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.10);
+    color: var(--color-cyan-dk);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.section-desc {
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    max-width: 520px;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: white;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    transition: all 0.25s;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    border-color: var(--color-cyan);
+    box-shadow: 0 4px 24px rgba(0, 212, 255, 0.12);
+    transform: translateY(-3px);
+}
+
+.service-card--urgent {
+    border-color: rgba(230, 57, 70, 0.3);
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.03), white);
+}
+
+.service-card--urgent:hover {
+    border-color: var(--color-urgent);
+    box-shadow: 0 4px 24px rgba(230, 57, 70, 0.12);
+}
+
+.service-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.service-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.service-card__tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+}
+
+.tag--urgent {
+    background: rgba(255, 58, 58, 0.1);
+    color: var(--color-urgent);
+}
+
+.tag--rdv {
+    background: rgba(0, 212, 255, 0.10);
+    color: var(--color-cyan-dk);
+}
+
+/* TRUST */
+.trust {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.trust-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}

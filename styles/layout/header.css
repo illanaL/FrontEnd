@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    border-bottom: 1px solid #eee;
+    background: linear-gradient(90deg, var(--color-muted), #e5e7eb);
+}
+
+.header img {
+    width: 100px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+.tagline {
+
+    font-size: 30px;
+    color: var(--color-silver);
+    font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+    .tagline {
+        display: none;
+    }
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1a1a2e;
+}

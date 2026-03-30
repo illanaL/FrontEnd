@@ -1,0 +1,33 @@
+:root {
+    --color-bg: #ffffff;
+    --color-surface: #f0f4f8;
+    --color-surface2: #e6edf5;
+    --color-border: #d0dce8;
+    --color-primary: #0d2a4a;
+    /* bleu marine foncé du logo */
+    --color-primary-dk: #071c33;
+    /* marine encore plus foncé */
+    --color-cyan: #00d4ff;
+    /* cyan électrique du circuit */
+    --color-cyan-dk: #00a8cc;
+    /* cyan foncé */
+    --color-accent: #00d4ff;
+    /* cyan comme accent principal */
+    --color-urgent: #e63946;
+    /* rouge urgence */
+    --color-green: #22c55e;
+    --color-text: #0d2a4a;
+    /* marine pour le texte */
+    --color-muted: #5a7a99;
+    /* bleu-gris */
+    --color-light: #e8f4ff;
+    /* bleu très clair */
+    --color-silver: #c8d8e8;
+    /* argent/gris bleuté */
+    --color-urgent: red;
+    --color-navy: rgb(238, 241, 134);
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(0, 212, 255, 0.10);
+    --shadow-lg: 0 12px 48px rgba(13, 42, 74, 0.14);
+    --font: 'Segoe UI', system-ui, sans-serif;
+}

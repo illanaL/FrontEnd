@@ -2,19 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10%;
+    padding: 10px 5%;
     border-bottom: 1px solid #eee;
     background: linear-gradient(90deg, var(--color-muted), #e5e7eb);
 }
 
 .header img {
-    width: 100px;
+    width: 15vh;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 

@@ -5,7 +5,12 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="./node_modules/flyonui/dist/flyonui.mjs"></script>
+
+
     <link rel="stylesheet" href="styles/custom.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>SOSLock</title>
@@ -13,16 +18,50 @@
 </head>
 
 <body>
-    <div class="spinner"></div>
-    <header class="header">
+
+    <header class="header flex items-center justify-between px-6 py-4 bg-white shadow">
         <!-- LOGO -->
-        <div class="logo">
-            <img src="asset/logo SOSLock sans fond.png" alt="SOSLock">
-            <span class="tagline">
+        <div class="logo flex items-center gap-3">
+            <img src="asset/logo SOSLock sans fond.png" alt="SOSLock" class="h-10">
+            <span class="tagline text-gray-700 font-medium">
                 Trouvez un serrurier fiable en quelques minutes
             </span>
         </div>
+
+        <!-- MENU  -->
+        <div class="dropdown relative inline-flex">
+            <button id="dropdown-header" type="button" class="dropdown-toggle btn btn-primary" aria-haspopup="menu"
+                aria-expanded="false" aria-label="Dropdown">
+                menu
+                <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical"
+                aria-labelledby="dropdown-header">
+                <li class="dropdown-header gap-2">
+                    <div class="avatar">
+                        <div class="w-10 rounded-full">
+                            <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-2.png" alt="User Avatar" />
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="text-base-content text-base font-semibold">Illana LAHIANY</h6>
+                        <small class="text-base-content/50 text-sm font-normal">illana@gmail.com</small>
+                    </div>
+                </li>
+                <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                <li><a class="dropdown-item" href="#">Mes demandes d'intervention en
+                        cours</a></li>
+                <li><a class="dropdown-item" href="#">Mes demandes terminées</a></li>
+                <li><a class="dropdown-item" href="#">Contact</a></li>
+            </ul>
+        </div>
+
     </header>
+
+
+
+
+
     <!-- HERO -->
     <section class="hero">
         <div class="hero-text">
@@ -48,7 +87,6 @@
 
     </section>
 
-
     <!-- COMMENT ÇA MARCHE -->
     <section class="steps">
         <h2>Comment ça marche ?</h2>
@@ -62,11 +100,10 @@
 
     <section class="advantages">
         <h1>Pourquoi nous choisir ?</h1>
-        <div class="advantage-item">✔ Artisans vérifiés et sélectionnés</div>
-        <div class="advantage-item">✔ Intervention rapide près de chez vous</div>
-        <div class="advantage-item">✔ Prix clairs, sans surprise</div>
-        <div class="advantage-item">✔ Accompagnement</div>
-
+        <div>✔ Artisans vérifiés et sélectionnés</div>
+        <div>✔ Intervention rapide près de chez vous</div>
+        <div>✔ Prix clairs, sans surprise</div>
+        <div>✔ Accompagnement</div>
     </section>
     <section class="why">
         <h2>Pourquoi ne pas appeler directement un serrurier ?</h2>
@@ -81,7 +118,6 @@
             intervention rapide et transparente.
         </p>
     </section>
-
 
     <!-- ═══════════════════════════════════════
        SERVICES
@@ -137,7 +173,7 @@
             </div>
 
             <div class="service-card">
-                <div class="service-card__icon">▤</div>
+                <div class="service-card__icon">🛡️</div>
                 <h3 class="service-card__title">Volets roulant</h3>
                 <p class="service-card__desc">Installation de volets roulants, réparation.</p>
                 <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
@@ -170,8 +206,21 @@
 
         </div>
     </section>
+    <script>
+        const btn = document.getElementById('dropdown-header');
+        const menu = document.querySelector('.dropdown-menu');
 
-    <footer class="footer">
-        <p>© SOSLock - Tous droits réservés</p>
-    </footer>
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
+<footer class="footer">
+    <p>© SOSLock - Tous droits réservés</p>
+</footer>

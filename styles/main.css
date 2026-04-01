@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -8,19 +10,19 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -28,28 +30,28 @@
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 ::backdrop {
@@ -62,19 +64,19 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -82,28 +84,28 @@
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 /*
@@ -152,7 +154,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -197,7 +199,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -486,7 +488,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -554,7 +557,9 @@ video {
   display: none;
 }
 
-:where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+:where(:root),
+:root:has(input.theme-controller[value=light]:checked),
+[data-theme=light] {
   color-scheme: light;
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(97.8% 0.005 297.73);
@@ -620,7 +625,8 @@ video {
   }
 }
 
-:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+:root:has(input.theme-controller[value=light]:checked),
+[data-theme=light] {
   color-scheme: light;
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(97.8% 0.005 297.73);
@@ -652,7 +658,8 @@ video {
   --noise: 0;
 }
 
-:root:has(input.theme-controller[value=dark]:checked),[data-theme=dark] {
+:root:has(input.theme-controller[value=dark]:checked),
+[data-theme=dark] {
   color-scheme: dark;
   --color-base-100: oklch(31.23% 0.026 301.24);
   --color-base-200: oklch(25.39% 0.025 298.72);
@@ -704,12 +711,14 @@ video {
   initial-value: 0%;
 }
 
-:root, [data-theme] {
+:root,
+[data-theme] {
   background-color: var(--root-bg, var(--color-base-100));
   color: var(--color-base-content);
 }
 
-button:not(:disabled), [role="button"]:not(:disabled) {
+button:not(:disabled),
+[role="button"]:not(:disabled) {
   cursor: pointer;
 }
 
@@ -719,8 +728,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   width: 100%;
   flex-shrink: 1;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: var(--radius-field);
   background-color: var(--color-base-100);
   padding-inline: calc(0.25rem * 4);
@@ -758,18 +767,20 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 
 .textarea :where(textarea) {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: transparent;
   border: none;
 }
 
-.textarea :where(textarea):focus, .textarea :where(textarea):focus-within {
+.textarea :where(textarea):focus,
+.textarea :where(textarea):focus-within {
   --tw-outline-style: none;
   outline-style: none;
 }
 
-.textarea:focus, .textarea:focus-within {
+.textarea:focus,
+.textarea:focus-within {
   --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   --input-color: var(--color-primary);
@@ -779,22 +790,25 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   isolation: isolate;
 }
 
-.textarea:has(> textarea[disabled]), .textarea:is(:disabled, [disabled]) {
+.textarea:has(> textarea[disabled]),
+.textarea:is(:disabled, [disabled]) {
   cursor: not-allowed;
   border-color: var(--color-base-200);
   background-color: var(--color-base-200);
   color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
 }
 
-.textarea:has(> textarea[disabled])::-moz-placeholder, .textarea:is(:disabled, [disabled])::-moz-placeholder {
+.textarea:has(> textarea[disabled])::-moz-placeholder,
+.textarea:is(:disabled, [disabled])::-moz-placeholder {
   color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
 }
 
-.textarea:has(> textarea[disabled])::placeholder, .textarea:is(:disabled, [disabled])::placeholder {
+.textarea:has(> textarea[disabled])::placeholder,
+.textarea:is(:disabled, [disabled])::placeholder {
   color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
 }
 
-.textarea:has(> textarea[disabled]) > textarea[disabled] {
+.textarea:has(> textarea[disabled])>textarea[disabled] {
   cursor: not-allowed;
 }
 
@@ -826,25 +840,26 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding: calc(0.25rem * 0);
 }
 
-.textarea:has(> .textarea-floating) :where(.textarea-floating:first-child) > textarea {
+.textarea:has(> .textarea-floating) :where(.textarea-floating:first-child)>textarea {
   padding-block: calc(0.25rem * 2);
   padding-inline-start: calc(0.25rem * 4);
 }
 
-.textarea:has(> .textarea-floating) :where(.textarea-floating:nth-child(2)) > textarea {
+.textarea:has(> .textarea-floating) :where(.textarea-floating:nth-child(2))>textarea {
   padding-block: calc(0.25rem * 2);
 }
 
-.textarea:has(> .textarea-floating) :where(.textarea-floating:last-child) > textarea {
+.textarea:has(> .textarea-floating) :where(.textarea-floating:last-child)>textarea {
   padding-block: calc(0.25rem * 2);
   padding-inline-end: calc(0.25rem * 4);
 }
 
-.textarea:has(> .textarea-floating) :where(.textarea-floating:nth-child(2)) .textarea-floating-label, .textarea:has(> .textarea-floating) :where(.textarea-floating:last-child) .textarea-floating-label {
+.textarea:has(> .textarea-floating) :where(.textarea-floating:nth-child(2)) .textarea-floating-label,
+.textarea:has(> .textarea-floating) :where(.textarea-floating:last-child) .textarea-floating-label {
   margin-inline-start: calc(0.25rem * 0);
 }
 
-.textarea:has(> .textarea-floating) * > textarea {
+.textarea:has(> .textarea-floating) *>textarea {
   width: 100%;
   height: 100%;
   min-height: calc(0.25rem * 20);
@@ -910,7 +925,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   field-sizing: content;
 }
 
-.textarea-floating .textarea:has(> textarea[disabled]), .textarea-floating .textarea:is(:disabled, [disabled]) {
+.textarea-floating .textarea:has(> textarea[disabled]),
+.textarea-floating .textarea:is(:disabled, [disabled]) {
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
@@ -918,15 +934,18 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   opacity: 50%;
 }
 
-.textarea-floating .textarea:has(> textarea[disabled])::-moz-placeholder, .textarea-floating .textarea:is(:disabled, [disabled])::-moz-placeholder {
+.textarea-floating .textarea:has(> textarea[disabled])::-moz-placeholder,
+.textarea-floating .textarea:is(:disabled, [disabled])::-moz-placeholder {
   color: transparent;
 }
 
-.textarea-floating .textarea:has(> textarea[disabled])::placeholder, .textarea-floating .textarea:is(:disabled, [disabled])::placeholder {
+.textarea-floating .textarea:has(> textarea[disabled])::placeholder,
+.textarea-floating .textarea:is(:disabled, [disabled])::placeholder {
   color: transparent;
 }
 
-.textarea-floating .textarea:has(> textarea[disabled]) ~ .textarea-floating-label, .textarea-floating .textarea:is(:disabled, [disabled]) ~ .textarea-floating-label {
+.textarea-floating .textarea:has(> textarea[disabled])~.textarea-floating-label,
+.textarea-floating .textarea:is(:disabled, [disabled])~.textarea-floating-label {
   color: color-mix(in oklab, var(--color-base-content) 30%, transparent);
 }
 
@@ -942,7 +961,9 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   scale: 0.75;
 }
 
-.textarea-floating:focus-within .textarea-floating-label, .textarea-floating:not(:has(textarea:placeholder-shown)) .textarea-floating-label, .textarea-floating:has(.textarea:focus) .textarea-floating-label {
+.textarea-floating:focus-within .textarea-floating-label,
+.textarea-floating:not(:has(textarea:placeholder-shown)) .textarea-floating-label,
+.textarea-floating:has(.textarea:focus) .textarea-floating-label {
   pointer-events: auto;
   top: calc(0.25rem * 0);
   background-color: var(--color-base-100);
@@ -954,7 +975,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   scale: 0.75;
 }
 
-.textarea-floating:focus-within .textarea-floating-label, .textarea-floating:has(.textarea:focus) .textarea-floating-label {
+.textarea-floating:focus-within .textarea-floating-label,
+.textarea-floating:has(.textarea:focus) .textarea-floating-label {
   --input-color: var(--color-primary);
   color: var(--input-color);
 }
@@ -1017,14 +1039,14 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 0;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   place-content: center;
   vertical-align: middle;
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 @media print {
@@ -1039,7 +1061,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   box-shadow: 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), #0000) inset;
   background-color: var(--input-color);
   --radius-selector-max: calc(var(--radius-selector) + var(--radius-selector) + var(--radius-selector));
-  border-radius: calc( var(--radius-selector) + min(var(--switch-p), var(--radius-selector-max)) + min(var(--border), var(--radius-selector-max)) );
+  border-radius: calc(var(--radius-selector) + min(var(--switch-p), var(--radius-selector-max)) + min(var(--border), var(--radius-selector-max)));
   transition: color 0.3s, grid-template-columns 0.2s;
   --input-color: color-mix(in oklab, var(--color-neutral) 22%, #0000);
   --switch-p: 0.1875rem;
@@ -1084,23 +1106,31 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   }
 }
 
-.switch:focus-visible, .switch:has(:focus-visible) {
+.switch:focus-visible,
+.switch:has(:focus-visible) {
   outline: 2px solid color-mix(in oklab, var(--input-color, var(--color-neutral)) 30%, #0000);
   outline-offset: 0px;
 }
 
-.switch:checked, .switch[aria-checked="true"], .switch:has(> input:checked) {
+.switch:checked,
+.switch[aria-checked="true"],
+.switch:has(> input:checked) {
   grid-template-columns: 1fr 1fr 0fr;
   --input-color: var(--color-neutral);
   background-color: var(--input-color);
 }
 
-.switch:checked:before, .switch[aria-checked="true"]:before, .switch:has(> input:checked):before {
+.switch:checked:before,
+.switch[aria-checked="true"]:before,
+.switch:has(> input:checked):before {
   background-color: currentColor;
 }
 
 @starting-style {
-  .switch:checked:before, .switch[aria-checked="true"]:before, .switch:has(> input:checked):before {
+
+  .switch:checked:before,
+  .switch[aria-checked="true"]:before,
+  .switch:has(> input:checked):before {
     opacity: 0;
   }
 }
@@ -1118,7 +1148,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   background-color: transparent;
 }
 
-.tabs-lifted > .tab:focus-visible {
+.tabs-lifted>.tab:focus-visible {
   border-end-end-radius: 0;
   border-end-start-radius: 0;
 }
@@ -1128,8 +1158,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   display: inline-flex;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -1138,8 +1168,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-base-content);
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   height: var(--size);
   --size: calc(var(--size-field, 0.25rem) * 9.5);
   --tab-p: 1rem;
@@ -1148,7 +1178,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding-inline: var(--tab-p, 1rem);
 }
 
-.tab:focus, .tab:focus-visible {
+.tab:focus,
+.tab:focus-visible {
   --tw-outline-style: none;
   outline-style: none;
 }
@@ -1170,20 +1201,20 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-primary);
 }
 
-.tabs-bordered > .tab {
+.tabs-bordered>.tab {
   border-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
 }
 
 @media (hover:hover) {
   @media (hover: hover) {
-    .tabs-bordered > .tab:hover {
+    .tabs-bordered>.tab:hover {
       border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
       color: var(--color-primary);
     }
   }
 }
 
-.tabs-bordered > .tab {
+.tabs-bordered>.tab {
   border-style: solid;
   border-bottom-width: calc(var(--border, 1px) + 1px);
 }
@@ -1192,7 +1223,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   --tabs-direction: column;
 }
 
-.tabs-bordered.tabs-vertical > .tab {
+.tabs-bordered.tabs-vertical>.tab {
   width: 100%;
   justify-content: flex-start;
   border-bottom-style: var(--tw-border-style);
@@ -1202,14 +1233,14 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 
 @media (hover:hover) {
   @media (hover: hover) {
-    .tabs-lifted > .tab:hover {
+    .tabs-lifted>.tab:hover {
       border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
       color: var(--color-primary);
     }
   }
 }
 
-.tabs-lifted > .tab {
+.tabs-lifted>.tab {
   border: var(--tab-border, 1px) solid transparent;
   border-width: 0 0 var(--tab-border, 1px) 0;
   border-radius: var(--radius-field, 0.375rem);
@@ -1219,7 +1250,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding-top: var(--tab-border, 1px);
 }
 
-.tabs-lifted > .tab.tab-active:not([disabled]) {
+.tabs-lifted>.tab.tab-active:not([disabled]) {
   background-color: var(--tab-bg);
   border-width: var(--tab-border, 1px) var(--tab-border, 1px) 0 var(--tab-border, 1px);
   border-color: var(--tab-border-color);
@@ -1231,7 +1262,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding-top: 0;
 }
 
-.tabs-lifted > .tab.tab-active:not([disabled]):before {
+.tabs-lifted>.tab.tab-active:not([disabled]):before {
   content: "";
   display: block;
   position: absolute;
@@ -1243,49 +1274,46 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   background-repeat: no-repeat;
   background-position: top left, top right;
   --tab-grad: calc(69% - var(--tab-border, 1px));
-  --radius-start: radial-gradient(
-    circle at top left,
-    transparent var(--tab-grad),
-    var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
-    var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
-    var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
-  );
-  --radius-end: radial-gradient(
-    circle at top right,
-    transparent var(--tab-grad),
-    var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
-    var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
-    var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
-  );
+  --radius-start: radial-gradient(circle at top left,
+      transparent var(--tab-grad),
+      var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+      var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+      var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px));
+  --radius-end: radial-gradient(circle at top right,
+      transparent var(--tab-grad),
+      var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+      var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+      var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px));
   background-image: var(--radius-start), var(--radius-end);
 }
 
-.tabs-lifted > .tab.tab-active:not([disabled]):first-child:before {
+.tabs-lifted>.tab.tab-active:not([disabled]):first-child:before {
   background-image: var(--radius-end);
   background-position: top right;
 }
 
-.tabs-lifted > .tab.tab-active:not([disabled]):last-child:before {
+.tabs-lifted>.tab.tab-active:not([disabled]):last-child:before {
   background-image: var(--radius-start);
   background-position: top left;
 }
 
-[dir="rtl"] .tabs-lifted > .tab.tab-active:not([disabled]):first-child:before {
+[dir="rtl"] .tabs-lifted>.tab.tab-active:not([disabled]):first-child:before {
   background-image: var(--radius-start);
   background-position: top left;
 }
 
-[dir="rtl"] .tabs-lifted > .tab.tab-active:not([disabled]):last-child:before {
+[dir="rtl"] .tabs-lifted>.tab.tab-active:not([disabled]):last-child:before {
   background-image: var(--radius-end);
   background-position: top right;
 }
 
-.tabs-lifted > .tab-active:not([disabled]) + .tabs-lifted .tab-active:not([disabled]):before {
+.tabs-lifted>.tab-active:not([disabled])+.tabs-lifted .tab-active:not([disabled]):before {
   background-image: var(--radius-end);
   background-position: top right;
 }
 
-.tabs-lifted:has(.tab-content[class^="rounded-"]) .tab:first-child:not(.tab-active), .tabs-lifted:has(.tab-content[class*=" rounded-"]) .tab:first-child:not(.tab-active) {
+.tabs-lifted:has(.tab-content[class^="rounded-"]) .tab:first-child:not(.tab-active),
+.tabs-lifted:has(.tab-content[class*=" rounded-"]) .tab:first-child:not(.tab-active) {
   border-bottom-color: transparent;
 }
 
@@ -1349,8 +1377,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   text-decoration-line: none;
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   --input-color: var(--color-primary);
 }
 
@@ -1416,8 +1444,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 0;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: var(--radius-selector);
   padding: calc(0.25rem * 1);
   vertical-align: middle;
@@ -1455,19 +1483,23 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   outline-offset: 0px;
 }
 
-.checkbox:checked, .checkbox[aria-checked="true"] {
+.checkbox:checked,
+.checkbox[aria-checked="true"] {
   background-color: var(--input-color, #0000);
   border-color: var(--input-color, #0000);
   box-shadow: 0 0 #0000 inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px 2px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000);
 }
 
-.checkbox:checked:before, .checkbox[aria-checked="true"]:before {
+.checkbox:checked:before,
+.checkbox[aria-checked="true"]:before {
   clip-path: polygon(20% 100%, 20% 80%, 50% 80%, 50% 0%, 70% 0%, 70% 100%);
   opacity: 100%;
 }
 
 @media (forced-colors: active) {
-  .checkbox:checked:before, .checkbox[aria-checked="true"]:before {
+
+  .checkbox:checked:before,
+  .checkbox[aria-checked="true"]:before {
     rotate: 0deg;
     background-color: transparent;
     --tw-content: "✔︎";
@@ -1476,7 +1508,9 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 }
 
 @media print {
-  .checkbox:checked:before, .checkbox[aria-checked="true"]:before {
+
+  .checkbox:checked:before,
+  .checkbox[aria-checked="true"]:before {
     rotate: 0deg;
     background-color: transparent;
     --tw-content: "✔︎";
@@ -1507,8 +1541,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 1;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: var(--color-base-100);
   padding-inline-start: calc(0.25rem * 3);
   padding-inline-end: calc(0.25rem * 10);
@@ -1518,8 +1552,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-base-content);
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   height: var(--size);
   border-start-start-radius: var(--join-ss, var(--radius-field));
   border-start-end-radius: var(--join-se, var(--radius-field));
@@ -1537,7 +1571,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   --size: calc(var(--size-field, 0.25rem) * 9.5);
 }
 
-.select:hover:not(:focus, :focus-within), .select:has(:hover):not(:focus, :focus-within) {
+.select:hover:not(:focus, :focus-within),
+.select:has(:hover):not(:focus, :focus-within) {
   border-color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
 }
 
@@ -1550,15 +1585,16 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   height: 100%;
   width: calc(100% + 2.75rem);
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding-inline-start: calc(0.25rem * 3);
   padding-inline-end: calc(0.25rem * 10);
   background-color: transparent;
   border-style: none;
 }
 
-.select select:focus, .select select:focus-within {
+.select select:focus,
+.select select:focus-within {
   --tw-outline-style: none;
   outline-style: none;
 }
@@ -1567,7 +1603,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   background-image: none;
 }
 
-.select:focus, .select:focus-within {
+.select:focus,
+.select:focus-within {
   --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   --input-color: var(--color-primary);
@@ -1577,7 +1614,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   isolation: isolate;
 }
 
-.select:has(> select[disabled]), .select:is(:disabled, [disabled]) {
+.select:has(> select[disabled]),
+.select:is(:disabled, [disabled]) {
   cursor: not-allowed;
   border-style: var(--tw-border-style);
   border-width: 0px;
@@ -1586,25 +1624,28 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.select:has(> select[disabled])::-moz-placeholder, .select:is(:disabled, [disabled])::-moz-placeholder {
+.select:has(> select[disabled])::-moz-placeholder,
+.select:is(:disabled, [disabled])::-moz-placeholder {
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.select:has(> select[disabled])::placeholder, .select:is(:disabled, [disabled])::placeholder {
+.select:has(> select[disabled])::placeholder,
+.select:is(:disabled, [disabled])::placeholder {
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.select:has(> select[disabled]) > select[disabled] {
+.select:has(> select[disabled])>select[disabled] {
   cursor: not-allowed;
 }
 
-.input > .select {
+.input>.select {
   height: auto;
   border-style: var(--tw-border-style);
   border-width: 0px;
 }
 
-.input > .select:focus, .input > .select:focus-within {
+.input>.select:focus,
+.input>.select:focus-within {
   --tw-shadow: 0 0 #0000;
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   outline-style: var(--tw-outline-style);
@@ -1669,18 +1710,21 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.select-floating .select:has(> select[disabled]), .select-floating .select:is(:disabled, [disabled]) {
+.select-floating .select:has(> select[disabled]),
+.select-floating .select:is(:disabled, [disabled]) {
   border-style: var(--tw-border-style);
   border-width: 1px;
   background-color: transparent;
   opacity: 50%;
 }
 
-.select-floating .select:has(> select[disabled]) ~ .select-floating-label, .select-floating .select:is(:disabled, [disabled]) ~ .select-floating-label {
+.select-floating .select:has(> select[disabled])~.select-floating-label,
+.select-floating .select:is(:disabled, [disabled])~.select-floating-label {
   color: color-mix(in oklab, var(--color-base-content) 30%, transparent);
 }
 
-.select-floating:focus-within .select-floating-label, .select-floating:has(.select:focus) .select-floating-label {
+.select-floating:focus-within .select-floating-label,
+.select-floating:has(.select:focus) .select-floating-label {
   --input-color: var(--color-primary);
   color: var(--input-color);
 }
@@ -1790,8 +1834,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 0;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: calc(infinity * 1px);
   padding: calc(0.25rem * 1);
   vertical-align: middle;
@@ -1819,20 +1863,24 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   outline-offset: 0px;
 }
 
-.radio:checked, .radio[aria-checked="true"] {
+.radio:checked,
+.radio[aria-checked="true"] {
   animation: radio 0.2s ease-out;
   border-color: currentColor;
   background-color: var(--color-base-100);
   box-shadow: 0 1px 2px 0 color-mix(in oklab, var(--color-base-300) 30%, #0000);
 }
 
-.radio:checked:before, .radio[aria-checked="true"]:before {
+.radio:checked:before,
+.radio[aria-checked="true"]:before {
   background-color: currentColor;
   box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
 }
 
 @media (forced-colors: active) {
-  .radio:checked:before, .radio[aria-checked="true"]:before {
+
+  .radio:checked:before,
+  .radio[aria-checked="true"]:before {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
     outline-offset: calc(1px * -1);
@@ -1840,19 +1888,23 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 }
 
 @media print {
-  .radio:checked:before, .radio[aria-checked="true"]:before {
+
+  .radio:checked:before,
+  .radio[aria-checked="true"]:before {
     outline: 0.25rem solid;
     outline-offset: -1rem;
   }
 }
 
-.radio-inset:checked, .radio-inset[aria-checked="true"] {
+.radio-inset:checked,
+.radio-inset[aria-checked="true"] {
   animation: radio-inset 0.2s ease-out;
   background-color: currentColor;
   box-shadow: 0 6px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)), 0 1px 2px 0 color-mix(in oklab, var(--color-base-content) 30%, #0000);
 }
 
-.radio-inset:checked:before, .radio-inset[aria-checked="true"]:before {
+.radio-inset:checked:before,
+.radio-inset[aria-checked="true"]:before {
   background-color: var(--color-base-100);
   box-shadow: none;
 }
@@ -1882,7 +1934,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   }
 }
 
-.carousel-prev, .carousel-next {
+.carousel-prev,
+.carousel-next {
   position: absolute;
   inset-block: calc(0.25rem * 0);
   margin-block: auto;
@@ -1894,7 +1947,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   justify-content: center;
 }
 
-.carousel-prev.disabled, .carousel-next.disabled {
+.carousel-prev.disabled,
+.carousel-next.disabled {
   pointer-events: none;
 }
 
@@ -2004,8 +2058,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   text-decoration-line: none;
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2047,7 +2101,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   }
 }
 
-.btn:active:hover:not(.btn-active), .btn:active:focus:not(.btn-active) {
+.btn:active:hover:not(.btn-active),
+.btn:active:focus:not(.btn-active) {
   --tw-scale-x: 95%;
   --tw-scale-y: 95%;
   --tw-scale-z: 95%;
@@ -2075,8 +2130,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 
 .btn:is(input[type="checkbox"], input[type="radio"]) {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .btn:is(input[type="checkbox"], input[type="radio"])::after {
@@ -2182,20 +2237,20 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   --btn-border: var(--btn-color, var(--color-neutral));
   --dark-shade: color-mix(in oklab, var(--btn-color, var(--color-neutral)) 80%, black);
   background-size: 200% auto;
-  background-image: linear-gradient( 102deg, var(--btn-color, var(--color-neutral)) 0%, var(--dark-shade) 51%, var(--btn-color, var(--color-neutral)) 100% );
+  background-image: linear-gradient(102deg, var(--btn-color, var(--color-neutral)) 0%, var(--dark-shade) 51%, var(--btn-color, var(--color-neutral)) 100%);
 }
 
 @media (hover: hover) {
   .btn-gradient:hover {
     --btn-shadow: 0px 4px 6px -1px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000),
-        0px 2px 4px -2px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000);
+      0px 2px 4px -2px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000);
     background-position: 99% center;
   }
 }
 
 .btn-gradient:focus-visible {
   --btn-shadow: 0px 4px 6px -1px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000),
-      0px 2px 4px -2px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000);
+    0px 2px 4px -2px color-mix(in oklab, var(--btn-color, var(--color-neutral)) 30%, #0000);
   background-position: 99% center;
 }
 
@@ -2229,7 +2284,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   border-style: solid;
   border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
   background-color: var(--color-base-100);
-  box-shadow: var( --card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000) );
+  box-shadow: var(--card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000));
   border-width: var(--card-border, 0px);
 }
 
@@ -2244,8 +2299,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 1;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   align-items: center;
   background-color: var(--color-base-100);
   padding-inline-start: calc(0.25rem * 3);
@@ -2256,8 +2311,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-base-content);
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   height: var(--size);
   border-start-start-radius: var(--join-ss, var(--radius-field));
   border-start-end-radius: var(--join-se, var(--radius-field));
@@ -2270,7 +2325,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   --size: calc(var(--size-field, 0.25rem) * 9.5);
 }
 
-.advance-select-toggle:focus, .advance-select-toggle:focus-within {
+.advance-select-toggle:focus,
+.advance-select-toggle:focus-within {
   --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   --input-color: var(--color-primary);
@@ -2320,7 +2376,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: color-mix(in oklab, var(--color-base-content) 80%, transparent);
   --tw-outline-style: none;
   outline-style: none;
-  box-shadow: var( --card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000) );
+  box-shadow: var(--card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000));
   border-width: var(--card-border, 0px);
 }
 
@@ -2370,12 +2426,12 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   content: "";
 }
 
-.card.image-full > * {
+.card.image-full>* {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.card.image-full > .card-body {
+.card.image-full>.card-body {
   position: relative;
   color: var(--color-neutral-content);
 }
@@ -2385,10 +2441,10 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   border-radius: inherit;
 }
 
-.card.image-full > figure img {
+.card.image-full>figure img {
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .card figure {
@@ -2400,8 +2456,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 .card:has(> input:is(input[type="checkbox"], input[type="radio"])) {
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .card:has(> :checked) {
@@ -2432,11 +2488,11 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding: var(--card-p, 1.5rem);
 }
 
-:where(.card-header) + .card-body {
+:where(.card-header)+.card-body {
   padding-top: 0;
 }
 
-:where(.card-body) + .card-footer {
+:where(.card-body)+.card-footer {
   padding-top: 0;
 }
 
@@ -2457,19 +2513,20 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 .card-group {
   overflow: hidden;
   border-radius: var(--radius-box);
-  box-shadow: var( --card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000) );
+  box-shadow: var(--card-shadow, 0 1px 3px 0 color-mix(in oklab, var(--color-base-300) 20%, #0000), 0 1px 2px -1px color-mix(in oklab, var(--color-base-300) 20%, #0000));
   border-color: color-mix(in oklab, var(--color-base-content) 30%, transparent);
   border-width: var(--card-border, 0px);
 }
 
-.card-group > .card {
+.card-group>.card {
   flex: 1 0 0%;
   border-radius: 0;
   --card-shadow: none;
   --card-border: 0;
 }
 
-.custom-soft-option, .custom-option {
+.custom-soft-option,
+.custom-option {
   width: 100%;
   cursor: pointer;
   overflow: hidden;
@@ -2480,12 +2537,14 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   border: var(--border) solid var(--input-color, color-mix(in oklab, var(--color-base-content) 40%, #0000));
 }
 
-.custom-soft-option:hover, .custom-option:hover {
+.custom-soft-option:hover,
+.custom-option:hover {
   border-color: var(--input-color, color-mix(in oklab, var(--color-base-content) 40%, #0000));
   outline: 1px solid var(--input-color, color-mix(in oklab, var(--color-base-content) 40%, #0000));
 }
 
-.custom-soft-option > .label-text, .custom-option > .label-text {
+.custom-soft-option>.label-text,
+.custom-option>.label-text {
   padding: calc(0.25rem * 0);
 }
 
@@ -2510,17 +2569,17 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   grid-auto-flow: row;
   place-items: start;
   -moz-column-gap: calc(0.25rem * 4);
-       column-gap: calc(0.25rem * 4);
+  column-gap: calc(0.25rem * 4);
   row-gap: calc(0.25rem * 10);
 }
 
-@media (width >= 48rem) {
+@media (width >=48rem) {
   .footer {
     grid-auto-flow: column;
   }
 }
 
-.footer > * {
+.footer>* {
   display: grid;
   place-items: start;
   gap: calc(0.25rem * 3);
@@ -2531,13 +2590,13 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   text-align: center;
 }
 
-@media (width >= 48rem) {
+@media (width >=48rem) {
   .footer.footer-center {
     grid-auto-flow: row dense;
   }
 }
 
-.footer.footer-center > * {
+.footer.footer-center>* {
   place-items: center;
 }
 
@@ -2616,11 +2675,11 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   gap: calc(0.25rem * 2);
   grid-auto-columns: minmax(auto, max-content) auto max-content;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-.menu :where(li.tooltip) > * {
+.menu :where(li.tooltip)>* {
   border-radius: var(--radius-field);
   padding-inline: calc(0.25rem * 4);
   padding-block: calc(0.25rem * 2.5);
@@ -2631,7 +2690,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-base-content);
 }
 
-.menu :where( .menu li:not(.menu-title, .menu-disabled) > *:not(ul, .collapse, .accordion-content, .dropdown-active, .menu-title) ):not(.btn):focus-visible {
+.menu :where(.menu li:not(.menu-title, .menu-disabled) > *:not(ul, .collapse, .accordion-content, .dropdown-active, .menu-title)):not(.btn):focus-visible {
   cursor: pointer;
   --tw-outline-style: none;
   outline-style: none;
@@ -2639,7 +2698,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   background-color: var(--menu-hover-bg);
 }
 
-.menu :where( .menu li:not(.menu-title, .menu-disabled) > *:not(ul, .collapse, .accordion-content, .dropdown-active, .menu-title) ):hover {
+.menu :where(.menu li:not(.menu-title, .menu-disabled) > *:not(ul, .collapse, .accordion-content, .dropdown-active, .menu-title)):hover {
   cursor: pointer;
   --tw-outline-style: none;
   outline-style: none;
@@ -2647,7 +2706,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   background-color: var(--menu-hover-bg);
 }
 
-.menu li:not(.menu-title, .menu-disabled) > :not(ul, .menu-title, .collapse, .accordion-content, .btn).menu-active {
+.menu li:not(.menu-title, .menu-disabled)> :not(ul, .menu-title, .collapse, .accordion-content, .btn).menu-active {
   color: var(--menu-active-fg);
   background-color: var(--menu-active-bg);
   background-size: auto, calc(var(--noise) * 100%);
@@ -2659,8 +2718,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   opacity: 50%;
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 :where(.menu li) {
@@ -2691,7 +2750,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-direction: row;
 }
 
-.menu-horizontal > li:not(.menu-title) > .collapse > ul {
+.menu-horizontal>li:not(.menu-title)>.collapse>ul {
   position: absolute;
   margin-inline-start: calc(0.25rem * 0);
   margin-top: calc(0.25rem * 4);
@@ -2699,7 +2758,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   padding-inline-end: calc(0.25rem * 2);
 }
 
-.menu-horizontal > li > .collapse > ul:before {
+.menu-horizontal>li>.collapse>ul:before {
   content: none;
 }
 
@@ -2716,7 +2775,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-direction: column;
 }
 
-.menu-vertical > li:not(.menu-title) > .collapse > ul {
+.menu-vertical>li:not(.menu-title)>.collapse>ul {
   position: relative;
   margin-inline-start: calc(0.25rem * 4);
   margin-top: calc(0.25rem * 0);
@@ -2851,7 +2910,9 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   outline-offset: 2px;
 }
 
-.link.disabled, .link[disabled], .link:disabled {
+.link.disabled,
+.link[disabled],
+.link:disabled {
   pointer-events: none;
   opacity: 50%;
 }
@@ -2918,12 +2979,15 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 }
 
 @media (hover: hover) {
-  .table tr.row-hover:hover, .table tr.row-hover:nth-child(even):hover {
+
+  .table tr.row-hover:hover,
+  .table tr.row-hover:nth-child(even):hover {
     background-color: color-mix(in oklab, var(--color-base-200) 80%, transparent);
   }
 }
 
-.table tr.row-active, .table tr.row-active:nth-child(even) {
+.table tr.row-active,
+.table tr.row-active:nth-child(even) {
   background-color: var(--color-base-200);
 }
 
@@ -2990,11 +3054,14 @@ button:not(:disabled), [role="button"]:not(:disabled) {
 }
 
 @media (hover: hover) {
-  .table-striped tbody tr.row-hover:hover, .table-striped tbody tr.row-hover:nth-child(even):hover {
+
+  .table-striped tbody tr.row-hover:hover,
+  .table-striped tbody tr.row-hover:nth-child(even):hover {
     background-color: color-mix(in oklab, var(--color-base-200) 80%, transparent);
   }
 
-  .table-striped tbody tr.row-active:hover, .table-striped tbody tr.row-active:nth-child(even):hover {
+  .table-striped tbody tr.row-active:hover,
+  .table-striped tbody tr.row-active:nth-child(even):hover {
     background-color: var(--color-base-200);
   }
 }
@@ -3032,7 +3099,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   content: "×";
 }
 
-.filter:not(:has(input:checked:not(.filter-reset))) .filter-reset, .filter:not(:has(input:checked:not(.filter-reset))) input[type="reset"] {
+.filter:not(:has(input:checked:not(.filter-reset))) .filter-reset,
+.filter:not(:has(input:checked:not(.filter-reset))) input[type="reset"] {
   scale: 0;
   border-width: 0;
   margin-inline: calc(0.25rem * 0);
@@ -3067,8 +3135,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-success);
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .error-message {
@@ -3079,8 +3147,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: var(--color-error);
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .pin-input {
@@ -3113,7 +3181,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   border-color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
 }
 
-.pin-input:focus, .pin-input:focus-within {
+.pin-input:focus,
+.pin-input:focus-within {
   border-color: var(--color-primary);
   --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -3122,18 +3191,24 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   isolation: isolate;
 }
 
-.pin-input.disabled, .pin-input:disabled, .pin-input[disabled] {
+.pin-input.disabled,
+.pin-input:disabled,
+.pin-input[disabled] {
   pointer-events: none;
   border-color: color-mix(in oklab, var(--color-base-content) 25%, transparent);
   background-color: color-mix(in oklab, var(--color-base-content) 5%, transparent);
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.pin-input.disabled::-moz-placeholder, .pin-input:disabled::-moz-placeholder, .pin-input[disabled]::-moz-placeholder {
+.pin-input.disabled::-moz-placeholder,
+.pin-input:disabled::-moz-placeholder,
+.pin-input[disabled]::-moz-placeholder {
   color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
 }
 
-.pin-input.disabled::placeholder, .pin-input:disabled::placeholder, .pin-input[disabled]::placeholder {
+.pin-input.disabled::placeholder,
+.pin-input:disabled::placeholder,
+.pin-input[disabled]::placeholder {
   color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
 }
 
@@ -3160,8 +3235,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   flex-shrink: 1;
   cursor: text;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: var(--color-base-100);
   padding-inline: calc(0.25rem * 3);
   font-size: var(--text-base);
@@ -3197,7 +3272,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   --size: calc(var(--size-field, 0.25rem) * 9.5);
 }
 
-.input:hover:not(:focus, :focus-within), .input:has(:hover):not(:focus, :focus-within) {
+.input:hover:not(:focus, :focus-within),
+.input:has(:hover):not(:focus, :focus-within) {
   border-color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
 }
 
@@ -3210,18 +3286,21 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   height: 100%;
   width: 100%;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: transparent;
   border: none;
 }
 
-.input :where(input:not([type="checkbox"]):not([type="radio"])):focus, .input :where(input:not([type="checkbox"]):not([type="radio"])):focus-within, .input :where(input:not([type="checkbox"]):not([type="radio"])):focus-visible {
+.input :where(input:not([type="checkbox"]):not([type="radio"])):focus,
+.input :where(input:not([type="checkbox"]):not([type="radio"])):focus-within,
+.input :where(input:not([type="checkbox"]):not([type="radio"])):focus-visible {
   --tw-outline-style: none;
   outline-style: none;
 }
 
-.input:focus, .input:focus-within {
+.input:focus,
+.input:focus-within {
   --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   --input-color: var(--color-primary);
@@ -3230,7 +3309,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   isolation: isolate;
 }
 
-.input:has(> input[disabled]), .input:is(:disabled, [disabled]) {
+.input:has(> input[disabled]),
+.input:is(:disabled, [disabled]) {
   cursor: not-allowed;
   border-style: var(--tw-border-style);
   border-width: 0px;
@@ -3239,7 +3319,7 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   box-shadow: none;
 }
 
-.input:has(> input[disabled]) > input[disabled] {
+.input:has(> input[disabled])>input[disabled] {
   cursor: not-allowed;
 }
 
@@ -3308,14 +3388,16 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
 }
 
-.input-floating .input:has(> input[disabled]), .input-floating .input:is(:disabled, [disabled]) {
+.input-floating .input:has(> input[disabled]),
+.input-floating .input:is(:disabled, [disabled]) {
   border-style: var(--tw-border-style);
   border-width: 1px;
   background-color: transparent;
   opacity: 50%;
 }
 
-.input-floating .input:has(> input[disabled]) ~ .input-floating-label, .input-floating .input:is(:disabled, [disabled]) ~ .input-floating-label {
+.input-floating .input:has(> input[disabled])~.input-floating-label,
+.input-floating .input:is(:disabled, [disabled])~.input-floating-label {
   color: color-mix(in oklab, var(--color-base-content) 30%, transparent);
 }
 
@@ -3331,7 +3413,9 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   scale: 0.75;
 }
 
-.input-floating:focus-within .input-floating-label, .input-floating:not(:has(input:placeholder-shown)) .input-floating-label, .input-floating:has(.input:focus) .input-floating-label {
+.input-floating:focus-within .input-floating-label,
+.input-floating:not(:has(input:placeholder-shown)) .input-floating-label,
+.input-floating:has(.input:focus) .input-floating-label {
   pointer-events: auto;
   top: calc(0.25rem * 0);
   background-color: var(--color-base-100);
@@ -3343,7 +3427,8 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   scale: 0.75;
 }
 
-.input-floating:focus-within .input-floating-label, .input-floating:has(.input:focus) .input-floating-label {
+.input-floating:focus-within .input-floating-label,
+.input-floating:has(.input:focus) .input-floating-label {
   --input-color: var(--color-primary);
   color: var(--input-color);
 }
@@ -3443,220 +3528,562 @@ button:not(:disabled), [role="button"]:not(:disabled) {
   margin-inline-end: calc(0.25rem * -3);
 }
 
-.validate *:valid ~ .success-message, .validate *:has(:valid) ~ .success-message {
+.validate *:valid~.success-message,
+.validate *:has(:valid)~.success-message {
   display: block;
 }
 
-.validate *:invalid ~ .error-message, .validate *:has(:invalid) ~ .error-message {
+.validate *:invalid~.error-message,
+.validate *:has(:invalid)~.error-message {
   display: block;
 }
 
-.input.is-valid, .input:has(.is-valid), .validate .input:valid, .validate .input:has(:valid), .select.is-valid, .select:has(.is-valid), .validate .select:valid, .validate .select:has(:valid), .textarea.is-valid, .textarea:has(.is-valid), .validate .textarea:valid, .validate .textarea:has(:valid) {
+.input.is-valid,
+.input:has(.is-valid),
+.validate .input:valid,
+.validate .input:has(:valid),
+.select.is-valid,
+.select:has(.is-valid),
+.validate .select:valid,
+.validate .select:has(:valid),
+.textarea.is-valid,
+.textarea:has(.is-valid),
+.validate .textarea:valid,
+.validate .textarea:has(:valid) {
   border-color: var(--color-success);
 }
 
 @media (hover: hover) {
-  .input.is-valid:hover, .input:has(.is-valid):hover, .validate .input:valid:hover, .validate .input:has(:valid):hover, .select.is-valid:hover, .select:has(.is-valid):hover, .validate .select:valid:hover, .validate .select:has(:valid):hover, .textarea.is-valid:hover, .textarea:has(.is-valid):hover, .validate .textarea:valid:hover, .validate .textarea:has(:valid):hover {
+
+  .input.is-valid:hover,
+  .input:has(.is-valid):hover,
+  .validate .input:valid:hover,
+  .validate .input:has(:valid):hover,
+  .select.is-valid:hover,
+  .select:has(.is-valid):hover,
+  .validate .select:valid:hover,
+  .validate .select:has(:valid):hover,
+  .textarea.is-valid:hover,
+  .textarea:has(.is-valid):hover,
+  .validate .textarea:valid:hover,
+  .validate .textarea:has(:valid):hover {
     border-color: var(--color-success);
   }
 }
 
-.input.is-valid:has(:hover):not(:focus, :focus-within), .input:has(.is-valid):has(:hover):not(:focus, :focus-within), .validate .input:valid:has(:hover):not(:focus, :focus-within), .validate .input:has(:valid):has(:hover):not(:focus, :focus-within), .select.is-valid:has(:hover):not(:focus, :focus-within), .select:has(.is-valid):has(:hover):not(:focus, :focus-within), .validate .select:valid:has(:hover):not(:focus, :focus-within), .validate .select:has(:valid):has(:hover):not(:focus, :focus-within), .textarea.is-valid:has(:hover):not(:focus, :focus-within), .textarea:has(.is-valid):has(:hover):not(:focus, :focus-within), .validate .textarea:valid:has(:hover):not(:focus, :focus-within), .validate .textarea:has(:valid):has(:hover):not(:focus, :focus-within) {
+.input.is-valid:has(:hover):not(:focus, :focus-within),
+.input:has(.is-valid):has(:hover):not(:focus, :focus-within),
+.validate .input:valid:has(:hover):not(:focus, :focus-within),
+.validate .input:has(:valid):has(:hover):not(:focus, :focus-within),
+.select.is-valid:has(:hover):not(:focus, :focus-within),
+.select:has(.is-valid):has(:hover):not(:focus, :focus-within),
+.validate .select:valid:has(:hover):not(:focus, :focus-within),
+.validate .select:has(:valid):has(:hover):not(:focus, :focus-within),
+.textarea.is-valid:has(:hover):not(:focus, :focus-within),
+.textarea:has(.is-valid):has(:hover):not(:focus, :focus-within),
+.validate .textarea:valid:has(:hover):not(:focus, :focus-within),
+.validate .textarea:has(:valid):has(:hover):not(:focus, :focus-within) {
   border-color: var(--color-success);
 }
 
-.input.is-valid:focus, .input.is-valid:focus-within, .input:has(.is-valid):focus, .input:has(.is-valid):focus-within, .validate .input:valid:focus, .validate .input:valid:focus-within, .validate .input:has(:valid):focus, .validate .input:has(:valid):focus-within, .select.is-valid:focus, .select.is-valid:focus-within, .select:has(.is-valid):focus, .select:has(.is-valid):focus-within, .validate .select:valid:focus, .validate .select:valid:focus-within, .validate .select:has(:valid):focus, .validate .select:has(:valid):focus-within, .textarea.is-valid:focus, .textarea.is-valid:focus-within, .textarea:has(.is-valid):focus, .textarea:has(.is-valid):focus-within, .validate .textarea:valid:focus, .validate .textarea:valid:focus-within, .validate .textarea:has(:valid):focus, .validate .textarea:has(:valid):focus-within {
+.input.is-valid:focus,
+.input.is-valid:focus-within,
+.input:has(.is-valid):focus,
+.input:has(.is-valid):focus-within,
+.validate .input:valid:focus,
+.validate .input:valid:focus-within,
+.validate .input:has(:valid):focus,
+.validate .input:has(:valid):focus-within,
+.select.is-valid:focus,
+.select.is-valid:focus-within,
+.select:has(.is-valid):focus,
+.select:has(.is-valid):focus-within,
+.validate .select:valid:focus,
+.validate .select:valid:focus-within,
+.validate .select:has(:valid):focus,
+.validate .select:has(:valid):focus-within,
+.textarea.is-valid:focus,
+.textarea.is-valid:focus-within,
+.textarea:has(.is-valid):focus,
+.textarea:has(.is-valid):focus-within,
+.validate .textarea:valid:focus,
+.validate .textarea:valid:focus-within,
+.validate .textarea:has(:valid):focus,
+.validate .textarea:has(:valid):focus-within {
   --input-color: var(--color-success);
 }
 
-.input.is-invalid, .input:has(.is-invalid), .validate .input:invalid, .validate .input:has(:invalid), .select.is-invalid, .select:has(.is-invalid), .validate .select:invalid, .validate .select:has(:invalid), .textarea.is-invalid, .textarea:has(.is-invalid), .validate .textarea:invalid, .validate .textarea:has(:invalid) {
+.input.is-invalid,
+.input:has(.is-invalid),
+.validate .input:invalid,
+.validate .input:has(:invalid),
+.select.is-invalid,
+.select:has(.is-invalid),
+.validate .select:invalid,
+.validate .select:has(:invalid),
+.textarea.is-invalid,
+.textarea:has(.is-invalid),
+.validate .textarea:invalid,
+.validate .textarea:has(:invalid) {
   border-color: var(--color-error);
 }
 
 @media (hover: hover) {
-  .input.is-invalid:hover, .input:has(.is-invalid):hover, .validate .input:invalid:hover, .validate .input:has(:invalid):hover, .select.is-invalid:hover, .select:has(.is-invalid):hover, .validate .select:invalid:hover, .validate .select:has(:invalid):hover, .textarea.is-invalid:hover, .textarea:has(.is-invalid):hover, .validate .textarea:invalid:hover, .validate .textarea:has(:invalid):hover {
+
+  .input.is-invalid:hover,
+  .input:has(.is-invalid):hover,
+  .validate .input:invalid:hover,
+  .validate .input:has(:invalid):hover,
+  .select.is-invalid:hover,
+  .select:has(.is-invalid):hover,
+  .validate .select:invalid:hover,
+  .validate .select:has(:invalid):hover,
+  .textarea.is-invalid:hover,
+  .textarea:has(.is-invalid):hover,
+  .validate .textarea:invalid:hover,
+  .validate .textarea:has(:invalid):hover {
     border-color: var(--color-error);
   }
 }
 
-.input.is-invalid:has(:hover):not(:focus, :focus-within), .input:has(.is-invalid):has(:hover):not(:focus, :focus-within), .validate .input:invalid:has(:hover):not(:focus, :focus-within), .validate .input:has(:invalid):has(:hover):not(:focus, :focus-within), .select.is-invalid:has(:hover):not(:focus, :focus-within), .select:has(.is-invalid):has(:hover):not(:focus, :focus-within), .validate .select:invalid:has(:hover):not(:focus, :focus-within), .validate .select:has(:invalid):has(:hover):not(:focus, :focus-within), .textarea.is-invalid:has(:hover):not(:focus, :focus-within), .textarea:has(.is-invalid):has(:hover):not(:focus, :focus-within), .validate .textarea:invalid:has(:hover):not(:focus, :focus-within), .validate .textarea:has(:invalid):has(:hover):not(:focus, :focus-within) {
+.input.is-invalid:has(:hover):not(:focus, :focus-within),
+.input:has(.is-invalid):has(:hover):not(:focus, :focus-within),
+.validate .input:invalid:has(:hover):not(:focus, :focus-within),
+.validate .input:has(:invalid):has(:hover):not(:focus, :focus-within),
+.select.is-invalid:has(:hover):not(:focus, :focus-within),
+.select:has(.is-invalid):has(:hover):not(:focus, :focus-within),
+.validate .select:invalid:has(:hover):not(:focus, :focus-within),
+.validate .select:has(:invalid):has(:hover):not(:focus, :focus-within),
+.textarea.is-invalid:has(:hover):not(:focus, :focus-within),
+.textarea:has(.is-invalid):has(:hover):not(:focus, :focus-within),
+.validate .textarea:invalid:has(:hover):not(:focus, :focus-within),
+.validate .textarea:has(:invalid):has(:hover):not(:focus, :focus-within) {
   border-color: var(--color-error);
 }
 
-.input.is-invalid:focus, .input.is-invalid:focus-within, .input:has(.is-invalid):focus, .input:has(.is-invalid):focus-within, .validate .input:invalid:focus, .validate .input:invalid:focus-within, .validate .input:has(:invalid):focus, .validate .input:has(:invalid):focus-within, .select.is-invalid:focus, .select.is-invalid:focus-within, .select:has(.is-invalid):focus, .select:has(.is-invalid):focus-within, .validate .select:invalid:focus, .validate .select:invalid:focus-within, .validate .select:has(:invalid):focus, .validate .select:has(:invalid):focus-within, .textarea.is-invalid:focus, .textarea.is-invalid:focus-within, .textarea:has(.is-invalid):focus, .textarea:has(.is-invalid):focus-within, .validate .textarea:invalid:focus, .validate .textarea:invalid:focus-within, .validate .textarea:has(:invalid):focus, .validate .textarea:has(:invalid):focus-within {
+.input.is-invalid:focus,
+.input.is-invalid:focus-within,
+.input:has(.is-invalid):focus,
+.input:has(.is-invalid):focus-within,
+.validate .input:invalid:focus,
+.validate .input:invalid:focus-within,
+.validate .input:has(:invalid):focus,
+.validate .input:has(:invalid):focus-within,
+.select.is-invalid:focus,
+.select.is-invalid:focus-within,
+.select:has(.is-invalid):focus,
+.select:has(.is-invalid):focus-within,
+.validate .select:invalid:focus,
+.validate .select:invalid:focus-within,
+.validate .select:has(:invalid):focus,
+.validate .select:has(:invalid):focus-within,
+.textarea.is-invalid:focus,
+.textarea.is-invalid:focus-within,
+.textarea:has(.is-invalid):focus,
+.textarea:has(.is-invalid):focus-within,
+.validate .textarea:invalid:focus,
+.validate .textarea:invalid:focus-within,
+.validate .textarea:has(:invalid):focus,
+.validate .textarea:has(:invalid):focus-within {
   --input-color: var(--color-error);
 }
 
-.switch.is-valid, .switch:has(.is-valid), .validate .switch:valid, .validate .switch:has(:valid), .checkbox.is-valid, .checkbox:has(.is-valid), .validate .checkbox:valid, .validate .checkbox:has(:valid), .radio.is-valid, .radio:has(.is-valid), .validate .radio:valid, .validate .radio:has(:valid), .radio-inset.is-valid, .radio-inset:has(.is-valid), .validate .radio-inset:valid, .validate .radio-inset:has(:valid) {
+.switch.is-valid,
+.switch:has(.is-valid),
+.validate .switch:valid,
+.validate .switch:has(:valid),
+.checkbox.is-valid,
+.checkbox:has(.is-valid),
+.validate .checkbox:valid,
+.validate .checkbox:has(:valid),
+.radio.is-valid,
+.radio:has(.is-valid),
+.validate .radio:valid,
+.validate .radio:has(:valid),
+.radio-inset.is-valid,
+.radio-inset:has(.is-valid),
+.validate .radio-inset:valid,
+.validate .radio-inset:has(:valid) {
   --input-color: var(--color-success);
   border-color: var(--input-color);
 }
 
-.switch.is-valid:checked, .switch.is-valid[aria-checked="true"], .switch.is-valid:has(> input:checked), .switch:has(.is-valid):checked, .switch:has(.is-valid)[aria-checked="true"], .switch:has(.is-valid):has(> input:checked), .validate .switch:valid:checked, .validate .switch:valid[aria-checked="true"], .validate .switch:valid:has(> input:checked), .validate .switch:has(:valid):checked, .validate .switch:has(:valid)[aria-checked="true"], .validate .switch:has(:valid):has(> input:checked), .checkbox.is-valid:checked, .checkbox.is-valid[aria-checked="true"], .checkbox.is-valid:has(> input:checked), .checkbox:has(.is-valid):checked, .checkbox:has(.is-valid)[aria-checked="true"], .checkbox:has(.is-valid):has(> input:checked), .validate .checkbox:valid:checked, .validate .checkbox:valid[aria-checked="true"], .validate .checkbox:valid:has(> input:checked), .validate .checkbox:has(:valid):checked, .validate .checkbox:has(:valid)[aria-checked="true"], .validate .checkbox:has(:valid):has(> input:checked), .radio.is-valid:checked, .radio.is-valid[aria-checked="true"], .radio.is-valid:has(> input:checked), .radio:has(.is-valid):checked, .radio:has(.is-valid)[aria-checked="true"], .radio:has(.is-valid):has(> input:checked), .validate .radio:valid:checked, .validate .radio:valid[aria-checked="true"], .validate .radio:valid:has(> input:checked), .validate .radio:has(:valid):checked, .validate .radio:has(:valid)[aria-checked="true"], .validate .radio:has(:valid):has(> input:checked), .radio-inset.is-valid:checked, .radio-inset.is-valid[aria-checked="true"], .radio-inset.is-valid:has(> input:checked), .radio-inset:has(.is-valid):checked, .radio-inset:has(.is-valid)[aria-checked="true"], .radio-inset:has(.is-valid):has(> input:checked), .validate .radio-inset:valid:checked, .validate .radio-inset:valid[aria-checked="true"], .validate .radio-inset:valid:has(> input:checked), .validate .radio-inset:has(:valid):checked, .validate .radio-inset:has(:valid)[aria-checked="true"], .validate .radio-inset:has(:valid):has(> input:checked) {
+.switch.is-valid:checked,
+.switch.is-valid[aria-checked="true"],
+.switch.is-valid:has(> input:checked),
+.switch:has(.is-valid):checked,
+.switch:has(.is-valid)[aria-checked="true"],
+.switch:has(.is-valid):has(> input:checked),
+.validate .switch:valid:checked,
+.validate .switch:valid[aria-checked="true"],
+.validate .switch:valid:has(> input:checked),
+.validate .switch:has(:valid):checked,
+.validate .switch:has(:valid)[aria-checked="true"],
+.validate .switch:has(:valid):has(> input:checked),
+.checkbox.is-valid:checked,
+.checkbox.is-valid[aria-checked="true"],
+.checkbox.is-valid:has(> input:checked),
+.checkbox:has(.is-valid):checked,
+.checkbox:has(.is-valid)[aria-checked="true"],
+.checkbox:has(.is-valid):has(> input:checked),
+.validate .checkbox:valid:checked,
+.validate .checkbox:valid[aria-checked="true"],
+.validate .checkbox:valid:has(> input:checked),
+.validate .checkbox:has(:valid):checked,
+.validate .checkbox:has(:valid)[aria-checked="true"],
+.validate .checkbox:has(:valid):has(> input:checked),
+.radio.is-valid:checked,
+.radio.is-valid[aria-checked="true"],
+.radio.is-valid:has(> input:checked),
+.radio:has(.is-valid):checked,
+.radio:has(.is-valid)[aria-checked="true"],
+.radio:has(.is-valid):has(> input:checked),
+.validate .radio:valid:checked,
+.validate .radio:valid[aria-checked="true"],
+.validate .radio:valid:has(> input:checked),
+.validate .radio:has(:valid):checked,
+.validate .radio:has(:valid)[aria-checked="true"],
+.validate .radio:has(:valid):has(> input:checked),
+.radio-inset.is-valid:checked,
+.radio-inset.is-valid[aria-checked="true"],
+.radio-inset.is-valid:has(> input:checked),
+.radio-inset:has(.is-valid):checked,
+.radio-inset:has(.is-valid)[aria-checked="true"],
+.radio-inset:has(.is-valid):has(> input:checked),
+.validate .radio-inset:valid:checked,
+.validate .radio-inset:valid[aria-checked="true"],
+.validate .radio-inset:valid:has(> input:checked),
+.validate .radio-inset:has(:valid):checked,
+.validate .radio-inset:has(:valid)[aria-checked="true"],
+.validate .radio-inset:has(:valid):has(> input:checked) {
   --input-color: var(--color-success);
 }
 
-.switch.is-invalid, .switch:has(.is-invalid), .validate .switch:invalid, .validate .switch:has(:invalid), .checkbox.is-invalid, .checkbox:has(.is-invalid), .validate .checkbox:invalid, .validate .checkbox:has(:invalid), .radio.is-invalid, .radio:has(.is-invalid), .validate .radio:invalid, .validate .radio:has(:invalid), .radio-inset.is-invalid, .radio-inset:has(.is-invalid), .validate .radio-inset:invalid, .validate .radio-inset:has(:invalid) {
+.switch.is-invalid,
+.switch:has(.is-invalid),
+.validate .switch:invalid,
+.validate .switch:has(:invalid),
+.checkbox.is-invalid,
+.checkbox:has(.is-invalid),
+.validate .checkbox:invalid,
+.validate .checkbox:has(:invalid),
+.radio.is-invalid,
+.radio:has(.is-invalid),
+.validate .radio:invalid,
+.validate .radio:has(:invalid),
+.radio-inset.is-invalid,
+.radio-inset:has(.is-invalid),
+.validate .radio-inset:invalid,
+.validate .radio-inset:has(:invalid) {
   --input-color: var(--color-error);
   border-color: var(--input-color);
 }
 
-.switch.is-invalid:checked, .switch.is-invalid[aria-checked="true"], .switch.is-invalid:has(> input:checked), .switch:has(.is-invalid):checked, .switch:has(.is-invalid)[aria-checked="true"], .switch:has(.is-invalid):has(> input:checked), .validate .switch:invalid:checked, .validate .switch:invalid[aria-checked="true"], .validate .switch:invalid:has(> input:checked), .validate .switch:has(:invalid):checked, .validate .switch:has(:invalid)[aria-checked="true"], .validate .switch:has(:invalid):has(> input:checked), .checkbox.is-invalid:checked, .checkbox.is-invalid[aria-checked="true"], .checkbox.is-invalid:has(> input:checked), .checkbox:has(.is-invalid):checked, .checkbox:has(.is-invalid)[aria-checked="true"], .checkbox:has(.is-invalid):has(> input:checked), .validate .checkbox:invalid:checked, .validate .checkbox:invalid[aria-checked="true"], .validate .checkbox:invalid:has(> input:checked), .validate .checkbox:has(:invalid):checked, .validate .checkbox:has(:invalid)[aria-checked="true"], .validate .checkbox:has(:invalid):has(> input:checked), .radio.is-invalid:checked, .radio.is-invalid[aria-checked="true"], .radio.is-invalid:has(> input:checked), .radio:has(.is-invalid):checked, .radio:has(.is-invalid)[aria-checked="true"], .radio:has(.is-invalid):has(> input:checked), .validate .radio:invalid:checked, .validate .radio:invalid[aria-checked="true"], .validate .radio:invalid:has(> input:checked), .validate .radio:has(:invalid):checked, .validate .radio:has(:invalid)[aria-checked="true"], .validate .radio:has(:invalid):has(> input:checked), .radio-inset.is-invalid:checked, .radio-inset.is-invalid[aria-checked="true"], .radio-inset.is-invalid:has(> input:checked), .radio-inset:has(.is-invalid):checked, .radio-inset:has(.is-invalid)[aria-checked="true"], .radio-inset:has(.is-invalid):has(> input:checked), .validate .radio-inset:invalid:checked, .validate .radio-inset:invalid[aria-checked="true"], .validate .radio-inset:invalid:has(> input:checked), .validate .radio-inset:has(:invalid):checked, .validate .radio-inset:has(:invalid)[aria-checked="true"], .validate .radio-inset:has(:invalid):has(> input:checked) {
+.switch.is-invalid:checked,
+.switch.is-invalid[aria-checked="true"],
+.switch.is-invalid:has(> input:checked),
+.switch:has(.is-invalid):checked,
+.switch:has(.is-invalid)[aria-checked="true"],
+.switch:has(.is-invalid):has(> input:checked),
+.validate .switch:invalid:checked,
+.validate .switch:invalid[aria-checked="true"],
+.validate .switch:invalid:has(> input:checked),
+.validate .switch:has(:invalid):checked,
+.validate .switch:has(:invalid)[aria-checked="true"],
+.validate .switch:has(:invalid):has(> input:checked),
+.checkbox.is-invalid:checked,
+.checkbox.is-invalid[aria-checked="true"],
+.checkbox.is-invalid:has(> input:checked),
+.checkbox:has(.is-invalid):checked,
+.checkbox:has(.is-invalid)[aria-checked="true"],
+.checkbox:has(.is-invalid):has(> input:checked),
+.validate .checkbox:invalid:checked,
+.validate .checkbox:invalid[aria-checked="true"],
+.validate .checkbox:invalid:has(> input:checked),
+.validate .checkbox:has(:invalid):checked,
+.validate .checkbox:has(:invalid)[aria-checked="true"],
+.validate .checkbox:has(:invalid):has(> input:checked),
+.radio.is-invalid:checked,
+.radio.is-invalid[aria-checked="true"],
+.radio.is-invalid:has(> input:checked),
+.radio:has(.is-invalid):checked,
+.radio:has(.is-invalid)[aria-checked="true"],
+.radio:has(.is-invalid):has(> input:checked),
+.validate .radio:invalid:checked,
+.validate .radio:invalid[aria-checked="true"],
+.validate .radio:invalid:has(> input:checked),
+.validate .radio:has(:invalid):checked,
+.validate .radio:has(:invalid)[aria-checked="true"],
+.validate .radio:has(:invalid):has(> input:checked),
+.radio-inset.is-invalid:checked,
+.radio-inset.is-invalid[aria-checked="true"],
+.radio-inset.is-invalid:has(> input:checked),
+.radio-inset:has(.is-invalid):checked,
+.radio-inset:has(.is-invalid)[aria-checked="true"],
+.radio-inset:has(.is-invalid):has(> input:checked),
+.validate .radio-inset:invalid:checked,
+.validate .radio-inset:invalid[aria-checked="true"],
+.validate .radio-inset:invalid:has(> input:checked),
+.validate .radio-inset:has(:invalid):checked,
+.validate .radio-inset:has(:invalid)[aria-checked="true"],
+.validate .radio-inset:has(:invalid):has(> input:checked) {
   --input-color: var(--color-error);
 }
 
-.checkbox.is-valid, .checkbox:has(.is-valid), .validate .checkbox:valid, .validate .checkbox:has(:valid) {
+.checkbox.is-valid,
+.checkbox:has(.is-valid),
+.validate .checkbox:valid,
+.validate .checkbox:has(:valid) {
   color: var(--color-success-content);
 }
 
-.checkbox.is-invalid, .checkbox:has(.is-invalid), .validate .checkbox:invalid, .validate .checkbox:has(:invalid) {
+.checkbox.is-invalid,
+.checkbox:has(.is-invalid),
+.validate .checkbox:invalid,
+.validate .checkbox:has(:invalid) {
   color: var(--color-error-content);
 }
 
-.validate .custom-option:has(:valid), .custom-option:has(.is-valid), .validate .custom-soft-option:has(:valid), .custom-soft-option:has(.is-valid) {
+.validate .custom-option:has(:valid),
+.custom-option:has(.is-valid),
+.validate .custom-soft-option:has(:valid),
+.custom-soft-option:has(.is-valid) {
   --input-color: var(--color-success);
 }
 
-.validate .custom-option:has(:invalid), .custom-option:has(.is-invalid), .validate .custom-soft-option:has(:invalid), .custom-soft-option:has(.is-invalid) {
+.validate .custom-option:has(:invalid),
+.custom-option:has(.is-invalid),
+.validate .custom-soft-option:has(:invalid),
+.custom-soft-option:has(.is-invalid) {
   --input-color: var(--color-error);
 }
 
-.input.is-valid::file-selector-button, .validate .input:valid::file-selector-button {
+.input.is-valid::file-selector-button,
+.validate .input:valid::file-selector-button {
   background-color: var(--color-success);
   color: var(--color-success-content);
   --input-color: var(--color-success);
 }
 
-.input.is-invalid::file-selector-button, .validate .input:invalid::file-selector-button {
+.input.is-invalid::file-selector-button,
+.validate .input:invalid::file-selector-button {
   background-color: var(--color-error);
   color: var(--color-error-content);
   --input-color: var(--color-error);
 }
 
-.input-floating > .input.is-valid::file-selector-button, .validate .input-floating > .input:valid::file-selector-button {
+.input-floating>.input.is-valid::file-selector-button,
+.validate .input-floating>.input:valid::file-selector-button {
   background-color: var(--color-base-100);
   color: var(--color-base-content);
   border-inline-end: var(--border) solid var(--color-success);
 }
 
-.input-floating > .input.is-invalid::file-selector-button, .validate .input-floating > .input:invalid::file-selector-button {
+.input-floating>.input.is-invalid::file-selector-button,
+.validate .input-floating>.input:invalid::file-selector-button {
   background-color: var(--color-base-100);
   color: var(--color-base-content);
   border-inline-end: var(--border) solid var(--color-error);
 }
 
-.label-text:has(~ .is-valid), .label-text:has(~ * .is-valid), .validate .label-text:has(~ :valid), .validate .label-text:has(~ * :valid), :is(.is-valid) ~ .helper-text, *:has(.is-valid) ~ .helper-text, .validate :is(:valid) ~ .helper-text, .validate *:has(:valid) ~ .helper-text, :is(.is-valid) ~ .label-text, :is(.is-valid) ~ .label-text *, :is(.is-valid) ~ * >.label-text, .validate :is(:valid) ~ .label-text, .validate :is(:valid) ~ .label-text *, .validate :is(:valid) ~ * >.label-text {
+.label-text:has(~ .is-valid),
+.label-text:has(~ * .is-valid),
+.validate .label-text:has(~ :valid),
+.validate .label-text:has(~ * :valid),
+:is(.is-valid)~.helper-text,
+*:has(.is-valid)~.helper-text,
+.validate :is(:valid)~.helper-text,
+.validate *:has(:valid)~.helper-text,
+:is(.is-valid)~.label-text,
+:is(.is-valid)~.label-text *,
+:is(.is-valid)~*>.label-text,
+.validate :is(:valid)~.label-text,
+.validate :is(:valid)~.label-text *,
+.validate :is(:valid)~*>.label-text {
   color: var(--color-success);
 }
 
-.label-text:has(~ .is-invalid), .label-text:has(~ * .is-invalid), .validate .label-text:has(~ :invalid), .validate .label-text:has(~ * :invalid), :is(.is-invalid) ~ .helper-text, *:has(.is-invalid) ~ .helper-text, .validate :is(:invalid) ~ .helper-text, .validate *:has(:invalid) ~ .helper-text, :is(.is-invalid) ~ .label-text, :is(.is-invalid) ~ .label-text *, :is(.is-invalid) ~ * >.label-text, .validate :is(:invalid) ~ .label-text, .validate :is(:invalid) ~ .label-text *, .validate :is(:invalid) ~ * >.label-text {
+.label-text:has(~ .is-invalid),
+.label-text:has(~ * .is-invalid),
+.validate .label-text:has(~ :invalid),
+.validate .label-text:has(~ * :invalid),
+:is(.is-invalid)~.helper-text,
+*:has(.is-invalid)~.helper-text,
+.validate :is(:invalid)~.helper-text,
+.validate *:has(:invalid)~.helper-text,
+:is(.is-invalid)~.label-text,
+:is(.is-invalid)~.label-text *,
+:is(.is-invalid)~*>.label-text,
+.validate :is(:invalid)~.label-text,
+.validate :is(:invalid)~.label-text *,
+.validate :is(:invalid)~*>.label-text {
   color: var(--color-error);
 }
 
-select.is-valid + .advance-select-toggle, .advance-select-tag:has(> .is-valid), .validate select:has(~ * > .selected) + .advance-select-toggle {
+select.is-valid+.advance-select-toggle,
+.advance-select-tag:has(> .is-valid),
+.validate select:has(~ * > .selected)+.advance-select-toggle {
   --input-color: var(--color-success);
 }
 
-select.is-valid + .advance-select-toggle:focus, select.is-valid + .advance-select-toggle:focus-within, .advance-select-tag:has(> .is-valid):focus, .advance-select-tag:has(> .is-valid):focus-within, .validate select:has(~ * > .selected) + .advance-select-toggle:focus, .validate select:has(~ * > .selected) + .advance-select-toggle:focus-within {
+select.is-valid+.advance-select-toggle:focus,
+select.is-valid+.advance-select-toggle:focus-within,
+.advance-select-tag:has(> .is-valid):focus,
+.advance-select-tag:has(> .is-valid):focus-within,
+.validate select:has(~ * > .selected)+.advance-select-toggle:focus,
+.validate select:has(~ * > .selected)+.advance-select-toggle:focus-within {
   --input-color: var(--color-success);
 }
 
-select.is-invalid + .advance-select-toggle, .advance-select-tag:has(> .is-invalid), .validate select:not(:has(~ * > .selected)) + .advance-select-toggle {
+select.is-invalid+.advance-select-toggle,
+.advance-select-tag:has(> .is-invalid),
+.validate select:not(:has(~ * > .selected))+.advance-select-toggle {
   --input-color: var(--color-error);
 }
 
-select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-select-toggle:focus-within, .advance-select-tag:has(> .is-invalid):focus, .advance-select-tag:has(> .is-invalid):focus-within, .validate select:not(:has(~ * > .selected)) + .advance-select-toggle:focus, .validate select:not(:has(~ * > .selected)) + .advance-select-toggle:focus-within {
+select.is-invalid+.advance-select-toggle:focus,
+select.is-invalid+.advance-select-toggle:focus-within,
+.advance-select-tag:has(> .is-invalid):focus,
+.advance-select-tag:has(> .is-invalid):focus-within,
+.validate select:not(:has(~ * > .selected))+.advance-select-toggle:focus,
+.validate select:not(:has(~ * > .selected))+.advance-select-toggle:focus-within {
   --input-color: var(--color-error);
 }
 
 @media (hover: hover) {
-  .input-floating:has(.is-valid):hover, .validate .input-floating:has(:valid):hover {
+
+  .input-floating:has(.is-valid):hover,
+  .validate .input-floating:has(:valid):hover {
     border-color: var(--color-success);
   }
 }
 
-.input-floating:has(.is-valid) .input-floating-label, .validate .input-floating:has(:valid) .input-floating-label {
+.input-floating:has(.is-valid) .input-floating-label,
+.validate .input-floating:has(:valid) .input-floating-label {
   color: var(--color-success);
 }
 
-.input-floating:has(.is-valid):not(:has(input:-moz-placeholder)) .input-floating-label, .validate .input-floating:has(:valid):not(:has(input:-moz-placeholder)) .input-floating-label {
+.input-floating:has(.is-valid):not(:has(input:-moz-placeholder)) .input-floating-label,
+.validate .input-floating:has(:valid):not(:has(input:-moz-placeholder)) .input-floating-label {
   color: var(--color-success);
 }
 
-.input-floating:has(.is-valid):focus-within .input-floating-label, .input-floating:has(.is-valid):not(:has(input:placeholder-shown)) .input-floating-label, .input-floating:has(.is-valid):has(.input:focus) .input-floating-label, .validate .input-floating:has(:valid):focus-within .input-floating-label, .validate .input-floating:has(:valid):not(:has(input:placeholder-shown)) .input-floating-label, .validate .input-floating:has(:valid):has(.input:focus) .input-floating-label {
+.input-floating:has(.is-valid):focus-within .input-floating-label,
+.input-floating:has(.is-valid):not(:has(input:placeholder-shown)) .input-floating-label,
+.input-floating:has(.is-valid):has(.input:focus) .input-floating-label,
+.validate .input-floating:has(:valid):focus-within .input-floating-label,
+.validate .input-floating:has(:valid):not(:has(input:placeholder-shown)) .input-floating-label,
+.validate .input-floating:has(:valid):has(.input:focus) .input-floating-label {
   color: var(--color-success);
 }
 
 @media (hover: hover) {
-  .input-floating:has(.is-invalid):hover, .validate .input-floating:has(:invalid):hover {
+
+  .input-floating:has(.is-invalid):hover,
+  .validate .input-floating:has(:invalid):hover {
     border-color: var(--color-error);
   }
 }
 
-.input-floating:has(.is-invalid) .input-floating-label, .validate .input-floating:has(:invalid) .input-floating-label {
+.input-floating:has(.is-invalid) .input-floating-label,
+.validate .input-floating:has(:invalid) .input-floating-label {
   color: var(--color-error);
 }
 
-.input-floating:has(.is-invalid):not(:has(input:-moz-placeholder)) .input-floating-label, .validate .input-floating:has(:invalid):not(:has(input:-moz-placeholder)) .input-floating-label {
+.input-floating:has(.is-invalid):not(:has(input:-moz-placeholder)) .input-floating-label,
+.validate .input-floating:has(:invalid):not(:has(input:-moz-placeholder)) .input-floating-label {
   color: var(--color-error);
 }
 
-.input-floating:has(.is-invalid):focus-within .input-floating-label, .input-floating:has(.is-invalid):not(:has(input:placeholder-shown)) .input-floating-label, .input-floating:has(.is-invalid):has(.input:focus) .input-floating-label, .validate .input-floating:has(:invalid):focus-within .input-floating-label, .validate .input-floating:has(:invalid):not(:has(input:placeholder-shown)) .input-floating-label, .validate .input-floating:has(:invalid):has(.input:focus) .input-floating-label {
+.input-floating:has(.is-invalid):focus-within .input-floating-label,
+.input-floating:has(.is-invalid):not(:has(input:placeholder-shown)) .input-floating-label,
+.input-floating:has(.is-invalid):has(.input:focus) .input-floating-label,
+.validate .input-floating:has(:invalid):focus-within .input-floating-label,
+.validate .input-floating:has(:invalid):not(:has(input:placeholder-shown)) .input-floating-label,
+.validate .input-floating:has(:invalid):has(.input:focus) .input-floating-label {
   color: var(--color-error);
 }
 
-.textarea-floating:has(.is-valid) .textarea-floating-label, .validate .textarea-floating:has(:valid) .textarea-floating-label {
+.textarea-floating:has(.is-valid) .textarea-floating-label,
+.validate .textarea-floating:has(:valid) .textarea-floating-label {
   color: var(--color-success);
 }
 
-.textarea-floating:has(.is-valid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label, .validate .textarea-floating:has(:valid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label {
+.textarea-floating:has(.is-valid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label,
+.validate .textarea-floating:has(:valid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label {
   color: var(--color-success);
 }
 
-.textarea-floating:has(.is-valid):focus-within .textarea-floating-label, .textarea-floating:has(.is-valid):not(:has(textarea:placeholder-shown)) .textarea-floating-label, .textarea-floating:has(.is-valid):has(.textarea:focus) .textarea-floating-label, .validate .textarea-floating:has(:valid):focus-within .textarea-floating-label, .validate .textarea-floating:has(:valid):not(:has(textarea:placeholder-shown)) .textarea-floating-label, .validate .textarea-floating:has(:valid):has(.textarea:focus) .textarea-floating-label {
+.textarea-floating:has(.is-valid):focus-within .textarea-floating-label,
+.textarea-floating:has(.is-valid):not(:has(textarea:placeholder-shown)) .textarea-floating-label,
+.textarea-floating:has(.is-valid):has(.textarea:focus) .textarea-floating-label,
+.validate .textarea-floating:has(:valid):focus-within .textarea-floating-label,
+.validate .textarea-floating:has(:valid):not(:has(textarea:placeholder-shown)) .textarea-floating-label,
+.validate .textarea-floating:has(:valid):has(.textarea:focus) .textarea-floating-label {
   color: var(--color-success);
 }
 
-.textarea-floating:has(.is-invalid) .textarea-floating-label, .validate .textarea-floating:has(:invalid) .textarea-floating-label {
+.textarea-floating:has(.is-invalid) .textarea-floating-label,
+.validate .textarea-floating:has(:invalid) .textarea-floating-label {
   color: var(--color-error);
 }
 
-.textarea-floating:has(.is-invalid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label, .validate .textarea-floating:has(:invalid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label {
+.textarea-floating:has(.is-invalid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label,
+.validate .textarea-floating:has(:invalid):not(:has(textarea:-moz-placeholder)) .textarea-floating-label {
   color: var(--color-error);
 }
 
-.textarea-floating:has(.is-invalid):focus-within .textarea-floating-label, .textarea-floating:has(.is-invalid):not(:has(textarea:placeholder-shown)) .textarea-floating-label, .textarea-floating:has(.is-invalid):has(.textarea:focus) .textarea-floating-label, .validate .textarea-floating:has(:invalid):focus-within .textarea-floating-label, .validate .textarea-floating:has(:invalid):not(:has(textarea:placeholder-shown)) .textarea-floating-label, .validate .textarea-floating:has(:invalid):has(.textarea:focus) .textarea-floating-label {
+.textarea-floating:has(.is-invalid):focus-within .textarea-floating-label,
+.textarea-floating:has(.is-invalid):not(:has(textarea:placeholder-shown)) .textarea-floating-label,
+.textarea-floating:has(.is-invalid):has(.textarea:focus) .textarea-floating-label,
+.validate .textarea-floating:has(:invalid):focus-within .textarea-floating-label,
+.validate .textarea-floating:has(:invalid):not(:has(textarea:placeholder-shown)) .textarea-floating-label,
+.validate .textarea-floating:has(:invalid):has(.textarea:focus) .textarea-floating-label {
   color: var(--color-error);
 }
 
-.select-floating:has(.is-valid) .select-floating-label, .validate .select-floating:has(:valid) .select-floating-label {
+.select-floating:has(.is-valid) .select-floating-label,
+.validate .select-floating:has(:valid) .select-floating-label {
   color: var(--color-success);
 }
 
-.select-floating:has(.is-valid):not(:has(select:-moz-placeholder)) .select-floating-label, .validate .select-floating:has(:valid):not(:has(select:-moz-placeholder)) .select-floating-label {
+.select-floating:has(.is-valid):not(:has(select:-moz-placeholder)) .select-floating-label,
+.validate .select-floating:has(:valid):not(:has(select:-moz-placeholder)) .select-floating-label {
   color: var(--color-success);
 }
 
-.select-floating:has(.is-valid):focus-within .select-floating-label, .select-floating:has(.is-valid):not(:has(select:placeholder-shown)) .select-floating-label, .select-floating:has(.is-valid):has(.select:focus) .select-floating-label, .validate .select-floating:has(:valid):focus-within .select-floating-label, .validate .select-floating:has(:valid):not(:has(select:placeholder-shown)) .select-floating-label, .validate .select-floating:has(:valid):has(.select:focus) .select-floating-label {
+.select-floating:has(.is-valid):focus-within .select-floating-label,
+.select-floating:has(.is-valid):not(:has(select:placeholder-shown)) .select-floating-label,
+.select-floating:has(.is-valid):has(.select:focus) .select-floating-label,
+.validate .select-floating:has(:valid):focus-within .select-floating-label,
+.validate .select-floating:has(:valid):not(:has(select:placeholder-shown)) .select-floating-label,
+.validate .select-floating:has(:valid):has(.select:focus) .select-floating-label {
   color: var(--color-success);
 }
 
-.select-floating:has(.is-invalid) .select-floating-label, .validate .select-floating:has(:invalid) .select-floating-label {
+.select-floating:has(.is-invalid) .select-floating-label,
+.validate .select-floating:has(:invalid) .select-floating-label {
   color: var(--color-error);
 }
 
-.select-floating:has(.is-invalid):not(:has(select:-moz-placeholder)) .select-floating-label, .validate .select-floating:has(:invalid):not(:has(select:-moz-placeholder)) .select-floating-label {
+.select-floating:has(.is-invalid):not(:has(select:-moz-placeholder)) .select-floating-label,
+.validate .select-floating:has(:invalid):not(:has(select:-moz-placeholder)) .select-floating-label {
   color: var(--color-error);
 }
 
-.select-floating:has(.is-invalid):focus-within .select-floating-label, .select-floating:has(.is-invalid):not(:has(select:placeholder-shown)) .select-floating-label, .select-floating:has(.is-invalid):has(.select:focus) .select-floating-label, .validate .select-floating:has(:invalid):focus-within .select-floating-label, .validate .select-floating:has(:invalid):not(:has(select:placeholder-shown)) .select-floating-label, .validate .select-floating:has(:invalid):has(.select:focus) .select-floating-label {
+.select-floating:has(.is-invalid):focus-within .select-floating-label,
+.select-floating:has(.is-invalid):not(:has(select:placeholder-shown)) .select-floating-label,
+.select-floating:has(.is-invalid):has(.select:focus) .select-floating-label,
+.validate .select-floating:has(:invalid):focus-within .select-floating-label,
+.validate .select-floating:has(:invalid):not(:has(select:placeholder-shown)) .select-floating-label,
+.validate .select-floating:has(:invalid):has(.select:focus) .select-floating-label {
   color: var(--color-error);
 }
 
 .range {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   webkit-appearance: none;
   --range-color: var(--color-base-content);
   --range-thumb-border-width: 3px;
@@ -3731,7 +4158,7 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   box-sizing: border-box;
   webkit-appearance: none;
   color: var(--range-color);
@@ -3780,7 +4207,9 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   outline: none;
 }
 
-.range.disabled, .range:disabled, .range[disabled] {
+.range.disabled,
+.range:disabled,
+.range[disabled] {
   pointer-events: none;
   opacity: 50%;
 }
@@ -3793,7 +4222,8 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   transform: scaleX(-1);
 }
 
-[dir="rtl"] .range::-webkit-slider-runnable-track, [dir="rtl"] .range::-moz-range-track {
+[dir="rtl"] .range::-webkit-slider-runnable-track,
+[dir="rtl"] .range::-moz-range-track {
   direction: rtl;
 }
 
@@ -3834,18 +4264,18 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   vertical-align: middle;
   webkit-user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .swap input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: none;
 }
 
-.swap > * {
+.swap>* {
   grid-column-start: 1;
   grid-row-start: 1;
   transition-property: transform, rotate, opacity;
@@ -3853,15 +4283,18 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.swap .swap-on, .swap .swap-indeterminate, .swap input:indeterminate ~ .swap-on {
+.swap .swap-on,
+.swap .swap-indeterminate,
+.swap input:indeterminate~.swap-on {
   opacity: 0%;
 }
 
-.swap input:is(:checked, :indeterminate) ~ .swap-off {
+.swap input:is(:checked, :indeterminate)~.swap-off {
   opacity: 0%;
 }
 
-.swap input:checked ~ .swap-on, .swap input:indeterminate ~ .swap-indeterminate {
+.swap input:checked~.swap-on,
+.swap input:indeterminate~.swap-indeterminate {
   opacity: 100%;
   backface-visibility: visible;
 }
@@ -3874,15 +4307,18 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   opacity: 100%;
 }
 
-.swap-rotate .swap-on, .swap-rotate input:indeterminate ~ .swap-on {
+.swap-rotate .swap-on,
+.swap-rotate input:indeterminate~.swap-on {
   rotate: 45deg;
 }
 
-.swap-rotate input:is(:checked, :indeterminate) ~ .swap-on, .swap-rotate.swap-active .swap-on {
+.swap-rotate input:is(:checked, :indeterminate)~.swap-on,
+.swap-rotate.swap-active .swap-on {
   rotate: 0deg;
 }
 
-.swap-rotate input:is(:checked, :indeterminate) ~ .swap-off, .swap-rotate.swap-active .swap-off {
+.swap-rotate input:is(:checked, :indeterminate)~.swap-off,
+.swap-rotate.swap-active .swap-off {
   rotate: calc(45deg * -1);
 }
 
@@ -3891,17 +4327,21 @@ select.is-invalid + .advance-select-toggle:focus, select.is-invalid + .advance-s
   perspective: 20rem;
 }
 
-.swap-flip .swap-on, .swap-flip .swap-indeterminate, .swap-flip input:indeterminate ~ .swap-on {
+.swap-flip .swap-on,
+.swap-flip .swap-indeterminate,
+.swap-flip input:indeterminate~.swap-on {
   transform: rotateY(180deg);
   backface-visibility: hidden;
   opacity: 100%;
 }
 
-.swap-flip input:is(:checked, :indeterminate) ~ .swap-on, .swap-flip.swap-active .swap-on {
+.swap-flip input:is(:checked, :indeterminate)~.swap-on,
+.swap-flip.swap-active .swap-on {
   transform: rotateY(0deg);
 }
 
-.swap-flip input:is(:checked, :indeterminate) ~ .swap-off, .swap-flip.swap-active .swap-off {
+.swap-flip input:is(:checked, :indeterminate)~.swap-off,
+.swap-flip.swap-active .swap-off {
   transform: rotateY(-180deg);
   backface-visibility: hidden;
   opacity: 100%;

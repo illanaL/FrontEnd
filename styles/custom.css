@@ -1,5 +1,7 @@
 @import "./base/reset.css";
+@import "./base/variables.css";
 @import "./base/base.css";
+
 @import "./layout/header.css";
 @import "./layout/hero.css";
 @import "./layout/grid.css";
@@ -10,3 +12,4 @@
 @import "./components/card.css";
 @import "./components/form.css";
 @import "./components/badge.css";
+@import "./components/spinner.css";

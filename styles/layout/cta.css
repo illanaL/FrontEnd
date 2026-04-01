@@ -1,10 +1,9 @@
     .cta {
-      background: var(--color-navy);
+      background:var(--color-muted);
       padding: var(--space-xl) var(--space-md);
     }
- 
+
     .cta__inner {
-      max-width: 700px;
       margin-inline: auto;
       text-align: center;
       display: flex;
@@ -12,11 +11,20 @@
       align-items: center;
       gap: var(--space-sm);
     }
- 
-    .cta__title { color: var(--color-white); }
-    .cta__title-accent { color: var(--color-cyan); }
-    .cta__desc { color: rgba(255,255,255,0.65); font-size: var(--text-lg); }
- 
+
+    .cta__title {
+      color: var(--color-white);
+    }
+
+    .cta__title-accent {
+      color: var(--color-cyan);
+    }
+
+    .cta__desc {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: var(--text-lg);
+    }
+
     .cta__actions {
       display: flex;
       gap: var(--space-sm);

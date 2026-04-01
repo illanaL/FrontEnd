@@ -1,16 +1,25 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.8",
-    "postcss-cli": "^11.0.1",
-    "postcss-import": "^16.1.1",
-    "tailwindcss": "^3.4.19"
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/illanaL/FrontEnd#readme",
+  "bugs": {
+    "url": "https://github.com/illanaL/FrontEnd/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illanaL/FrontEnd.git"
+  },
+  "license": "ISC",
+  "author": "Illana",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
-   
-  "build": "npx tailwindcss -i ./styles/tailwind.css -o ./styles/main.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./styles/tailwind.css -o ./styles/main.css --watch"
   },
   "dependencies": {
-    "flyonui": "^2.4.1"
+    "@tailwindcss/cli": "^4.2.2",
+    "flyonui": "^2.4.1",
+    "tailwindcss": "^4.2.2"
   }
 }

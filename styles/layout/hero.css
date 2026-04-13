@@ -1,11 +1,11 @@
-.hero {
+.heroOLD {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 60px 10%;
     gap: 40px;
-}
+}   
 
 /*
 @media (min-width: 48em) {
@@ -17,7 +17,9 @@
 */
 
 
-.hero-img {
+
+
+.hero-imgOLD {
     width: 100%;
     height: auto;
     display: block;
@@ -25,7 +27,7 @@
 
 }
 
-.hero-form {
+.hero-formOLD {
     position: static;
     bottom: 20px;
     left: 20px;
@@ -35,25 +37,25 @@
 }
 
 @media (min-width: 768px) {
-    .hero-form {
+    .hero-formOLD {
         position: absolute;
         bottom: 20px;
         left: 20px;
     }
 }
 
-.hero h1 {
+.heroOLD h1 {
     font-size: clamp(1rem, 2.5vw, 2rem);
     margin-bottom: 20px;
 }
 
-.hero-form input {
+.hero-formOLD input {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
 }
 
-.hero-form button {
+.hero-formOLD button {
     width: 100%;
     padding: 10px;
     background: #027bc1;

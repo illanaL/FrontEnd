@@ -1,4 +1,4 @@
-.header {
+.headerOLD {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,23 +10,23 @@
     box-sizing: border-box;
 }
 
-.header img {
+.headerOLD img {
     width: 15vh;
 }
 
-.logo {
+.logoOLD {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
 
-.tagline {
+.taglineOLD {
     display: none;
 }
 
 @media (min-width: 768px) {
-    .tagline {
+    .taglineOLD {
         display: block;
         font-size: 30px;
         color: black;

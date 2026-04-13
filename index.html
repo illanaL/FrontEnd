@@ -6,44 +6,53 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>SOSLock</title>
 
 </head>
 
 <body>
-    <div class="spinner"></div>
-    <header class="header">
+    <!--<div class="spinner"></div> -->
+
+    <header class="p-3 text-2xl font-bold text-center flex items-center border-2 rounded shadow-md px-5
+        h-50 border-b-20 mt-4 border-t-20 border-[#eee] text-slate-500 bg-[linear-gradient(90deg,#5a7a99,#e5e7eb)] w-screen
+        max-w-screen box-border ">
         <!-- LOGO -->
-        <div class="logo">
-            <img src="asset/logo SOSLock sans fond.png" alt="SOSLock">
-            <span class="tagline">
-                Trouvez un serrurier fiable en quelques minutes
-            </span>
-        </div>
+
+
+        <img src="asset/logo SOSLock.png" alt="SOSLock" class="h-150 w-auto">
+        <span
+            class="hidden md:block md:text-[30px] md:text-slate-600 md:italic p-8  shadow-[0_10px_20px_rgba(255,255,255,0.5)]">
+            Trouvez un serrurier fiable en quelques minutes
+        </span>
+
+
     </header>
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <p class="badge">Disponible 24h/24</p>
+    <section
+        class="relative flex justify-between items-center py-[60px] px-[10%] gap-[40px] animate-fade-in shadow-amber-600 bg-[url(asset/serrure1.jpg)]">
+        <div class="w-full h-auto">
+            <img src="asset/serrure1.jpg" alt="Serrurier intervention" class="rounded-20">
+        </div>
+        <div class="hero-text animate-slide-up">
+            <p class="badge animate-slide-up">Disponible 24h/24</p>
             <h1>Dépannage serrurier rapide et fiable</h1>
             <p>Fini les mauvaises surprises. Nous sélectionnons des artisans vérifiés pour une intervention rapide et au
                 juste prix.</p>
 
-            <a href="#" class="btn-primary">Faire une demande</a>
-        </div>
-
-        <div class="hero-img">
-            <img src="asset/serrure1.jpg" alt="Serrurier intervention">
+            <button class="btn-primary">Faire une demande</button>
         </div>
 
 
-        <div class="hero-form">
+
+
+        <div class="flex flex-col justify-between items-center bottom-5 left-5 p-5 rounded-4 mt-5 gap-4
+           md:absolute md:bottom-5 md:left-5">
             <h3>Demande rapide</h3>
             <input type="text" placeholder="Votre problème">
             <input type="text" placeholder="Ville">
-            <button class="btn btn-primary">Envoyer</button>
+            <button class="btn-primary">Envoyer</button>
         </div>
 
     </section>

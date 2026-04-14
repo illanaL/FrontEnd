@@ -6,9 +6,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="styles/main.css" as="style">
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <title>SOSLock</title>
+    <title class="font-Pacifico-Regular">SOSLock</title>
 
 </head>
 
@@ -23,7 +23,7 @@
 
         <img src="asset/logo SOSLock.png" alt="SOSLock" class="h-150 w-auto">
         <span
-            class="hidden md:block md:text-[30px] md:text-slate-600 md:italic p-8  shadow-[0_10px_20px_rgba(255,255,255,0.5)]">
+            class="hidden md:block md:text-[30px] md:text-slate-600 md:italic p-8  shadow-[0_10px_20px_rgba(255,255,255,0.5)] font-Pacifico-Regular">
             Trouvez un serrurier fiable en quelques minutes
         </span>
 
@@ -32,8 +32,8 @@
     <!-- HERO -->
     <section
         class="relative flex flex-col md:flex-row justify-between items-center py-[60px] px-[10%] gap-[40px] animate-fade-in shadow-amber-600">
-        
-        
+
+
         <div class="hero-text animate-slide-up">
             <p class="badge animate-slide-up">Disponible 24h/24</p>
             <h1>Dépannage serrurier rapide et fiable</h1>
@@ -43,11 +43,40 @@
             <button class="btn-primary">Faire une demande</button>
         </div>
 
-        <div class="flex flex-col justify-between items-center rounded-lg p-5 mt-5 gap-4 bg-[url(../asset/serrure1.jpg)] bg-cover">
-            <h3>Demande rapide</h3>
-            <input type="text" placeholder="Votre problème">
-            <input type="text" placeholder="Ville">
-            <button class="btn-primary">Envoyer</button>
+        <div
+            class="flex flex-col justify-between items-center rounded-lg p-5 mt-5 gap-4 bg-[url(../asset/serrure1.jpg)] bg-cover bg-center relative z-0">
+
+            <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
+
+            <div class="relative w-full flex flex-col items-center gap-4">
+                <h3 class="text-white">Demande rapide</h3>
+                <input class="input" type="text" placeholder="Votre problème" id="votre_probleme" name="votre_probleme">
+                <input class="input" type="text" placeholder="Ville" id="ville" name="ville">
+                <button class="btn-primary">Envoyer</button>
+            </div>
+        </div>
+
+
+        <div class="relative rounded-lg overflow-hidden mt-5 min-h-[300px] w-[400px] border-4 border-red-500 z-50">
+
+            <!-- Image -->
+            <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('./asset/serrure1.jpg');">
+            </div>
+
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+            <!-- Contenu -->
+            <div class="relative z-20 p-6 w-full max-w-md mx-auto flex flex-col gap-4">
+                <h3 class="text-white text-xl font-semibold text-center">Demande rapide</h3>
+
+                <div class="bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg flex flex-col gap-3">
+                    <input class="input" type="text" placeholder="Votre problème">
+                    <input class="input" type="text" placeholder="Ville">
+                    <button class="btn-primary w-full">Envoyer</button>
+                </div>
+            </div>
+
         </div>
 
     </section>

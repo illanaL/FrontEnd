@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle intervention disponible</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f4f6f8; font-family:Arial, Helvetica, sans-serif;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f8; padding:20px 0;">
+        <tr>
+            <td align="center">
+
+                <!-- Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0"
+                    style="background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td
+                            style="background:#4682B4; color:#ffffff; padding:20px 30px; font-size:22px; font-weight:bold;">
+                            SOSLock — Nouvelle intervention
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding:30px; color:#333333; font-size:15px; line-height:1.6;">
+
+                            <p>Bonjour <strong>{{ params.firstname }}</strong>,</p>
+                            <p>Une nouvelle intervention est disponible dans votre secteur.</p>
+
+                            <!-- Détails intervention -->
+                            <table width="100%" cellpadding="8" cellspacing="0" border="0"
+                                style="background:#f7f9fc; border-radius:6px; margin-bottom:25px;">
+                                <tr>
+                                    <td><strong>📍 Localisation :</strong></td>
+                                    <td>
+                                        {{ params.department }}, {{ params.departmentName }}<br></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>📮 Code postal :</strong></td>
+                                    <td> {{ params.zipcode }} — {{ params.zipcodeName
+                                        }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>📏 Distance :</strong></td>
+                                    <td>{{ params.distance }} km</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>🔧 Type d'intervention :</strong></td>
+                                    <td>{{ params.description }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>📅 Date souhaitée :</strong></td>
+                                    <td>{{ params.preferredDate }}</td>
+                                </tr>
+                            </table>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{ params.LIEN }}" target="_blank" style="
+        display:inline-block;
+  padding:15px 28px;
+  font-size:16px;
+  font-weight:bold;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#ffffff;
+  text-decoration:none;
+  border-radius:10px;
+  background:#318CE7;
+  background-color:#3f6081;
+  white-space:nowrap;
+      ">
+                                            🔍 Consulter et confirmer l'intervention ✅
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <p><strong>⚡ Important :</strong><br>
+                                Les interventions sont attribuées au premier artisan qui confirme.</p>
+
+                            <p>Merci de vérifier rapidement votre disponibilité.</p>
+
+                            <!-- Signature -->
+                            <table cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;">
+                                <tr>
+                                    <td style="vertical-align:middle;">
+                                        Cordialement,<br>
+                                        <strong>L'équipe SOSLock</strong>
+                                    </td>
+                                    <td style="vertical-align:middle; padding-left:10px;">
+                                        <img src="https://soslock.fr/logo_SOSLock.png" alt="SOSLock" width="100"
+                                            style="display:block; border:0;">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td
+                            style="background:#f0f2f5; padding:15px 30px; font-size:12px; color:#777777; text-align:center;">
+                            © SOSLock — Tous droits réservés
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

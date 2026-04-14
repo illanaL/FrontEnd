@@ -17,7 +17,13 @@
     --animate-pop-in: popIn 2500ms ease-out 5 forwards;
     --animate-fade-in: fadeIn 500ms ease-out forwards;
     --animate-slide-up: slideUp 400ms ease-out forwards;
+
+    --default-font-family: "Pacifico-Regular";
+
+
 }
+
+
 
 
 @keyframes popIn {

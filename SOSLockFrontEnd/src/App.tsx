@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Greeting name="Bootcode" emoji="🚀" />
-      <h1 className="text-red-500 text-5xl">TEST</h1>
+      <h1 className="text-center text-red-500 text-5xl">TEST</h1>
       <main className="min-h-screen bg-gray-50 flex items-start p-8">
         <ProfileCard
           name="Lahiany Illana"

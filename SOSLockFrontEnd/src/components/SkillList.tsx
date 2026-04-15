@@ -10,13 +10,12 @@ export function SkillList({ skills }: SkillListProps) {
   }
 
   return (
-    <div className="flex flex-wrap gap-2 items-center">
-      {skills.map((t) => (
-        <div key={t.label}>
-          - <Badge label={t.label} color={t.color} />
-          <br />
-        </div>
-      ))}
+    <div className="">
+      <ul className="list-none flex">
+        {skills.map((t) => (
+          <li><Badge label={t.label} color={t.color} /></li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -5,5 +5,5 @@ interface GreetingProps {
 }
 
 export function Greeting({ name, emoji }: GreetingProps) {
-  return <h1>Bonjour, {name} {emoji} !</h1>;
+  return <h1 className="text-center">Bonjour, {name} {emoji} !</h1>;
 }

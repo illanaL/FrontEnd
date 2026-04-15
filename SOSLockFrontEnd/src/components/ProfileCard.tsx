@@ -37,13 +37,13 @@ export function ProfileCard({
         </div>
       </div>
 
-      <div className="border-t pt-3 flex flex-col gap-1">
+      <div className="w-full border-t pt-3 flex flex-col gap-1">
         {infos.map((t) => (
           <InfoRow key={t.label} label={t.label} value={t.value} />
         ))}
       </div>
 
-      <div className="border-t pt-3">
+      <div className="w-full border-t pt-3">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
           Compétences :
         </p>

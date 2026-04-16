@@ -1,6 +1,7 @@
 //import "./App.css";
 import { ProfileCard } from "./components/ProfileCard";
-import { Greeting } from "./greeting";
+import { SignupArtisanForm } from "./components/SignupArtisanForm";
+import { Add, Greeting } from "./greeting";
 
 function App() {
   return (
@@ -25,6 +26,16 @@ function App() {
             { label: "React", color: "red" },
           ]}
         />
+        <Add></Add>
+        <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-lg">
+          <h1 className="text-2xl font-bold text-slate-800 mb-1 text-center">
+            Créer un compte artisan
+          </h1>
+          <p className="text-sm text-slate-400 mb-6 text-center">
+            SOSLock — Rejoignez notre réseau
+          </p>
+          <SignupArtisanForm />
+        </div>
       </main>
     </>
   );

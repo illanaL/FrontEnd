@@ -12,8 +12,8 @@ export function SkillList({ skills }: SkillListProps) {
   return (
     <div className="">
       <ul className="list-none flex">
-        {skills.map((t) => (
-          <li><Badge label={t.label} color={t.color} /></li>
+        {skills.map((t, i) => (
+          <li key={i}><Badge label={t.label} color={t.color} /></li>
         ))}
       </ul>
     </div>

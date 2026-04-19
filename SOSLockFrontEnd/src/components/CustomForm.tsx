@@ -2,7 +2,7 @@ import { useState } from "react";
 
 interface FormData { name: string; email: string}
 
-function ContactForm() {
+export function ContactForm() {
 
     const [form, setForm] = useState<FormData>({ name: "", email: ""});
 

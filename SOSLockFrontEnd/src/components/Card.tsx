@@ -6,7 +6,7 @@ interface CardProps {
 }
 export function Card({
   title,
-  variant  = "default",
+  variant = "default",
   children,
 }: PropsWithChildren<CardProps>) {
   const variants = {
@@ -18,7 +18,7 @@ export function Card({
   return (
     <>
       <div
-        className={`bg-white rounded-2xl p-6 w-full max-w-sm flex flex-col gap-4 items-start ${variants[variant]}`}
+        className={`bg-white rounded-2xl p-6 w-full flex flex-col gap-4 items-start ${variants[variant]}`}
       >
         <div className="flex items-start gap-4">{title}</div>
 

@@ -1,95 +1,89 @@
-//import "./App.css";
-import { Avatar } from "./components/AvatarTemp";
-import { Badge } from "./components/Badge";
-import { Card } from "./components/Card";
-import { InfoRow } from "./components/InfoRow";
-import { ProfileCard } from "./components/ProfileCard";
-import { SignupArtisanForm } from "./components/SignupArtisanForm";
-import { SkillList } from "./components/SkillList";
-import { Add, Greeting } from "./greeting";
+import { StatsGrid } from "./components/StatsGrid";
+import { useState } from "react";
+import { useClientRequest } from "./features/clientRequests/hooks/useClientRequest";
+import { SortBar } from "./features/clientRequests/components/SortBar";
+import { ViewToggle } from "./features/clientRequests/components/ViewToggle";
+import { GridView } from "./features/clientRequests/components/GridView";
+import { ListView } from "./features/clientRequests/components/ListView";
+import { ClientRequestModal } from "./features/clientRequests/components/ClientRequestModal";
 
 function App() {
+  const {
+    search,
+    setSearch,
+    filterUrgent,
+    setFilterUrgent,
+    sortBy,
+    setSortBy,
+    viewMode,
+    setViewMode,
+    filtered,
+    stats,
+  } = useClientRequest();
 
-  const infos = [
-    { label: "Email : ", value: "illana@bootcode.fr" },
-    { label: "Ville : ", value: "Paris" },
-    { label: "Expérience : ", value: "1 an" },
-  ]
-  const skillList: {
-    label: string;
-    color?: "blue" | "green" | "red" | "yellow";
-  }[] = [
-      { label: "TypeScript", color: "blue" },
-      { label: "Node.js", color: "green" },
-      { label: "Clean Archi", color: "yellow" },
-      { label: "React", color: "red" },
-    ]
+  const [modalOuverte, setModalOuverte] = useState<string | null>(null);
 
+  const statsDisplay = [
+    { label: "En attente", value: stats.pending, color: "yellow" as const },
+    { label: "En cours", value: stats.assigned, color: "blue" as const },
+    { label: "Terminées", value: stats.completed, color: "green" as const },
+    { label: "Total", value: stats.total, color: "red" as const },
+  ];
+
+  const selected = filtered.find((i) => i.id === modalOuverte) ?? null;
 
   return (
-    <>
-      <Greeting name="Bootcode" emoji="🚀" />
-      <h1 className="text-center text-red-500 text-5xl">TEST</h1>
-      <main className="min-h-screen bg-gray-50 flex items-start p-8">
-        <ProfileCard
-          name="Lahiany Illana"
-          role="Développeuse FrontEnd"
-          avatarSrc="https://api.dicebear.com/9.x/adventurer/svg?seed=Liliana"
-          available={true}
-          infos={[
-            { label: "Email : ", value: "illana@bootcode.fr" },
-            { label: "Ville : ", value: "Paris" },
-            { label: "Expérience : ", value: "1 an" },
-          ]}
-          skills={[
-            { label: "TypeScript", color: "blue" },
-            { label: "Node.js", color: "green" },
-            { label: "Clean Archi", color: "yellow" },
-            { label: "React", color: "red" },
-          ]}
-        />
-        <Card
-          title={(
-            <>
-              <Avatar src="https://api.dicebear.com/9.x/adventurer/svg?seed=Liliana" size={64} />
-              <div>
-                <h2 className="font-semibold text-lg">Lahiany Illana</h2>
-                <p className="text-sm text-gray-500">Développeuse FrontEnd</p>
-                <Badge label="Disponible" color="green" />
-              </div>
-            </>
-          )
+    <div className="p-8">
+      <StatsGrid stats={statsDisplay} />
 
-          }
+      <input
+        type="text"
+        placeholder="Rechercher une demande"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm mb-4"
+      />
+
+      <div className="flex items-center justify-between mb-2">
+        <SortBar sortBy={sortBy} onChange={setSortBy} />
+        <ViewToggle viewMode={viewMode} onChange={setViewMode} />
+      </div>
+
+      <div className="flex gap-2 mb-4">
+        <button
+          onClick={() => setFilterUrgent(null)}
+          className={`px-3 py-1 rounded-lg text-sm border ${filterUrgent === null ? "bg-amber-700 text-white" : "text-gray-500"}`}
         >
-          <div className="w-full border-t pt-3 flex flex-col gap-1">
-            {infos.map((t) => (
-              <InfoRow key={t.label} label={t.label} value={t.value} />
-            ))}
-          </div>
+          Tous
+        </button>
+        <button
+          onClick={() => setFilterUrgent(true)}
+          className={`px-3 py-1 rounded-lg text-sm border ${filterUrgent === true ? "bg-red-600 text-white" : "text-gray-500"}`}
+        >
+          Urgent
+        </button>
+        <button
+          onClick={() => setFilterUrgent(false)}
+          className={`px-3 py-1 rounded-lg text-sm border ${filterUrgent === false ? "bg-green-600 text-white" : "text-gray-500"}`}
+        >
+          Non urgent
+        </button>
+      </div>
 
-          <div className="w-full border-t pt-3">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
-              Compétences :
-            </p>
-            <SkillList skills={skillList} />
-          </div>
-        </Card>
-
-
-        <Add></Add>
-        <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-lg">
-          <h1 className="text-2xl font-bold text-slate-800 mb-1 text-center">
-            Créer un compte artisan
-          </h1>
-          <p className="text-sm text-slate-400 mb-6 text-center">
-            SOSLock — Rejoignez notre réseau
-          </p>
-          <SignupArtisanForm />
-        </div>
-      </main>
-    </>
+      {filtered.length === 0 ? (
+        <p className="text-gray-400 text-sm text-center py-8">
+          Aucun résultat trouvé
+        </p>
+      ) : viewMode === "grid" ? (
+        <GridView clientRequests={filtered} onSelect={setModalOuverte} />
+      ) : (
+        <ListView clientRequests={filtered} onSelect={setModalOuverte} />
+      )}
+      <ClientRequestModal
+        clientRequest={selected}
+        onClose={() => setModalOuverte(null)}
+      />
+    </div>
   );
 }
-
 export default App;

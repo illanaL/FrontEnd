@@ -49,7 +49,7 @@ function App() {
           ]}
         />
         <Card
-          header={(
+          title={(
             <>
               <Avatar src="https://api.dicebear.com/9.x/adventurer/svg?seed=Liliana" size={64} />
               <div>

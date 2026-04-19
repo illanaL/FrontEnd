@@ -1,21 +1,29 @@
 import type { PropsWithChildren, ReactNode } from "react";
 
-export function Card({ header, children }: PropsWithChildren<{
-    header: ReactNode
-}>) {
+interface CardProps {
+  title: ReactNode;
+  variant?: "elevated" | "outlined" | "default";
+}
+export function Card({
+  title,
+  variant  = "default",
+  children,
+}: PropsWithChildren<CardProps>) {
+  const variants = {
+    default: "border border-gray-200",
+    outlined: "border-2 border-gray-300",
+    elevated: "border border-gray-200 shadow-sm",
+  };
 
+  return (
+    <>
+      <div
+        className={`bg-white rounded-2xl p-6 w-full max-w-sm flex flex-col gap-4 items-start ${variants[variant]}`}
+      >
+        <div className="flex items-start gap-4">{title}</div>
 
-
-    return (
-        <>
-            <div className="bg-white rounded-2xl shadow-md p-6 w-full max-w-sm flex flex-col gap-4 items-start">
-                <div className="flex items-start gap-4">
-                    { header }
-                </div>
-
-                {children}
-            </div>
-            
-        </>
-    )
+        {children}
+      </div>
+    </>
+  );
 }

@@ -23,7 +23,7 @@ function App() {
   const [modalOuverte, setModalOuverte] = useState<string | null>(null);
   const selected = filtered.find((i) => i.id === modalOuverte) ?? null;
 
-
+  // Configuration des stats
   const statsDisplay = [
     { label: "En attente", value: stats.pending, color: "yellow" as const },
     { label: "En cours", value: stats.assigned, color: "blue" as const },

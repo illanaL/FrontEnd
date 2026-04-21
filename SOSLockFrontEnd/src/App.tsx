@@ -8,14 +8,18 @@ import { ListView } from "./features/clientRequests/components/ListView";
 import { ClientRequestModal } from "./features/clientRequests/components/ClientRequestModal";
 import { Tabs } from "./components/Tabs";
 import { StatusRequest } from "./data/data";
-
+import { Accordion } from "./components/Accordion";
 
 function App() {
   const {
-    search, setSearch,
-    filterUrgent, setFilterUrgent,
-    sortBy, setSortBy,
-    viewMode, setViewMode,
+    search,
+    setSearch,
+    filterUrgent,
+    setFilterUrgent,
+    sortBy,
+    setSortBy,
+    viewMode,
+    setViewMode,
     filtered,
     stats,
   } = useClientRequest();
@@ -31,16 +35,16 @@ function App() {
     { label: "Total", value: stats.total, color: "red" as const },
   ];
 
-  
-  const renderList = (data: any[]) => (
+  const renderList = (data: any[]) =>
     data.length === 0 ? (
-      <p className="text-gray-400 text-sm text-center py-8">Aucune demande dans cette catégorie</p>
+      <p className="text-gray-400 text-sm text-center py-8">
+        Aucune demande dans cette catégorie
+      </p>
     ) : viewMode === "grid" ? (
       <GridView clientRequests={data} onSelect={setModalOuverte} />
     ) : (
       <ListView clientRequests={data} onSelect={setModalOuverte} />
-    )
-  );
+    );
 
   return (
     <div className="p-8">
@@ -49,15 +53,21 @@ function App() {
 
       <Tabs>
         <Tabs.Tab label="À traiter">
-          {renderList(filtered.filter(i => i.status === StatusRequest.PENDING))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.PENDING),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="En cours">
-          {renderList(filtered.filter(i => i.status === StatusRequest.ASSIGNED))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.ASSIGNED),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="Terminées">
-          {renderList(filtered.filter(i => i.status === StatusRequest.COMPLETED))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.COMPLETED),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="Vue Globale (Filtres)">
@@ -72,9 +82,24 @@ function App() {
             />
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
-                <button onClick={() => setFilterUrgent(null)} className={`px-3 py-1 rounded ${filterUrgent === null ? "bg-amber-700 text-white" : "bg-gray-100"}`}>Tous</button>
-                <button onClick={() => setFilterUrgent(true)} className={`px-3 py-1 rounded ${filterUrgent === true ? "bg-red-600 text-white" : "bg-gray-100"}`}>Urgent</button>
-                <button onClick={() => setFilterUrgent(false)} className={`px-3 py-1 rounded ${filterUrgent === false ? "bg-green-600 text-white" : "bg-gray-100"}`}>Non urgent</button>
+                <button
+                  onClick={() => setFilterUrgent(null)}
+                  className={`px-3 py-1 rounded ${filterUrgent === null ? "bg-amber-700 text-white" : "bg-gray-100"}`}
+                >
+                  Tous
+                </button>
+                <button
+                  onClick={() => setFilterUrgent(true)}
+                  className={`px-3 py-1 rounded ${filterUrgent === true ? "bg-red-600 text-white" : "bg-gray-100"}`}
+                >
+                  Urgent
+                </button>
+                <button
+                  onClick={() => setFilterUrgent(false)}
+                  className={`px-3 py-1 rounded ${filterUrgent === false ? "bg-green-600 text-white" : "bg-gray-100"}`}
+                >
+                  Non urgent
+                </button>
               </div>
               <div className="flex gap-4">
                 <SortBar sortBy={sortBy} onChange={setSortBy} />
@@ -83,6 +108,21 @@ function App() {
             </div>
           </div>
           {renderList(filtered)}
+        </Tabs.Tab>
+        <Tabs.Tab label="Profil">
+          <Accordion>
+            <Accordion.Item title="Informations personnelles">
+              Email : Illana@bootcode.from Adresse : 11 allee des magnolias
+              Villemomble Tel : 0612456789
+            </Accordion.Item>
+            <Accordion.Item title="Informations Entreprises">
+              Nom de la société : JTP Serrurier Siret : 789456123 Addresse : 1
+              rue telma Aix
+            </Accordion.Item>
+            <Accordion.Item title="Compétences">
+              Serrurerie, Blindage, Dépannage
+            </Accordion.Item>
+          </Accordion>
         </Tabs.Tab>
       </Tabs>
 

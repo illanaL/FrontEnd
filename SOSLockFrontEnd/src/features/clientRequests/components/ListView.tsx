@@ -21,7 +21,7 @@ export const ListView = ({ clientRequests, onSelect }: Props) => (
           <div>
             <p className="text-sm font-medium">{i.description} — {i.addressRequest.city}</p>
             <p className="text-xs text-gray-400">
-              {i.lastName} {i.firstName} · {i.createdAt.toLocaleDateString()}
+              {i.lastName} {i.firstName} · {i.createdAt}
             </p>
           </div>
         </div>

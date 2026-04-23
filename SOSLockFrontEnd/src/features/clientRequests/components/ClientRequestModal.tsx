@@ -25,9 +25,11 @@ export const ClientRequestModal = ({ clientRequest, onClose }: Props) => {
       }
     >
       <p>{`Client : ${clientRequest.lastName} ${clientRequest.firstName}`}</p>
-      <p>{`Date : ${clientRequest.createdAt.toLocaleDateString()}`}</p>
+      <p>{`Date : ${clientRequest.createdAt ? new Date(clientRequest.createdAt).toLocaleDateString() : "Non renseignée"}`}</p>
       <p>{`Description : ${clientRequest.description}`}</p>
       <p>{`Adresse : ${clientRequest.addressRequest.number} ${clientRequest.addressRequest.street}, ${clientRequest.addressRequest.city}`}</p>
+      <p>{`Urgent : ${clientRequest.isUrgent ? "Oui" : "Non"}`}</p>
+      <p>{`Statut : ${clientRequest.status}`}</p>
     </Modal>
   );
 };

@@ -20,3 +20,27 @@ export type ClientRequest = {
   status: StatusRequest
   createdAt?: string      
 }
+
+export type ClientRequestFormData = {
+  
+  categoryId: string;
+  productIds: string[];
+  isUrgent: boolean;
+
+
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  addressRequest: {
+    number: string;
+    street: string;
+    zipCode: string;
+    city: string;
+  };
+
+
+  description: string;
+  preferredDate?: string;
+  photos?: string[];
+};

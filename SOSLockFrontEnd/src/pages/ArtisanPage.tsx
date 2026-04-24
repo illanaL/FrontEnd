@@ -12,12 +12,18 @@ import { Accordion } from "../components/Accordion";
 
 export const ArtisanPage = () => {
   const {
-    loading, error,
-    search, setSearch,
-    filterUrgent, setFilterUrgent,
-    sortBy, setSortBy,
-    viewMode, setViewMode,
-    filtered, stats,
+    loading,
+    error,
+    search,
+    setSearch,
+    filterUrgent,
+    setFilterUrgent,
+    sortBy,
+    setSortBy,
+    viewMode,
+    setViewMode,
+    filtered,
+    stats,
   } = useClientRequest();
 
   const [modalOuverte, setModalOuverte] = useState<string | null>(null);
@@ -43,7 +49,11 @@ export const ArtisanPage = () => {
 
   if (loading) return <p className="p-8 text-gray-500">Chargement...</p>;
   if (error) return <p className="p-8 text-red-500">Erreur : {error}</p>;
+  const token = localStorage.getItem("token");
 
+  if (!token) {
+    return <p>Accès refusé</p>;
+  }
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>
@@ -51,15 +61,21 @@ export const ArtisanPage = () => {
 
       <Tabs>
         <Tabs.Tab label="À traiter">
-          {renderList(filtered.filter((i) => i.status === StatusRequest.PENDING))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.PENDING),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="En cours">
-          {renderList(filtered.filter((i) => i.status === StatusRequest.ASSIGNED))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.ASSIGNED),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="Terminées">
-          {renderList(filtered.filter((i) => i.status === StatusRequest.COMPLETED))}
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.COMPLETED),
+          )}
         </Tabs.Tab>
 
         <Tabs.Tab label="Vue Globale (Filtres)">
@@ -73,16 +89,22 @@ export const ArtisanPage = () => {
             />
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
-                <button onClick={() => setFilterUrgent(null)}
-                  className={`px-3 py-1 rounded ${filterUrgent === null ? "bg-amber-700 text-white" : "bg-gray-100"}`}>
+                <button
+                  onClick={() => setFilterUrgent(null)}
+                  className={`px-3 py-1 rounded ${filterUrgent === null ? "bg-amber-700 text-white" : "bg-gray-100"}`}
+                >
                   Tous
                 </button>
-                <button onClick={() => setFilterUrgent(true)}
-                  className={`px-3 py-1 rounded ${filterUrgent === true ? "bg-red-600 text-white" : "bg-gray-100"}`}>
+                <button
+                  onClick={() => setFilterUrgent(true)}
+                  className={`px-3 py-1 rounded ${filterUrgent === true ? "bg-red-600 text-white" : "bg-gray-100"}`}
+                >
                   Urgent
                 </button>
-                <button onClick={() => setFilterUrgent(false)}
-                  className={`px-3 py-1 rounded ${filterUrgent === false ? "bg-green-600 text-white" : "bg-gray-100"}`}>
+                <button
+                  onClick={() => setFilterUrgent(false)}
+                  className={`px-3 py-1 rounded ${filterUrgent === false ? "bg-green-600 text-white" : "bg-gray-100"}`}
+                >
                   Non urgent
                 </button>
               </div>

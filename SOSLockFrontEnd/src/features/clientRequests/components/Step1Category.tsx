@@ -64,7 +64,10 @@ interface Props {
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
 }
 
-export const Step1Category = ({ formdata, update }: Props) => {
+export const Step1Category = ({
+  formdata,
+  update,
+}: Props) => {
   return (
     <>
       <div>
@@ -94,6 +97,32 @@ export const Step1Category = ({ formdata, update }: Props) => {
             </button>
           ))}
         </div>
+        <div
+          className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all
+        ${formdata.isUrgent ? "border-red-400 bg-red-50" : "border-gray-200 bg-white"}`}
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">🚨</span>
+            <div>
+              <p className="font-bold text-sm text-red-600">C'est urgent ?</p>
+              <p className="text-xs text-gray-500">
+                Intervention prioritaire — supplément tarifaire de 20h à 08h00.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => update("isUrgent", !formdata.isUrgent)}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all
+            ${
+              formdata.isUrgent
+                ? "bg-red-600 text-white"
+                : "bg-gray-100 text-gray-500"
+            }`}
+          >
+            {formdata.isUrgent ? "Oui !" : "Non"}
+          </button>
+        </div>
+        
       </div>
     </>
   );

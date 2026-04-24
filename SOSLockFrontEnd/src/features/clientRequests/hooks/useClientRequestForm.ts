@@ -1,7 +1,5 @@
-
 import { useState } from "react";
 import type { ClientRequestFormData } from "../clientRequest.types";
-
 
 const INITIAL_STATE: ClientRequestFormData = {
   categoryId: "",
@@ -24,14 +22,16 @@ const INITIAL_STATE: ClientRequestFormData = {
 
 export const useClientRequestForm = () => {
   const [step, setStep] = useState(0);
-  const [formData, setFormData] = useState<ClientRequestFormData>(INITIAL_STATE);
+  const [formData, setFormData] =
+    useState<ClientRequestFormData>(INITIAL_STATE);
 
   const update = (field: keyof ClientRequestFormData, value: unknown) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const nextStep = () => setStep((s) => s + 1);
-  const prevStep = () => setStep((s) => s - 1);
+  const MAX_STEP = 3;
+  const nextStep = () => setStep((s) => Math.min(MAX_STEP, s + 1));
+  const prevStep = () => setStep((s) => Math.max(0, s - 1));
 
   return {
     step,

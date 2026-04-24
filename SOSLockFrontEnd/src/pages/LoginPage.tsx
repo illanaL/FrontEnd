@@ -1,22 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config/api.config";
+import { useAuth } from "../features/authentication/context/AuthContext";
 
 export const LoginPage = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
 
+  const { login } = useAuth();
+
   const handleLogin = async () => {
-    const res = await fetch("/artisans/signIn", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ identifier, password }),
-    });
-
-    const data = await res.json();
-
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      window.location.href = "/artisan";
-    }
+    // const res = await fetch(`${API_BASE_URL}/artisans/signIn`, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ identifier, password }),
+    // });
+    login(identifier, password);
   };
 
   return (

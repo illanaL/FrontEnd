@@ -9,6 +9,7 @@ import { ClientRequestModal } from "../features/clientRequests/components/Client
 import { Tabs } from "../components/Tabs";
 import { StatusRequest } from "../data/data";
 import { Accordion } from "../components/Accordion";
+import { useAuth } from "../features/authentication/context/AuthContext";
 
 export const ArtisanPage = () => {
   const {
@@ -28,6 +29,8 @@ export const ArtisanPage = () => {
 
   const [modalOuverte, setModalOuverte] = useState<string | null>(null);
   const selected = filtered.find((i) => i.id === modalOuverte) ?? null;
+
+  const { logout } = useAuth()
 
   const statsDisplay = [
     { label: "En attente", value: stats.pending, color: "yellow" as const },
@@ -57,6 +60,8 @@ export const ArtisanPage = () => {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>
+
+      <button onClick={() => logout()}>Déconnexion</button>
       <StatsGrid stats={statsDisplay} />
 
       <Tabs>

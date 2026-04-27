@@ -1,21 +1,27 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../config/api.config";
 import { useAuth } from "../features/authentication/context/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const LoginPage = () => {
-  const [identifier, setIdentifier] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
+  
 
   const { login } = useAuth();
 
   const handleLogin = async () => {
-    // const res = await fetch(`${API_BASE_URL}/artisans/signIn`, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ identifier, password }),
-    // });
-    login(identifier, password);
+    try {
+      setLoading(true);
+      await login({ phone, password });
+    } catch (e: any) {
+      alert(e.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,24 +30,36 @@ export const LoginPage = () => {
 
       <input
         placeholder="Email ou téléphone"
-        value={identifier}
-        onChange={(e) => setIdentifier(e.target.value)}
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
         className="w-full border p-2 mb-3 rounded-xl"
       />
-
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="w-full border p-2 mb-4 rounded-xl"
-      />
+      <div className="relative mb-4">
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full border p-2  pr-10 rounded-xl"
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </button>
+      </div>
 
       <button
         onClick={handleLogin}
-        className="border-2 rounded-xl  w-full bg-amber-700 text-white py-2"
+        disabled={loading}
+        className="border-2 rounded-xl  w-full bg-amber-700 text-white py-2 disabled:opacity-50"
       >
-        Se connecter
+        {loading && (
+          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+        )}
+        {loading ? "Connexion..." : "Se connecter"}
       </button>
     </div>
   );

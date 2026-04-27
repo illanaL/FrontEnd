@@ -30,7 +30,10 @@ export const ArtisanPage = () => {
   const [modalOuverte, setModalOuverte] = useState<string | null>(null);
   const selected = filtered.find((i) => i.id === modalOuverte) ?? null;
 
-  const { logout } = useAuth()
+
+  const { artisan } = useAuth();
+
+  const { logout } = useAuth();
 
   const statsDisplay = [
     { label: "En attente", value: stats.pending, color: "yellow" as const },
@@ -52,11 +55,12 @@ export const ArtisanPage = () => {
 
   if (loading) return <p className="p-8 text-gray-500">Chargement...</p>;
   if (error) return <p className="p-8 text-red-500">Erreur : {error}</p>;
-  const token = localStorage.getItem("token");
+  
 
-  if (!token) {
+  if (!artisan) {
     return <p>Accès refusé</p>;
   }
+
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>

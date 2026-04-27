@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { ClientRequest } from "./clientRequest.types";
-import type { SortBy,  ViewMode } from "../../data/data";
-import {StatusRequest} from "../../data/data";
+import type { SortBy, ViewMode } from "../../data/data";
+import { StatusRequest } from "../../data/data";
 import { getClientRequests } from "./api/clientRequest.api";
 
 export const useClientRequest = () => {
@@ -13,6 +13,7 @@ export const useClientRequest = () => {
   const [filterUrgent, setFilterUrgent] = useState<boolean | null>(null);
   const [sortBy, setSortBy] = useState<SortBy>("date");
   const [viewMode, setViewMode] = useState<ViewMode>("list");
+
 
   useEffect(() => {
     const load = async () => {
@@ -52,23 +53,31 @@ export const useClientRequest = () => {
       });
   }, [clientRequets, search, filterUrgent, sortBy]);
 
-  const stats = useMemo(() => ({
-    pending: filtered.filter((i) => i.status === StatusRequest.PENDING).length,
-    assigned: filtered.filter((i) => i.status === StatusRequest.ASSIGNED)
-      .length,
-    completed: filtered.filter((i) => i.status === StatusRequest.COMPLETED)
-      .length,
-    total: filtered.length,
-  }), [filtered])
+  const stats = useMemo(
+    () => ({
+      pending: filtered.filter((i) => i.status === StatusRequest.PENDING)
+        .length,
+      assigned: filtered.filter((i) => i.status === StatusRequest.ASSIGNED)
+        .length,
+      completed: filtered.filter((i) => i.status === StatusRequest.COMPLETED)
+        .length,
+      total: filtered.length,
+    }),
+    [filtered],
+  );
 
   return {
     loading,
     error,
-    search, setSearch,
-    filterUrgent, setFilterUrgent,
-    sortBy, setSortBy,
-    viewMode, setViewMode,
+    search,
+    setSearch,
+    filterUrgent,
+    setFilterUrgent,
+    sortBy,
+    setSortBy,
+    viewMode,
+    setViewMode,
     filtered,
     stats,
-  }
+  };
 };

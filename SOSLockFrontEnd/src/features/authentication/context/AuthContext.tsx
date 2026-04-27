@@ -1,16 +1,23 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+import type { Artisan } from "./auth.types";
+import { API_BASE_URL } from "../../../config/api.config";
 
-export interface User {
-    id: string;
-    email: string;
-    name: string;
-}
 
-const authReducer = (state: User | null, action: {type: 'LOGIN' | 'LOGOUT', payload: User | null}) => {
+
+type State = Artisan | null;
+
+type Action = 
+    |  {type: "LOGIN", payload: Artisan}
+    | {type: "LOGOUT"} ;
+
+    
+
+
+const authReducer = (state: State,  action:Action) => {
     switch (action.type) {
         case "LOGIN":
-            return {...state, ...action.payload};
+            return action.payload
         case "LOGOUT":
             return null;
         default:
@@ -18,75 +25,76 @@ const authReducer = (state: User | null, action: {type: 'LOGIN' | 'LOGOUT', payl
     }
 }
 
-export const AuthContext = createContext(null);
+type AuthContextType = {
+    artisan: Artisan | null; 
+    login: (data: {phone: string; password: string}) => Promise<void>;
+    logout: () => void;
+}
+
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const [user, dispatch] = useReducer(authReducer, null);
+    const [artisan, dispatch] = useReducer(authReducer, null);
 
     const navigate = useNavigate();
 
-    const login = async ({ identifier, password }: { identifier: string; password: string }) => {
-        
-        console.log(identifier, password)
-        
-        const res = {
-            json() {
-                return Promise.resolve({ token: "mock-token" });
-            },
-        };
+    const login = async ({ phone, password }: { phone: string; password: string }) => {
+         const res = await fetch(`${API_BASE_URL}/artisans/signIn`, {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ phone, password }),
+         });
 
-        const data = await res.json();
+         const data = await res.json();
 
-        if (data.token) {
-            localStorage.setItem("token", data.token);
-            dispatch({
-                type: "LOGIN",
-                payload: {
-                    id: "1",
-                    email: `${identifier}@test.com`,
-                    name: identifier,
-                },
-            });
-            navigate("/artisans");
-        }
-    }
+            if (!res.ok) {
+                 throw new Error(data.error || "Erreur login");
+            } 
+
+    localStorage.setItem("artisan", JSON.stringify(data))
+    dispatch({
+      type: "LOGIN",
+      payload: data,
+    });
+
+    navigate("/artisans");
+}
+
+        
+      
 
     const logout = () => {
-        localStorage.removeItem("token");
-        dispatch({ type: "LOGOUT", payload: null });
+        localStorage.removeItem("artisan");
+        dispatch({ type: "LOGOUT" });
         navigate("/artisans/signIn");
     }
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
+        const stored  = localStorage.getItem("artisan");
+        if (stored) {
+            const parsed = JSON.parse(stored);
             dispatch({
                 type: "LOGIN",
-                payload: {
-                    id: "1",
-                    email: "test@test.com",
-                    name: "test",
-                },
+                payload: parsed,
             });
-        } else {
-            navigate("/artisans/signIn");
         }
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ artisan, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
-};
+}
 
 export const useAuth = () => {
     const context = useContext(AuthContext);
-    if (context === null) {
+    if (!context) {
         throw new Error("useAuth must be used within an AuthProvider");
     }
     return context;
 };
+
 
 

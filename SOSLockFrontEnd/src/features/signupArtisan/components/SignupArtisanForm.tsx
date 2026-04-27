@@ -1,97 +1,17 @@
-import { useState } from "react";
-import { FormField } from "./FormField";
-import { SkillsField } from "./SkillFields";
-
-interface ArtisanFormState {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  password: string;
-  companyName: string;
-  siret: string;
-  IBAN: string;
-  skills: string[];
-}
-
-interface FormErrors {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  phone?: string;
-  password?: string;
-  companyName?: string;
-  siret?: string;
-  IBAN?: string;
-  skills?: string;
-}
+import { FormField } from "../../../components/FormField";
+import { SkillsField } from "../../../components/SkillFields";
+import { useSignupArtisanForm } from "../hooks/useSignupArtisanForm";
+import { DepartmentsField } from "./DepartmentsField";
 
 export function SignupArtisanForm() {
-  const [form, setForm] = useState<ArtisanFormState>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    password: "",
-    companyName: "",
-    siret: "",
-    IBAN: "",
-    skills: [],
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [isValid, setIsValid] = useState(true)
-
-  function validate(form: ArtisanFormState): void {
-    const errors: FormErrors = {};
-
-    if (!form.firstName.trim()) errors.firstName = "Le prénom est requis.";
-
-    if (!form.lastName.trim()) errors.lastName = "Le nom est requis.";
-
-    if (!form.email.includes("@")) errors.email = "Email invalide.";
-
-    if (!/^(\+33|0)[1-9](\d{8})$/.test(form.phone.replace(/\s/g, "")))
-      errors.phone = "Téléphone invalide. Ex : 06 12 34 56 78";
-
-    if (form.password.length < 8)
-      errors.password = "Mot de passe : 8 caractères minimum.";
-
-    if (!form.companyName.trim()) errors.companyName = "Nom de société requis.";
-
-    if (!/^\d{14}$/.test(form.siret.replace(/\s/g, "")))
-      errors.siret = "SIRET invalide (14 chiffres).";
-
-    if (!/^FR\d{2}[A-Z0-9]{23}$/.test(form.IBAN.replace(/\s/g, "")))
-      errors.IBAN = "IBAN invalide. Ex : FR76 3000 6000 0112 3456 7890 189";
-
-    if (form.skills.length === 0)
-      errors.skills = "Ajoutez au moins une compétence.";
-
-    setErrors(errors);
-  }
-
-  const update = (field: keyof ArtisanFormState) => (value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = (e: React.SubmitEvent) => {
-    e.preventDefault();
-    // Validation
-    validate(form)
-    setIsValid(Object.keys(errors).length === 0);
-    if (!isValid) return;
-
-    setSubmitted(true);
-    console.log("Formulaire soumis :", form); // ici use case
-  };
+  const { form, setForm, errors, submitted, update, handleSubmit } =
+    useSignupArtisanForm();
 
   if (submitted) {
     return (
-      <div className="bg-teal-50 border border-teal-200 rounded-xl p-6 text-center">
-        <p className="text-teal-700 font-semibold text-lg">✅ Compte créé !</p>
-        <p className="text-sm text-slate-500 mt-1">
+      <div className="bg-bg-soft border border-border rounded-xl p-6 text-center">
+        <p className="text-primary font-semibold text-lg">✅ Compte créé !</p>
+        <p className="text-sm text-text/60 mt-1">
           Bienvenue {form.firstName} {form.lastName}
         </p>
       </div>
@@ -176,6 +96,13 @@ export function SignupArtisanForm() {
         />
       </fieldset>
 
+      <DepartmentsField
+        selected={form.departments}
+        onChange={(codes) =>
+          setForm((prev) => ({ ...prev, departments: codes }))
+        }
+        error={errors.departments}
+      />
       {/* Compétences */}
       <SkillsField
         skills={form.skills}
@@ -206,10 +133,10 @@ export function SignupArtisanForm() {
 
       <button
         type="submit"
-        disabled={!isValid}
+        disabled={Object.keys(errors).length > 0}
         className="py-3 rounded-xl font-semibold text-white transition-all
-          bg-teal-500 hover:bg-teal-600
-          disabled:opacity-40 disabled:cursor-not-allowed"
+    bg-primary hover:bg-primary-hover
+    disabled:opacity-40 disabled:cursor-not-allowed"
       >
         Créer mon compte artisan
       </button>

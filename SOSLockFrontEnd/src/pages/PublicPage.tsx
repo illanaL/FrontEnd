@@ -1,22 +1,21 @@
-import { Step1Category } from "../features/clientRequests/components/Step1Category";
-import { StepButton } from "../features/clientRequests/components/StepButton";
-import { StepIndicator } from "../features/clientRequests/components/StepIndicator";
-import { useClientRequestForm } from "../features/clientRequests/hooks/useClientRequestForm";
+import { ArtisanCTA } from "../features/landing/components/ArtisanCTA";
+import { CTA } from "../features/landing/components/CTA";
+import { Footer } from "../features/landing/components/Footer";
+import { Header } from "../features/landing/components/Header";
+import { Hero } from "../features/landing/components/Hero";
+import { Services } from "../features/landing/components/Services";
+import { Steps } from "../features/landing/components/Steps";
 
 export const PublicPage = () => {
-  const { formData, update, step, prevStep, nextStep } = useClientRequestForm();
-
   return (
     <div>
-      <h1 className="text-center">Demande d'intervention</h1>
-      <h4 className="text-center">Simple, rapide — en quelques clics</h4>
-      <StepIndicator currentStep={step} />
-      {step === 0 && <Step1Category formdata={formData} update={update} />}
-      {step === 1 && <p>2ème étape</p>}
-      {step === 2 && <p>3ème étape</p>}
-      {step === 3 && <p>4ème étape</p>}
-      <StepButton step={step} prevStep={prevStep} nextStep={nextStep} />
-      console.log(Step: {step})
+      <Header />
+      <Hero />
+      <Steps />
+      <Services />
+      <ArtisanCTA />
+      <CTA />
+      <Footer />
     </div>
   );
 };

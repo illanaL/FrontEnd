@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+
+  --color-teal-50: oklch(0.95 0.02 237);
+  --color-teal-100: oklch(0.90 0.03 237);
+  --color-teal-200: oklch(0.82 0.04 237);
+  --color-teal-300: oklch(0.70 0.05 237);
+  --color-teal-400: oklch(0.60 0.05 237);
+  --color-teal-500: oklch(0.51 0.05 237);
+  --color-teal-600: oklch(0.45 0.05 237);
+  --color-teal-700: oklch(0.38 0.05 237); 
+  --color-teal-800: oklch(0.30 0.04 237);
+  --color-teal-900: oklch(0.24 0.04 237);
+
+  --color-primary: var(--color-teal-700);
+  --color-primary-hover: var(--color-teal-800);
+
+  --color-bg: white;
+  --color-bg-soft: var(--color-teal-50);
+
+  --color-text: var(--color-teal-900);
+  --color-text-light: var(--color-teal-100);
+
+  --color-border: var(--color-teal-200);
+
+
+  --animate-fade-in: fadeIn 500ms ease-out forwards;
+  --animate-slide-up: slideUp 400ms ease-out forwards;
+}
+
+
+[data-theme="dark"] {
+  --color-bg: var(--color-teal-900);
+  --color-bg-soft: var(--color-teal-800);
+
+  --color-text: white;
+  --color-text-light: var(--color-teal-200);
+
+  --color-primary: var(--color-teal-400);
+  --color-primary-hover: var(--color-teal-300);
+
+  --color-border: var(--color-teal-700);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

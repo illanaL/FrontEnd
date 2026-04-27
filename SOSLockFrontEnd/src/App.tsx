@@ -6,23 +6,42 @@ import { ExoPage } from "./pages/ExoPage";
 import { Erreur } from "./pages/Erreur";
 import { LoginPage } from "./pages/LoginPage";
 import { AuthProvider } from "./features/authentication/context/AuthContext";
+import { AppErrorBoundary } from "./components/ErrorBoundary";
+import { AskClientRequest } from "./pages/AskClientRequest";
+import { SignupArtisanForm } from "./features/signupArtisan/components/SignupArtisanForm";
 
 function App() {
   return (
-
     <Routes>
       <Route path="/" element={<PublicPage />} />
-      <Route path="/artisans/signIn" element={
-        <AuthProvider>
-          <LoginPage />
-        </AuthProvider>} />
-      <Route path="/artisans" element={
-        <AuthProvider>
-          <ArtisanPage />
-        </AuthProvider>} />
+
+      <Route
+        path="/artisans/signIn"
+        element={
+          <AppErrorBoundary>
+            <AuthProvider>
+              <LoginPage />
+            </AuthProvider>
+          </AppErrorBoundary>
+        }
+      />
+
+      <Route
+        path="/artisans"
+        element={
+          <AppErrorBoundary>
+            <AuthProvider>
+              <ArtisanPage />
+            </AuthProvider>
+          </AppErrorBoundary>
+        }
+      />
+
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/exo" element={<ExoPage />} />
       <Route path="*" element={<Erreur />} />
+      <Route path="/demande" element={<AskClientRequest />} />
+      <Route path="/signup-artisan" element={<SignupArtisanForm />} />
     </Routes>
   );
 }

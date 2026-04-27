@@ -4,7 +4,6 @@ import { Badge } from "../components/Badge";
 import { Card } from "../components/Card";
 import { InfoRow } from "../components/InfoRow";
 import { ProfileCard } from "../components/ProfileCard";
-import { SignupArtisanForm } from "../components/SignupArtisanForm";
 import { SkillList } from "../components/SkillList";
 import { Add, Greeting } from "../greeting";
 import { TextInput } from "../components/TextInput";
@@ -63,7 +62,6 @@ export const ExoPage = () => {
       <StepIndicator currentStep={1} /> // étape 2 active
       <StepIndicator currentStep={2} /> // étape 3 active
       <StepIndicator currentStep={3} /> // étape 4 active
-      
       <h1 className="text-center text-red-500 text-5xl">TEST</h1>
       <main className="min-h-screen bg-gray-50 flex items-start p-8">
         <ProfileCard
@@ -114,7 +112,6 @@ export const ExoPage = () => {
           <p className="text-sm text-slate-400 mb-6 text-center">
             SOSLock — Rejoignez notre réseau
           </p>
-          <SignupArtisanForm />
         </div>
       </main>
     </>

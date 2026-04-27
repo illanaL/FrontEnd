@@ -26,14 +26,14 @@ export function Erreur(): JSX.Element {
         </Link>
 
         <Link
-          to="/artisan/SignIn"
+          to="/artisans/SignIn"
           className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl shadow hover:scale-105 transition"
         >
           <FaKey className="text-2xl text-blue-500" />
           <span>Sign In Artisan</span>
         </Link>
         <Link
-          to="/artisan"
+          to="/artisans"
           className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl shadow hover:scale-105 transition"
         >
           <FaUserTie className="text-2xl text-blue-500" />

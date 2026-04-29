@@ -9,9 +9,11 @@ import { AuthProvider } from "./features/authentication/context/AuthContext";
 import { AppErrorBoundary } from "./components/ErrorBoundary";
 import { AskClientRequest } from "./pages/AskClientRequest";
 import { SignupArtisanForm } from "./features/signupArtisan/components/SignupArtisanForm";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
+    <Layout>
     <Routes>
       <Route path="/" element={<PublicPage />} />
 
@@ -43,6 +45,7 @@ function App() {
       <Route path="/demande" element={<AskClientRequest />} />
       <Route path="/signup-artisan" element={<SignupArtisanForm />} />
     </Routes>
+    </Layout>
   );
 }
 

@@ -32,7 +32,7 @@ export const CATEGORIES = [
     description: "Ouverture, réparation de coffre-fort",
   },
   {
-    id: "CONTROLE_ACCES",
+    id: "INTERPHONE",
     label: "Accès & Interphone",
     icon: "📟",
     description: "Digicode, interphone, contrôle d'accès",
@@ -64,10 +64,7 @@ interface Props {
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
 }
 
-export const Step1Category = ({
-  formdata,
-  update,
-}: Props) => {
+export const Step1Category = ({ formdata, update }: Props) => {
   return (
     <>
       <div>
@@ -85,8 +82,8 @@ export const Step1Category = ({
               className={`border-2 rounded-2xl p-5 text-left transition-all
             ${
               formdata.categoryId === cat.id
-                ? "border-amber-700 bg-amber-50 shadow-md"
-                : "border-gray-200 bg-white hover:border-amber-300"
+                ? "border-primary bg-bg-soft shadow-md"
+                : "border-border bg-bg hover:border-primary"
             }
             `}
             >
@@ -122,7 +119,6 @@ export const Step1Category = ({
             {formdata.isUrgent ? "Oui !" : "Non"}
           </button>
         </div>
-        
       </div>
     </>
   );

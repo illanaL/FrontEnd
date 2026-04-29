@@ -1,23 +1,15 @@
-import { API_BASE_URL } from "../../../config/api.config";
-import { getToken } from "../../../infrastrucrure/auth/tokenStorage";
-import type { ClientRequest } from "../clientRequest.types";
+import api from "../../../client/client";
+import type { ClientRequest, Product } from "../clientRequest.types";
 
 export const getClientRequests = async (): Promise<ClientRequest[]> => {
-  const token = getToken();
-  if (!token) {
-    throw new Error("Non authentifié");
-  }
+  const res = await api.get<ClientRequest[]>(`/client-requests/`);
 
-  const res = await fetch(`${API_BASE_URL}/client-requests/`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  return res.data;
+};
 
-  if (!res.ok) {
-    console.error("Status de l'erreur:", res.status);
-    throw new Error("Erreur lors de la récupération des demandes");
-  }
-
-  return res.json();
+export const getProductsByCategory = async (
+  category: string,
+): Promise<Product[]> => {
+  const res = await api.get<Product[]>(`/products/category/${category}`);
+  return res.data;
 };

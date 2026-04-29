@@ -1,20 +1,21 @@
 import { useState } from "react";
 import type { ClientRequestFormData } from "../clientRequest.types";
-import { useProductsByCategory } from "../hooks/useProductsByCategory";
-
+import { useQuery } from "@tanstack/react-query";
+import { getProductsByCategory } from "../api/clientRequest.api";
 interface Props {
   formdata: ClientRequestFormData;
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
 }
 
 export const Step2Products = ({ formdata: formData, update }: Props) => {
-  const { products, loading, error } = useProductsByCategory(
-    formData.categoryId,
-  );
+  const { data: products, isLoading, isError, error } = useQuery({
+    queryKey: ["products", formData.categoryId],
+    queryFn: () => getProductsByCategory(formData.categoryId),
+  });
 
   const [search, setSearch] = useState("");
 
-  const filteredProducts = products.filter((p) =>
+  const filteredProducts = products?.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase()),
   );
 
@@ -28,10 +29,10 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
     );
   };
   console.log("productIds après:", formData.productIds);
-  if (loading)
+  if (isLoading)
     return <p className="text-center text-teal-400 py-8">Chargement...</p>;
-  if (error) return <p className="text-center text-red-400 py-8">{error}</p>;
-  if (products.length === 0)
+  if (isError) return <p className="text-center text-red-400 py-8">{error.message}</p>;
+  if (products?.length === 0)
     return (
       <p className="text-center text-teal-400 py-8">Aucun produit disponible</p>
     );
@@ -69,10 +70,9 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
               type="button"
               onClick={() => toggle(product.id)}
               className={`border rounded-xl p-2 text-left transition-all flex items-center justify-between
-                ${
-                  selected
-                    ? "border-teal-700 bg-teal-50 shadow-md"
-                    : "border-teal-200 bg-white hover:border-teal-400"
+                ${selected
+                  ? "border-teal-700 bg-teal-50 shadow-md"
+                  : "border-teal-200 bg-white hover:border-teal-400"
                 }`}
             >
               <div>
@@ -98,11 +98,10 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
                 </div>
                 <div
                   className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all
-                  ${
-                    selected
+                  ${selected
                       ? "bg-teal-700 border-teal-700 text-white"
                       : "border-teal-300"
-                  }`}
+                    }`}
                 >
                   {selected && "✓"}
                 </div>
@@ -120,3 +119,4 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
     </div>
   );
 };
+

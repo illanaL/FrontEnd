@@ -10,6 +10,17 @@ export const getClientRequests = async (): Promise<ClientRequest[]> => {
 export const getProductsByCategory = async (
   category: string,
 ): Promise<Product[]> => {
-  const res = await api.get<Product[]>(`/products/category/${category}`);
-  return res.data;
+  try {
+    const res = await api.get<Product[]>(`/products/category/${category}`);
+    return res.data;
+  } catch (error) {
+
+    if (error.response.status === 400) {
+      return [];  
+    } 
+
+    console.error("Error fetching products by category:", error);
+    throw error;
+  }
 };
+

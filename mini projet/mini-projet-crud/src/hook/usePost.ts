@@ -6,6 +6,5 @@ export const usePost = (id: number) => {
   return useQuery({
     queryKey: postKeys.detail(id),
     queryFn: () => getPost(id),
-    enabled: !!id,
   });
 };

@@ -17,7 +17,6 @@ function App() {
 
   console.log("selectedId:", selectedId);
   console.log("postDetail:", postDetail);
-  console.log(data);
 
   return (
     <div>
@@ -35,25 +34,25 @@ function App() {
             <h3>{post.title}</h3>
             <button onClick={() => setSelectedId(post.id)}>Voir détail</button>
             <button onClick={() => deletePost(post.id)}>Effacer</button>
+            {selectedId === post.id && postDetail && (
+              <div>
+                <h2>Détail du post</h2>
+                <p>
+                  <strong>ID:</strong> {postDetail.id}
+                </p>
+                <p>
+                  <strong>Titre:</strong> {postDetail.title}
+                </p>
+                <p>
+                  <strong>Contenu:</strong> {postDetail.body}
+                </p>
+
+                <button onClick={() => setSelectedId(null)}>Fermer</button>
+              </div>
+            )}
           </div>
+
         ))}
-
-      {selectedId && postDetail && (
-        <div>
-          <h2>Détail du post</h2>
-          <p>
-            <strong>ID:</strong> {postDetail.id}
-          </p>
-          <p>
-            <strong>Titre:</strong> {postDetail.title}
-          </p>
-          <p>
-            <strong>Contenu:</strong> {postDetail.body}
-          </p>
-
-          <button onClick={() => setSelectedId(null)}>Fermer</button>
-        </div>
-      )}
     </div>
   );
 }

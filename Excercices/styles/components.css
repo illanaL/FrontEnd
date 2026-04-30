@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Pacifico-Regular';
+    src: url('../fonts/Pacifico-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+
+    h1,
+    h2 {
+        @apply font-semibold text-slate-800;
+    }
+
+    h3 {
+        @apply font-bold mb-5
+    }
+}
+
+@layer utilities {
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 font-medium rounded-lg border border-transparent cursor-pointer select-none transition-all duration-150 px-4 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none;
+    }
+
+    .input {
+        @apply w-full p-3 bg-white text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+    }
+
+    .input::placeholder {
+        @apply text-gray-500;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 focus-visible:ring-teal-500;
+    }
+
+    .btn-secondary {
+        @apply bg-slate-200 text-slate-700 hover:bg-slate-300 active:bg-slate-400 focus-visible:ring-slate-400;
+    }
+
+    .advantages {
+        @apply flex gap-5 my-10 flex-wrap;
+    }
+
+    .advantage-item {
+        @apply bg-[#f8f9fa] p-5 rounded-xl border border-[#e5e7eb] flex-1 min-w-[220px] font-medium transition-all duration-300;
+        @apply opacity-0 animate-pop-in;
+    }
+
+    .advantage-item:hover {
+        @apply -translate-y-[3px] bg-[#eef0ff];
+    }
+
+    .services {
+        @apply py-20 px-12 mx-auto;
+    }
+
+    .section-tag {
+        @apply inline-block bg-blue-200 text-white text-xs font-bold uppercase tracking-[1.2px] py-[0.35rem] px-[0.9rem] rounded-full mb-4;
+    }
+
+    .section-title {
+        @apply text-[2.2rem] font-black tracking-[-0.5px] mb-3;
+    }
+
+    .section-desc {
+        @apply text-[var(--color-muted)] text-base mb-12;
+    }
+
+    .services__grid {
+        @apply grid gap-6;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .service-card {
+        @apply bg-white border-[1.5px] border-[var(--color-border)] rounded-[var(--radius)] p-7 transition-all duration-[250ms] cursor-pointer;
+    }
+
+    .service-card:hover {
+        @apply border-teal-500 shadow-teal-500/20 shadow-xl -translate-y-1;
+    }
+
+    .service-card--urgent {
+        @apply border-red-500;
+        background: linear-gradient(135deg, rgba(230, 57, 70, 0.03), white);
+    }
+
+    .service-card--urgent:hover {
+        @apply border-red-500 shadow-red-500/20 shadow-xl;
+    }
+
+    .service-card__icon {
+        @apply text-[2rem] mb-4;
+    }
+
+    .service-card__title {
+        @apply text-base font-bold mb-2;
+    }
+
+    .service-card__desc {
+        @apply text-sm text-[var(--color-muted)] leading-[1.7] mb-4;
+    }
+
+    .service-card__tag {
+        @apply inline-block text-xs font-semibold py-[0.2rem] px-[0.6rem] rounded-full;
+    }
+
+    .tag--urgent {
+        @apply bg-red-500/10 text-red-500;
+    }
+
+    .tag--rdv {
+        @apply bg-cyan-400/10 text-teal-500;
+    }
+}

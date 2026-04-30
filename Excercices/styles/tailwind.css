@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@themeOLD
+ {
+
+    --color-teal-50: oklch(0.95 0.02 237);
+    --color-teal-100: oklch(0.90 0.03 237);
+    --color-teal-200: oklch(0.82 0.04 237);
+    --color-teal-300: oklch(0.70 0.05 237);
+    --color-teal-400: oklch(0.60 0.05 237);
+    --color-teal-500: oklch(0.51 0.05 237);
+    --color-teal-600: oklch(0.45 0.05 237);
+    --color-teal-700: oklch(0.38 0.05 237);
+    --color-teal-800: oklch(0.30 0.04 237);
+    --color-teal-900: oklch(0.24 0.04 237);
+
+
+    --animate-pop-in: popIn 2500ms ease-out 5 forwards;
+    --animate-fade-in: fadeIn 500ms ease-out forwards;
+    --animate-slide-up: slideUp 400ms ease-out forwards;
+
+    --default-font-family: "Pacifico-Regular";
+
+
+}
+
+
+
+
+@keyframesOLD popIn {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframesOLD fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframesOLD slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./base/base.css";
+
+@import "./layout/header.css";
+@import "./layout/hero.css";
+@import "./layout/footer.css";
+@import "./layout/sections.css";
+@import "./layout/cta.css";
+@import "./components/button.css";
+@import "./components/badge.css";
+@import "./components/spinner.css";
+@import "./components.css";
+
+
+.my__steps {
+    padding: 3rem 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.my__steps__step {
+    position: relative;
+    border-top: 4px var(--color-muted) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0 0 0;
+}
+
+.step__number {
+    position: absolute;
+    top: -3rem;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    color: white;
+    background-color: var(--color-muted);
+    border-radius: 99999px;
+}

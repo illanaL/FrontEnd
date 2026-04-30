@@ -1,0 +1,29 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/illanaL/FrontEnd#readme",
+  "bugs": {
+    "url": "https://github.com/illanaL/FrontEnd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illanaL/FrontEnd.git"
+  },
+  "license": "ISC",
+  "author": "Illana",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./styles/tailwind.css -o ./styles/main.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "flyonui": "^2.4.1",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  }
+}

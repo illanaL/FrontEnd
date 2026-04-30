@@ -1,0 +1,52 @@
+ body {
+     font-family: var(--font);
+     background-color: var(--color-bg);
+     color: var(--color-text);
+     line-height: 1.6;
+     font-family: 'Poppins', sans-serif;
+     width: 100%;
+     max-width: 100%;
+     margin: 0;
+     padding: 0;
+ }
+
+ h1 {
+     font-size: 22px;
+ }
+
+ h2 {
+     font-size: 18px;
+ }
+
+ h3 {
+     margin-bottom: 10px;
+ }
+
+ p {
+     color: var(--bc-text-secondary);
+ }
+
+ a {
+     font-size: 10px;
+     text-decoration: none;
+     color: inherit;
+ }
+
+ .hero,
+ .steps,
+ .trust,
+ .advantages,
+ .why {
+     padding: 60px 5%;
+ }
+
+ @media (min-width: 768px) {
+
+     .hero,
+     .steps,
+     .trust,
+     .advantages,
+     .why {
+         padding: 60px 10%;
+     }
+ }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="stylesheet" href="styles/main.css">
+    <title class="font-Pacifico-Regular">SOSLock</title>
+
+</head>
+
+<body>
+    <!--<div class="spinner"></div> -->
+
+    <header class="p-3 text-2xl font-bold text-center flex items-center border-2 rounded shadow-md px-5
+        h-50 border-b-20 mt-4 border-t-20 border-[#eee] text-slate-500 bg-[linear-gradient(90deg,#5a7a99,#e5e7eb)] w-screen
+        max-w-screen box-border ">
+        <!-- LOGO -->
+
+
+        <img src="asset/logo SOSLock.png" alt="SOSLock" class="h-150 w-auto">
+        <span
+            class="hidden md:block md:text-[30px] md:text-slate-600 md:italic p-8  shadow-[0_10px_20px_rgba(255,255,255,0.5)] font-Pacifico-Regular">
+            Trouvez un serrurier fiable en quelques minutes
+        </span>
+
+
+    </header>
+    <!-- HERO -->
+    <section
+        class="relative flex flex-col md:flex-row justify-between items-center py-[60px] px-[10%] gap-[40px] animate-fade-in shadow-amber-600">
+
+
+        <div class="w-1/2 hero-text animate-slide-up">
+            <p class="badge animate-slide-up">Disponible 24h/24</p>
+            <h1>Dépannage serrurier rapide et fiable</h1>
+            <p>Fini les mauvaises surprises. Nous sélectionnons des artisans vérifiés pour une intervention rapide et au
+                juste prix.</p>
+
+            <button class="btn-primary">Faire une demande</button>
+        </div>
+
+        <div
+            class="w-1/2 flex flex-col col-6 justify-between items-center rounded-lg p-5 mt-5 gap-4 bg-[url(../asset/serrure1.jpg)] bg-cover bg-center relative z-0 border-4 border-cyan-900">
+
+            <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
+
+            <div class="relative w-full flex flex-col items-center gap-4">
+                <h3 class="text-white">Demande rapide</h3>
+                <input class="input" type="text" placeholder="Votre problème" id="votre_probleme" name="votre_probleme">
+                <input class="input" type="text" placeholder="Ville" id="ville" name="ville">
+                <button class="btn-primary">Envoyer</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="steps">
+        <h2>Comment ça marche ?</h2>
+
+        <div class="my__steps">
+            <div class="my__steps__step">
+                <div class="step__number">1</div>
+                <div class="step__text"> Décrivez votre problème</div>
+            </div>
+            <div class="my__steps__step">
+                <div class="step__number">2</div>
+                <div class="step__text">On trouve un artisan</div>
+            </div>
+            <div class="my__steps__step">
+                <div class="step__number">3</div>
+                <div class="step__text">Intervention rapide</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="advantages">
+        <h1>Pourquoi nous choisir ?</h1>
+        <div class="advantage-item">✔ Artisans vérifiés et sélectionnés</div>
+        <div class="advantage-item">✔ Intervention rapide près de chez vous</div>
+        <div class="advantage-item">✔ Prix clairs, sans surprise</div>
+        <div class="advantage-item">✔ Accompagnement</div>
+
+    </section>
+    <section class="why">
+        <h2>Pourquoi ne pas appeler directement un serrurier ?</h2>
+
+        <p>
+            Parce qu’en urgence, il est difficile de savoir à qui faire confiance.
+            Entre les prix abusifs et les interventions douteuses, les mauvaises surprises sont fréquentes.
+        </p>
+
+        <p>
+            Notre plateforme agit comme un filtre : nous sélectionnons des professionnels sérieux pour vous garantir une
+            intervention rapide et transparente.
+        </p>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════ -->
+    <section class="services" id="services">
+
+        <div class="section-tag">Nos services</div>
+        <h2 class="section-title">Urgence ou rendez-vous,<br>on s'occupe de tout</h2>
+        <p class="section-desc">Du dépannage immédiat à l'installation sur mesure, nos serruriers certifiés
+            interviennent
+            pour tous vos besoins.</p>
+
+        <div class="services__grid">
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🚨</div>
+                <h3 class="service-card__title">Porte claquée / bloquée</h3>
+                <p class="service-card__desc">Vous êtes bloqué devant chez vous ? Un serrurier arrive en moins de 30
+                    minutes.</p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🔑</div>
+                <h3 class="service-card__title">Clé perdue ou volée</h3>
+                <p class="service-card__desc">Remplacement de serrure immédiat pour sécuriser votre logement après une
+                    perte
+                    ou un vol.</p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card service-card--urgent">
+                <div class="service-card__icon">🪟</div>
+                <h3 class="service-card__title">Effraction / cambriolage</h3>
+                <p class="service-card__desc">Sécurisation rapide de votre domicile après une tentative d'effraction.
+                </p>
+                <span class="service-card__tag tag--urgent">Urgence 24h/24</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">🔒</div>
+                <h3 class="service-card__title">Changement de serrure</h3>
+                <p class="service-card__desc">Upgrade vers une serrure multipoints ou connectée, planifié à votre
+                    convenance.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">🏠</div>
+                <h3 class="service-card__title">Installation de serrure</h3>
+                <p class="service-card__desc">Pose de serrure neuve sur porte d'entrée, chambre, cave ou garage.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card__icon">▤</div>
+                <h3 class="service-card__title">Volets roulant</h3>
+                <p class="service-card__desc">Installation de volets roulants, réparation.</p>
+                <span class="service-card__tag tag--rdv">Sur rendez-vous</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA FINAL -->
+    <section class="cta" id="demande" aria-labelledby="cta-title">
+        <div class="cta__inner">
+
+            <span class="badge badge--cyan">Prêt à commencer ?</span>
+
+            <h2 class="cta__title" id="cta-title">
+                Résolvez votre problème<br>
+                <span class="cta__title-accent">maintenant</span>
+            </h2>
+
+            <p class="cta__desc">
+                Que ce soit une urgence à 3h du matin ou un rendez-vous planifié, SOSLock est là 24h/24, 7j/7.
+            </p>
+
+            <div class="cta__actions">
+                <a href="#" class="btn btn--urgent btn--lg">🚨 Intervention urgente</a>
+                <a href="#" class="btn btn--cyan btn--lg">📅 Prendre rendez-vous</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© SOSLock - Tous droits réservés</p>
+    </footer>
+</body>

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { UpdateArtisanInput } from "../type/artisan.type";
 
 export const signupArtisanStepOneSchema = z.object({
   firstName: z.string().min(2, "Prénom requis"),
@@ -19,13 +20,22 @@ export const signupArtisanStepTwoSchema = z.object({
   IBAN: z.string().min(14, "IBAN invalide").optional(),
   skills: z.array(z.string()).min(1, "Au moins une compétence").optional(),
   departments: z.array(z.string()).min(1, "Au moins un département").optional(),
-  address: z.object({
-    number: z.string(),
-    street: z.string(),
-    zipCode: z.string(),
-    city: z.string(),
-    coordinates: z.tuple([z.number(), z.number()]).optional(),
-  }),
+  address: z
+    .object({
+      number: z.string(),
+      street: z.string(),
+      zipCode: z.string(),
+      city: z.string(),
+      coordinates: z
+        .custom<[number, number]>(
+          (value) =>
+            Array.isArray(value) &&
+            value.length === 2 &&
+            value.every((coordinate) => typeof coordinate === "number"),
+        )
+        .optional(),
+    })
+    .optional(),
 });
 
 export const signupArtisanSchema = signupArtisanStepOneSchema.extend({
@@ -35,8 +45,6 @@ export const signupArtisanSchema = signupArtisanStepOneSchema.extend({
 export type signupArtisanStepOneData = z.infer<
   typeof signupArtisanStepOneSchema
 >;
-export type signupArtisanStepTwoData = z.infer<
-  typeof signupArtisanStepTwoSchema
->;
+export type signupArtisanStepTwoData = UpdateArtisanInput;
 
 export type SignupArtisanFormData = z.infer<typeof signupArtisanSchema>;

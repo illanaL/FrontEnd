@@ -13,9 +13,9 @@ export function MyInput(props: Props) {
       <div className="flex flex-col">
         <label htmlFor={`${props.name}`}>{props.name}</label>
         <input {...props} className="input" type={props.type ?? "text"} />
-        {props.error[props.name] && (
+        {props.error?.[props.name] && (
           <span className="text-red-500">
-            {props.error[props.name].message}
+            {props.error?.[props.name]?.message}
           </span>
         )}
       </div>

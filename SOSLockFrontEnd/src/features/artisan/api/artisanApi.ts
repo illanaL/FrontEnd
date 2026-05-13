@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { ArtisanResponse, CreateArtisanInput, InactivateArtisanResponse, LoginArtisanInput, UpdateArtisanInput, UpdateArtisanResponse } from "../type/artisan.type";
+import type { ArtisanResponse, InactivateArtisanResponse, LoginArtisanInput, UpdateArtisanInput, UpdateArtisanResponse } from "../type/artisan.type";
 import type { signupArtisanStepOneData } from "../schema/artisan.schema";
 
 

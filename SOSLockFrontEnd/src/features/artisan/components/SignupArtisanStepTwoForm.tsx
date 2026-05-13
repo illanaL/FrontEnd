@@ -26,10 +26,12 @@ export function SignupArtisanFormStepTwoForm() {
     resolver: zodResolver(signupArtisanStepTwoSchema),
   });
 
-  const artisanConnected = useArtisanStore((state)=>state.artisanConnected);
+  const artisanConnected = useArtisanStore((state) => state.artisanConnected);
 
   const onSubmit: SubmitHandler<signupArtisanStepTwoData> = (data) => {
-    update({id: artisanConnected?.id, data });
+    if (!artisanConnected?.id) return;
+
+    update({ id: artisanConnected.id, data });
   };
 
   const { isSuccess } = useSignupArtisan();

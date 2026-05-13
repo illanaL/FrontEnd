@@ -150,3 +150,4 @@ export const ArtisanPage = () => {
     </div>
   );
 };
+export default ArtisanPage;

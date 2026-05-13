@@ -17,3 +17,5 @@ export const PublicPage = () => {
     </div>
   );
 };
+
+export default PublicPage;

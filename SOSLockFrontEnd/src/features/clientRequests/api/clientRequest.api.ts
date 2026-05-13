@@ -1,3 +1,4 @@
+import axios from "axios";
 import api from "../../../client/client";
 import type { ClientRequest, Product } from "../clientRequest.types";
 
@@ -15,7 +16,7 @@ export const getProductsByCategory = async (
     return res.data;
   } catch (error) {
 
-    if (error.response.status === 400) {
+    if (axios.isAxiosError(error) && error.response?.status === 400) {
       return [];  
     } 
 

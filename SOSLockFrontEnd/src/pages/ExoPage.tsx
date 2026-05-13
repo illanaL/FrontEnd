@@ -117,3 +117,5 @@ export const ExoPage = () => {
     </>
   );
 };
+
+export default ExoPage;

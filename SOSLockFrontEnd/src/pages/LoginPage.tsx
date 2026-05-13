@@ -9,7 +9,6 @@ export const LoginPage = () => {
   const [loading, setLoading] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
-  
 
   const { login } = useAuth();
 
@@ -54,7 +53,7 @@ export const LoginPage = () => {
       <button
         onClick={handleLogin}
         disabled={loading}
-        className="border-2 rounded-xl  w-full bg-amber-700 text-white py-2 disabled:opacity-50"
+        className="border-2 rounded-xl  w-full bg-green-600 hover:bg-primary-hover text-white py-2 disabled:opacity-50"
       >
         {loading && (
           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -64,3 +63,5 @@ export const LoginPage = () => {
     </div>
   );
 };
+
+export default LoginPage;

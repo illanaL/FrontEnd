@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import type { JSX } from "react";
 
-export function Erreur(): JSX.Element {
+export function ErreurPage(): JSX.Element {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-slate-100 text-center px-4">
       <h1 className="text-6xl font-bold text-red-500 mb-4">404</h1>
@@ -63,3 +63,4 @@ export function Erreur(): JSX.Element {
     </div>
   );
 }
+export default ErreurPage;

@@ -8,8 +8,9 @@ import { ListView } from "../features/clientRequests/components/ListView";
 import { ClientRequestModal } from "../features/clientRequests/components/ClientRequestModal";
 import { Tabs } from "../components/Tabs";
 import { StatusRequest } from "../data/data";
-import { Accordion } from "../components/Accordion";
 import { useAuth } from "../features/authentication/context/AuthContext";
+import { Accordion } from "../components/Accordion";
+import { useToggle } from "../hooks/useToggle";
 
 export const ArtisanPage = () => {
   const {
@@ -27,13 +28,21 @@ export const ArtisanPage = () => {
     stats,
   } = useClientRequest();
 
-  const [modalOuverte, setModalOuverte] = useState<string | null>(null);
-  const selected = filtered.find((i) => i.id === modalOuverte) ?? null;
+  const [isModalOpen, toggleModal] = useToggle(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
+  const handleSelect = (id: string) => {
+    setSelectedId(id);
+    toggleModal();
+  };
+  const selected = filtered.find((i) => i.id === selectedId) ?? null;
 
-  const { artisan } = useAuth();
+  const handleClose = () => {
+    toggleModal();
+    setSelectedId(null);
+  };
 
-  const { logout } = useAuth();
+  const { artisan, logout } = useAuth();
 
   const statsDisplay = [
     { label: "En attente", value: stats.pending, color: "yellow" as const },
@@ -48,14 +57,13 @@ export const ArtisanPage = () => {
         Aucune demande dans cette catégorie
       </p>
     ) : viewMode === "grid" ? (
-      <GridView clientRequests={data} onSelect={setModalOuverte} />
+      <GridView clientRequests={data} onSelect={handleSelect} />
     ) : (
-      <ListView clientRequests={data} onSelect={setModalOuverte} />
+      <ListView clientRequests={data} onSelect={handleSelect} />
     );
 
   if (loading) return <p className="p-8 text-gray-500">Chargement...</p>;
   if (error) return <p className="p-8 text-red-500">Erreur : {error}</p>;
-  
 
   if (!artisan) {
     return <p>Accès refusé</p>;
@@ -128,25 +136,41 @@ export const ArtisanPage = () => {
 
         <Tabs.Tab label="Profil">
           <Accordion>
-            <Accordion.Item title="Informations personnelles">
-              Email : Illana@bootcode.from Adresse : 11 allee des magnolias
-              Villemomble Tel : 0612456789
+            <Accordion.Item value="info-perso">
+              <Accordion.Trigger value="info-perso">
+                Informations personnelles
+              </Accordion.Trigger>
+              <Accordion.Content value="info-perso">
+                Email : Illana@bootcode.from Adresse : 11 allee des magnolias
+                Villemomble Tel : 0612456789
+              </Accordion.Content>
             </Accordion.Item>
-            <Accordion.Item title="Informations Entreprises">
-              Nom de la société : JTP Serrurier Siret : 789456123 Addresse : 1
-              rue telma Aix
+
+            <Accordion.Item value="infos-entreprise">
+              <Accordion.Trigger value="infos-entreprise">
+                Informations Entreprises
+              </Accordion.Trigger>
+              <Accordion.Content value="infos-entreprise">
+                Nom de la société : JTP Serrurier Siret : 789456123 Addresse : 1
+                rue telma Aix
+              </Accordion.Content>
             </Accordion.Item>
-            <Accordion.Item title="Compétences">
-              Serrurerie, Blindage, Dépannage
+
+            <Accordion.Item value="competences">
+              <Accordion.Trigger value="competences">
+                Compétences
+              </Accordion.Trigger>
+              <Accordion.Content value="competences">
+                Serrurerie, Blindage, Dépannage
+              </Accordion.Content>
             </Accordion.Item>
           </Accordion>
         </Tabs.Tab>
       </Tabs>
 
-      <ClientRequestModal
-        clientRequest={selected}
-        onClose={() => setModalOuverte(null)}
-      />
+      <ClientRequestModal 
+      isOpen={isModalOpen} 
+      clientRequest={selected} onClose={handleClose} />
     </div>
   );
 };

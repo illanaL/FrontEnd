@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { ArtisanResponse, InactivateArtisanResponse, LoginArtisanInput, UpdateArtisanInput, UpdateArtisanResponse } from "../type/artisan.type";
+import type { ArtisanResponse, InactivateArtisanResponse, UpdateArtisanInput, UpdateArtisanResponse } from "../type/artisan.type";
 import type { signupArtisanStepOneData } from "../schema/artisan.schema";
 
 
@@ -30,29 +30,6 @@ export const signUpArtisan = async (
 };
 
 
-/**
- * Connecte un artisan et stocke le token JWT.
- * Route : POST /artisans/signIn
- */
-export const signInArtisan = async (
-  credentials: LoginArtisanInput
-): Promise<ArtisanResponse> => {
-  const res = await api.post<ArtisanResponse>("/artisans/signIn", credentials);
- 
-  // 💾 Persistance du token pour les requêtes suivantes
-  if (res.data.accessKey) {
-    localStorage.setItem("accessKey", res.data.accessKey);
-  }
- 
-  return res.data;
-};
- 
-/**
- * Déconnecte l'artisan côté client (suppression du token).
- */
-export const signOutArtisan = (): void => {
-  localStorage.removeItem("accessKey");
-};
  
 // ─────────────────────────────────────────────
 // 🔒 CRUD protégé (authorizationMiddlewareUser requis)

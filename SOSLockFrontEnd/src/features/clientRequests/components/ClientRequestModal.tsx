@@ -3,12 +3,17 @@ import { Modal } from "../../../components/Modal";
 import type { ClientRequestDetail } from "../../../data/data";
 
 interface Props {
+  isOpen: boolean;
   clientRequest: ClientRequestDetail | null;
   onClose: () => void;
 }
 
-export const ClientRequestModal = ({ clientRequest, onClose }: Props) => {
-  if (!clientRequest) return null;
+export const ClientRequestModal = ({
+  isOpen,
+  clientRequest,
+  onClose,
+}: Props) => {
+  if (!isOpen || !clientRequest) return null;
 
   return (
     <Modal

@@ -2,21 +2,28 @@ import { useState } from "react";
 import type { ClientRequestFormData } from "../clientRequest.types";
 import { useQuery } from "@tanstack/react-query";
 import { getProductsByCategory } from "../api/clientRequest.api";
+import { useDebounce } from "../../../hooks/useDebounce";
 interface Props {
   formdata: ClientRequestFormData;
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
 }
 
 export const Step2Products = ({ formdata: formData, update }: Props) => {
-  const { data: products, isLoading, isError, error } = useQuery({
+  const {
+    data: products,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["products", formData.categoryId],
     queryFn: () => getProductsByCategory(formData.categoryId),
   });
 
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 300);
 
   const filteredProducts = products?.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase()),
+    p.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
   );
 
   const toggle = (id: string) => {
@@ -31,7 +38,8 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
   console.log("productIds après:", formData.productIds);
   if (isLoading)
     return <p className="text-center text-teal-400 py-8">Chargement...</p>;
-  if (isError) return <p className="text-center text-red-400 py-8">{error.message}</p>;
+  if (isError)
+    return <p className="text-center text-red-400 py-8">{error.message}</p>;
   if (products?.length === 0)
     return (
       <p className="text-center text-teal-400 py-8">Aucun produit disponible</p>
@@ -54,14 +62,14 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
         className="w-full border-2 border-teal-200 rounded-xl px-4 py-3 text-sm text-teal-900 outline-none focus:ring-2 focus:ring-teal-300 mb-6 transition-all"
       />
 
-      {filteredProducts.length === 0 && (
+      {filteredProducts?.length === 0 && (
         <p className="text-center text-teal-400 py-4 text-sm">
           Aucune prestation ne correspond à votre recherche
         </p>
       )}
 
       <div className="flex flex-col gap-3">
-        {filteredProducts.map((product) => {
+        {filteredProducts?.map((product) => {
           const selected = formData.productIds.includes(product.id);
 
           return (
@@ -70,9 +78,10 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
               type="button"
               onClick={() => toggle(product.id)}
               className={`border rounded-xl p-2 text-left transition-all flex items-center justify-between
-                ${selected
-                  ? "border-teal-700 bg-teal-50 shadow-md"
-                  : "border-teal-200 bg-white hover:border-teal-400"
+                ${
+                  selected
+                    ? "border-teal-700 bg-teal-50 shadow-md"
+                    : "border-teal-200 bg-white hover:border-teal-400"
                 }`}
             >
               <div>
@@ -98,10 +107,11 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
                 </div>
                 <div
                   className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all
-                  ${selected
+                  ${
+                    selected
                       ? "bg-teal-700 border-teal-700 text-white"
                       : "border-teal-300"
-                    }`}
+                  }`}
                 >
                   {selected && "✓"}
                 </div>
@@ -119,4 +129,3 @@ export const Step2Products = ({ formdata: formData, update }: Props) => {
     </div>
   );
 };
-

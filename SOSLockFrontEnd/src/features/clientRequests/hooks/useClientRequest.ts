@@ -1,40 +1,29 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { StatusRequest, type SortBy, type ViewMode } from "../../../data/data";
 import { getClientRequests } from "../api/clientRequest.api";
-import type { ClientRequest } from "../clientRequest.types";
+import { useDebounce } from "../../../hooks/useDebounce";
+import { useAsync } from "../../../hooks/useAsync";
 
 export const useClientRequest = () => {
-  const [clientRequests, setClientRequests] = useState<ClientRequest[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const {data: clientRequests, loading, error } = useAsync(
+    () => getClientRequests(),
+    []
+  )
 
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 300); 
   const [filterUrgent, setFilterUrgent] = useState<boolean | null>(null);
   const [sortBy, setSortBy] = useState<SortBy>("date");
   const [viewMode, setViewMode] = useState<ViewMode>("list");
 
-  useEffect(() => {
-    const load = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await getClientRequests();
-        setClientRequests(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
-  }, []);
+ 
 
   const filtered = useMemo(() => {
-    return clientRequests
+    return ( clientRequests ?? [] )
       .filter((i) => {
         const matchSearch = `${i.firstName} ${i.lastName}`
           .toLowerCase()
-          .includes(search.toLowerCase());
+          .includes(debouncedSearch.toLowerCase());
         const matchUrgent =
           filterUrgent === null || i.isUrgent === filterUrgent;
         return matchSearch && matchUrgent;
@@ -49,7 +38,7 @@ export const useClientRequest = () => {
         if (sortBy === "status") return a.status.localeCompare(b.status);
         return 0;
       });
-  }, [clientRequests, search, filterUrgent, sortBy]);
+  }, [clientRequests, debouncedSearch, filterUrgent, sortBy]);
 
   const stats = useMemo(
     () => ({

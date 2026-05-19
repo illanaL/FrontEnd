@@ -29,9 +29,15 @@ export function SkillsV2Field({
   };
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-medium text-slate-700">{label}</label>
+      <label  
+      htmlFor="skill-input" 
+      className="text-sm font-medium text-slate-700"
+      >
+        {label}
+      </label>
       <div className="flex gap-2">
         <input
+        id="skill-input" 
           type="text"
           value={input}
           placeholder={placeholder}

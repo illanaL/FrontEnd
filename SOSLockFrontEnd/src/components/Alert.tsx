@@ -30,10 +30,10 @@ export function Alert({
   };
 
   const colorMap = {
-    info: "bg-[#E6F1FB] text-[#185FA5] border-l-4 border-[#378ADD]",
-    warning: "bg-[#FAEEDA] text-[#854F0B] border-l-4 border-[#EF9F27]",
-    success: "bg-[#EAF3DE] text-[#3B6D11] border-l-4 border-[#639922]",
-    error: "bg-[#FCEBEB] text-[#A32D2D] border-l-4 border-[#E24B4A]",
+    info: "bg-blue-50 text-blue-700",
+    warning: "bg-amber-50 text-amber-700",
+    success: "bg-green-50 text-green-700",
+    error: "bg-red-50 text-red-600",
   };
 
   /**
@@ -56,7 +56,7 @@ export function Alert({
       aria-live={isUrgent ? "assertive" : "polite"}
       aria-atomic="true"
       onKeyDown={handleKeyDown}
-      className={`flex items-center justify-between p-3 rounded-lg ${colorMap[variant]}`}
+      className={`flex items-start gap-2 rounded-md px-3 py-2 text-sm ${colorMap[variant]}`}
     >
       <span aria-hidden="true">{iconMap[variant]}</span>
       <span>{children}</span>

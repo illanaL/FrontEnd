@@ -21,10 +21,10 @@ export function StatsGrid({ stats }: StatsGridProps) {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className={`rounded-xl p-4 flex flex-col gap-1 ${colorMap[stat.color ?? "blue"]}`}
+          className={`rounded-xl p-4 flex flex-col h-20 gap-1 ${colorMap[stat.color ?? "blue"]}`}
         >
-          <span className="text-2xl font-semibold">{stat.value}</span>
-          <span className="text-sm">{stat.label}</span>
+          <span className="text-2xl font-semibold w-4 h-4">{stat.value}</span>
+          <span className="text-sm  mt-2 h-2">{stat.label}</span>
         </div>
       ))}
     </div>

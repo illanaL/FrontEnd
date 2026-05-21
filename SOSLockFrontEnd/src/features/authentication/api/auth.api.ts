@@ -1,6 +1,6 @@
 import api from "../../../client/client";
 import type { LoginByEmailForm, LoginByPhoneForm } from "../schema/login.schema";
-import type { Artisan, ArtisanResponse } from "../../artisan/type/artisan.type";
+import type { ArtisanResponse } from "../../artisan/type/artisan.type";
 import { useAuthStore } from "../stores/authStore";
 import type { UserLoginResponse } from "../../user/type/user.type";
 import type { AdminLoginResponse } from "../../adminUser/type/adminUser.type";
@@ -10,8 +10,13 @@ export const authArtisanApi = {
       try {
         const res = await api.post<ArtisanResponse>("/artisans/signIn", data)
 
-       const { accessKey, ...artisanData } = res.data     
-       useAuthStore.getState().login(artisanData as Artisan, accessKey,
+       const { accessKey, ...artisanData } = res.data 
+       
+        if (!accessKey) {
+        throw new Error("Aucun token reçu du serveur");
+         }
+
+       useAuthStore.getState().login(artisanData, accessKey,
       "artisan");
        }catch (error: any) {
     throw new Error(error.response?.data?.error || "Erreur de connexion");

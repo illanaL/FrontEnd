@@ -9,9 +9,9 @@ interface AuthState {
   artisan: Artisan | null;
   token: string | null;
   isAuthenticated: boolean;
-  role: Role | null; 
+  role: Role | null;
 
-  login: (artisan: Artisan, token: string, role:Role) => void;
+  login: (artisan: Artisan, token: string, role: Role) => void;
   logout: () => void;
 }
 
@@ -23,16 +23,28 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: false,
       role: null,
 
+      
       login: (artisan, token, role) =>
-        set({artisan, token, role, isAuthenticated: true,
+        set(() => {
+          localStorage.setItem("accessKey", token); 
+          return {
+            artisan,
+            token,
+            role,
+            isAuthenticated: true,
+          };
         }),
 
+      
       logout: () =>
-        set({
-          artisan: null,
-          token: null,
-           role: null,
-          isAuthenticated: false,
+        set(() => {
+          localStorage.removeItem("accessKey");
+          return {
+            artisan: null,
+            token: null,
+            role: null,
+            isAuthenticated: false,
+          };
         }),
     }),
     {

@@ -6,13 +6,17 @@ import {
   type signupArtisanStepOneData,
 } from "../schema/artisan.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Alert } from "../../../components/Alert";
+import type { ApiErrorResponse } from "../type/artisan.type";
+import axios from "axios";
+import { API_ERROR_MESSAGES } from "../../../shared/constants/api-error-messages";
 
-export function SignupArtisanStepOneForm() {
-  const navigate = useNavigate();
-  const { isPending, mutate: signup } = useSignupArtisan();
+interface Props {
+  onNext: () => void;
+}
 
+export function SignupArtisanStepOneForm({ onNext }: Props) {
   const {
     register,
     handleSubmit,
@@ -21,20 +25,32 @@ export function SignupArtisanStepOneForm() {
   } = useForm<signupArtisanStepOneData>({
     resolver: zodResolver(signupArtisanStepOneSchema),
   });
+
+  const { isPending, mutate: signup, isSuccess } = useSignupArtisan();
+
   const firstName = watch("firstName");
   const lastName = watch("lastName");
 
-  const onSubmit: SubmitHandler<signupArtisanStepOneData> = (data) => {
-    signup(data);
-  };
-
-  const { isSuccess } = useSignupArtisan();
-
   useEffect(() => {
-    if (isSuccess) {
-      navigate("/signupArtisanStepTwo");
-    }
-  }, [isSuccess, navigate]);
+    if (isSuccess) onNext();
+  }, [isSuccess, onNext]);
+
+  const [errorData, setErrorData] = useState("");
+
+  const onSubmit: SubmitHandler<signupArtisanStepOneData> = (data) => {
+    signup(data, {
+      onError: (error) => {
+        if (axios.isAxiosError<ApiErrorResponse>(error)) {
+          const apiError = error.response?.data?.error;
+          const message =
+            API_ERROR_MESSAGES[apiError ?? ""] ?? "Une erreur est survenue.";
+          setErrorData(message ?? "Une erreur est survenue");
+        } else {
+          setErrorData("Une erreur inconnue est survenue");
+        }
+      },
+    });
+  };
 
   if (isSuccess) {
     return (
@@ -100,6 +116,8 @@ export function SignupArtisanStepOneForm() {
         >
           {isPending ? "Création du compte en cours..." : "Créer mon compte"}
         </button>
+
+        {errorData && <Alert variant="error">{errorData}</Alert>}
       </form>
     </>
   );

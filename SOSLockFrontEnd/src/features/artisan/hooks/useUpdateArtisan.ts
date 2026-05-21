@@ -3,12 +3,13 @@ import { updateArtisan } from "../api/artisanApi";
 import { useNavigate } from "react-router-dom";
 import type { UpdateArtisanInput } from "../type/artisan.type";
 
+
 export const useUpdateArtisan = () => {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: (data: { id: string; data: UpdateArtisanInput }) => {
-      const { id, data: updateData } = data;
-      return updateArtisan(id, updateData);
+    mutationKey: ["update-artisan"],
+    mutationFn: ({ id, data }: { id: string; data: UpdateArtisanInput }) => {
+      return updateArtisan(id, data);
     },
     onSuccess: () => navigate("/artisans"),
     onError: (error) => {

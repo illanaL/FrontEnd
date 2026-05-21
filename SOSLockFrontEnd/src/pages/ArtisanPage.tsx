@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useClientRequest } from "../features/clientRequests/hooks/useClientRequest";
+import { useCallback, useRef, useState } from "react";
 import { StatsGrid } from "../components/StatsGrid";
 import { SortBar } from "../features/clientRequests/components/SortBar";
 import { ViewToggle } from "../features/clientRequests/components/ViewToggle";
@@ -9,24 +8,49 @@ import { ClientRequestModal } from "../features/clientRequests/components/Client
 import { Tabs } from "../components/Tabs";
 import { StatusRequest } from "../data/data";
 import { useAuth } from "../features/authentication/context/AuthContext";
-import { Accordion } from "../components/Accordion";
 import { useToggle } from "../hooks/useToggle";
+import ArtisanPageSkeleton from "./ArtisanPageSkeleton";
+import type { FilterFormData } from "../features/clientRequests/schema/filter.schema";
+import { useWatch } from "react-hook-form";
+import { SignupArtisanFormStepTwoForm } from "../features/artisan/components/SignupArtisanStepTwoForm";
+import { useGetArtisan } from "../features/artisan/hooks/useGetArtisan";
+import { Alert } from "../components/Alert";
+import { useGetClientRequests } from "../features/clientRequests/hooks/usegetClientRequests";
+
+const URGENT_OPTIONS: {
+  value: FilterFormData["filterUrgent"];
+  label: string;
+  activeClass: string;
+}[] = [
+  { value: "all", label: "Tous", activeClass: "bg-amber-700 text-white" },
+  { value: "urgent", label: "Urgent", activeClass: "bg-red-600 text-white" },
+  {
+    value: "non-urgent",
+    label: "Non urgent",
+    activeClass: "bg-green-600 text-white",
+  },
+];
 
 export const ArtisanPage = () => {
+  const { artisan, logout } = useAuth();
+
   const {
     loading,
     error,
-    search,
-    setSearch,
-    filterUrgent,
-    setFilterUrgent,
-    sortBy,
-    setSortBy,
+    register,
+    control,
     viewMode,
     setViewMode,
     filtered,
     stats,
-  } = useClientRequest();
+  } = useGetClientRequests();
+
+  const {
+    data: artisanProfile,
+    isLoading: isProfileLoading,
+    isError: isProfileError,
+    error: profileError,
+  } = useGetArtisan(artisan?.id);
 
   const [isModalOpen, toggleModal] = useToggle(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -35,6 +59,7 @@ export const ArtisanPage = () => {
     setSelectedId(id);
     toggleModal();
   };
+
   const selected = filtered.find((i) => i.id === selectedId) ?? null;
 
   const handleClose = () => {
@@ -42,7 +67,22 @@ export const ArtisanPage = () => {
     setSelectedId(null);
   };
 
-  const { artisan, logout } = useAuth();
+  const filterUrgentValue = useWatch({ control, name: "filterUrgent" });
+
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const { ref: registerRef, ...searchProps } = register("search");
+
+  const mergedRef = useCallback(
+    (el: HTMLInputElement | null) => {
+      registerRef(el);
+      searchInputRef.current = el;
+    },
+    [registerRef],
+  );
+
+  const focusSearch = useCallback(() => {
+    setTimeout(() => searchInputRef.current?.focus(), 50);
+  }, []);
 
   const statsDisplay = [
     { label: "En attente", value: stats.pending, color: "yellow" as const },
@@ -51,29 +91,70 @@ export const ArtisanPage = () => {
     { label: "Total", value: stats.total, color: "red" as const },
   ];
 
-  const renderList = (data: any[]) =>
-    data.length === 0 ? (
-      <p className="text-gray-400 text-sm text-center py-8">
-        Aucune demande dans cette catégorie
+  const renderList = useCallback(
+    (data: typeof filtered) =>
+      data.length === 0 ? (
+        <p className="text-gray-400 text-sm text-center py-8">
+          Aucune demande dans cette catégorie
+        </p>
+      ) : viewMode === "grid" ? (
+        <GridView clientRequests={data} onSelect={handleSelect} />
+      ) : (
+        <ListView clientRequests={data} onSelect={handleSelect} />
+      ),
+    [viewMode, handleSelect],
+  );
+
+  // 🔹 Gestion globale des états de chargement / erreur
+  if (!artisan) return <p>Accès refusé</p>;
+
+  if (loading || isProfileLoading) {
+    return <ArtisanPageSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <p className="p-8 text-red-500">
+        {" "}
+        Erreur : {error instanceof Error ? error.message : "Erreur inconnue"}
       </p>
-    ) : viewMode === "grid" ? (
-      <GridView clientRequests={data} onSelect={handleSelect} />
-    ) : (
-      <ListView clientRequests={data} onSelect={handleSelect} />
     );
+  }
 
-  if (loading) return <p className="p-8 text-gray-500">Chargement...</p>;
-  if (error) return <p className="p-8 text-red-500">Erreur : {error}</p>;
-
-  if (!artisan) {
-    return <p>Accès refusé</p>;
+  if (isProfileError) {
+    return (
+      <Alert variant="error">
+        {profileError instanceof Error
+          ? profileError.message
+          : "Erreur lors du chargement du profil artisan."}
+      </Alert>
+    );
   }
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>
 
-      <button onClick={() => logout()}>Déconnexion</button>
+      {/* profil incomplet → alerte */}
+      {artisanProfile && !artisanProfile.isProfileComplete && (
+        <div className="mb-4 flex flex-col gap-2">
+          <h1 className="text-lg font-semibold">
+            Bonjour {artisanProfile.firstName} {artisanProfile.lastName}
+          </h1>
+
+          <Alert variant="warning">
+            Ton profil est incomplet. Complète-le pour recevoir des demandes.
+          </Alert>
+        </div>
+      )}
+
+      <button
+        onClick={logout}
+        className="mb-4 inline-flex items-center rounded-lg border border-gray-200 px-3 py-1 text-sm text-gray-700 hover:bg-gray-50"
+      >
+        Déconnexion
+      </button>
+
       <StatsGrid stats={statsDisplay} />
 
       <Tabs>
@@ -95,38 +176,39 @@ export const ArtisanPage = () => {
           )}
         </Tabs.Tab>
 
-        <Tabs.Tab label="Vue Globale (Filtres)">
+        <Tabs.Tab label="Vue Globale (Filtres)" onSelect={focusSearch}>
           <div className="flex flex-col gap-4 mb-6">
             <input
+              {...searchProps}
+              ref={mergedRef}
               type="text"
               placeholder="Rechercher par nom..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
               className="w-full border border-gray-200 rounded-lg px-4 py-2"
             />
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
-                <button
-                  onClick={() => setFilterUrgent(null)}
-                  className={`px-3 py-1 rounded ${filterUrgent === null ? "bg-amber-700 text-white" : "bg-gray-100"}`}
-                >
-                  Tous
-                </button>
-                <button
-                  onClick={() => setFilterUrgent(true)}
-                  className={`px-3 py-1 rounded ${filterUrgent === true ? "bg-red-600 text-white" : "bg-gray-100"}`}
-                >
-                  Urgent
-                </button>
-                <button
-                  onClick={() => setFilterUrgent(false)}
-                  className={`px-3 py-1 rounded ${filterUrgent === false ? "bg-green-600 text-white" : "bg-gray-100"}`}
-                >
-                  Non urgent
-                </button>
+                {URGENT_OPTIONS.map(({ value, label, activeClass }) => (
+                  <label key={value} className="cursor-pointer">
+                    <input
+                      {...register("filterUrgent")}
+                      type="radio"
+                      value={value}
+                      className="sr-only"
+                    />
+                    <span
+                      className={`px-3 py-1 rounded text-sm transition-colors ${
+                        filterUrgentValue === value
+                          ? activeClass
+                          : "bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                  </label>
+                ))}
               </div>
               <div className="flex gap-4">
-                <SortBar sortBy={sortBy} onChange={setSortBy} />
+                <SortBar register={register} control={control} />
                 <ViewToggle viewMode={viewMode} onChange={setViewMode} />
               </div>
             </div>
@@ -135,43 +217,17 @@ export const ArtisanPage = () => {
         </Tabs.Tab>
 
         <Tabs.Tab label="Profil">
-          <Accordion>
-            <Accordion.Item value="info-perso">
-              <Accordion.Trigger value="info-perso">
-                Informations personnelles
-              </Accordion.Trigger>
-              <Accordion.Content value="info-perso">
-                Email : Illana@bootcode.from Adresse : 11 allee des magnolias
-                Villemomble Tel : 0612456789
-              </Accordion.Content>
-            </Accordion.Item>
-
-            <Accordion.Item value="infos-entreprise">
-              <Accordion.Trigger value="infos-entreprise">
-                Informations Entreprises
-              </Accordion.Trigger>
-              <Accordion.Content value="infos-entreprise">
-                Nom de la société : JTP Serrurier Siret : 789456123 Addresse : 1
-                rue telma Aix
-              </Accordion.Content>
-            </Accordion.Item>
-
-            <Accordion.Item value="competences">
-              <Accordion.Trigger value="competences">
-                Compétences
-              </Accordion.Trigger>
-              <Accordion.Content value="competences">
-                Serrurerie, Blindage, Dépannage
-              </Accordion.Content>
-            </Accordion.Item>
-          </Accordion>
+          <SignupArtisanFormStepTwoForm isEditMode />
         </Tabs.Tab>
       </Tabs>
 
-      <ClientRequestModal 
-      isOpen={isModalOpen} 
-      clientRequest={selected} onClose={handleClose} />
+      <ClientRequestModal
+        isOpen={isModalOpen}
+        clientRequest={selected}
+        onClose={handleClose}
+      />
     </div>
   );
 };
+
 export default ArtisanPage;

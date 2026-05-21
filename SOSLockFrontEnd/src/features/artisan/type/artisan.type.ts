@@ -10,7 +10,7 @@ export type Artisan = {
   siret: string;
   IBAN: string;
   skills: string[];
-  accessKey: string;
+  isProfileComplete: boolean;
 };
 export interface Address {
   number: string;
@@ -68,7 +68,8 @@ export interface ArtisanResponse {
   siret: string;
   IBAN: string;
   skills: string[];
-  accessKey: string;
+  accessKey?: string;
+  isProfileComplete: boolean;  
 }
 
 export interface UpdateArtisanResponse {
@@ -89,3 +90,5 @@ export interface InactivateArtisanResponse {
   isActive: boolean;
   inactivatedAt: string;
 }
+
+export type ApiErrorResponse = { error: string };

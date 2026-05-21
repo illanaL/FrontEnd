@@ -1,13 +1,18 @@
+import { useAuthStore } from "../../authentication/stores/authStore";
 import { signUpArtisan } from "../api/artisanApi";
 import { useMutation } from "@tanstack/react-query";
-import { useArtisanStore } from "./useArtisanStore";
+
+
 
 export const useSignupArtisan = () => {
-        const setArtisanConnected = useArtisanStore((s) => s.setArtisanConnected);
   return useMutation({
     mutationFn: signUpArtisan,
     onSuccess: (data) => {
-      setArtisanConnected(data)
+      const { accessKey, ...artisan } = data;
+
+      if (accessKey) {
+        useAuthStore.getState().login(artisan, accessKey, "artisan");
+      }
     },
     onError: (error) => {
       console.error("Erreur lors de l'inscription :", error);

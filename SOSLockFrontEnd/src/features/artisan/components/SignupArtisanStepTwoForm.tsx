@@ -1,21 +1,28 @@
 import { FormField } from "../../../components/FormField";
-import { useSignupArtisan } from "../hooks/useSignupArtisan";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import {
   signupArtisanStepTwoSchema,
   type signupArtisanStepTwoData,
 } from "../schema/artisan.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { DepartmentsField } from "./DepartmentsField";
 import { SkillsV2Field } from "../../../components/SkillFieldsV2";
 import { useUpdateArtisan } from "../hooks/useUpdateArtisan";
-import { useArtisanStore } from "../hooks/useArtisanStore";
+import { useAuthStore } from "../../authentication/stores/authStore";
+import { useQueryClient } from "@tanstack/react-query";
 
-export function SignupArtisanFormStepTwoForm() {
-  const navigate = useNavigate();
+interface Props {
+  onNext?: () => void;
+  isEditMode?: boolean;
+}
+
+export function SignupArtisanFormStepTwoForm({
+  onNext,
+  isEditMode = false,
+}: Props) {
   const { isPending, mutate: update } = useUpdateArtisan();
+  const artisan = useAuthStore((s) => s.artisan);
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -24,31 +31,39 @@ export function SignupArtisanFormStepTwoForm() {
     formState: { errors },
   } = useForm<signupArtisanStepTwoData>({
     resolver: zodResolver(signupArtisanStepTwoSchema),
+    defaultValues: isEditMode
+      ? {
+          companyName: artisan?.companyName ?? "",
+          siret: artisan?.siret ?? "",
+          IBAN: artisan?.IBAN ?? "",
+          departments: artisan?.departments ?? [],
+          skills: artisan?.skills ?? [],
+        }
+      : undefined,
   });
 
-  const artisanConnected = useArtisanStore((state) => state.artisanConnected);
-
   const onSubmit: SubmitHandler<signupArtisanStepTwoData> = (data) => {
-    if (!artisanConnected?.id) return;
+    if (!artisan?.id) return;
 
-    update({ id: artisanConnected.id, data });
+    update(
+      { id: artisan.id, data },
+      {
+        onSuccess: () => {
+          (queryClient.invalidateQueries({
+            queryKey: ["artisan", artisan.id],
+          }),
+            onNext?.());
+        },
+      },
+    );
   };
-
-  const { isSuccess } = useSignupArtisan();
-
-  useEffect(() => {
-    if (isSuccess) {
-      navigate("/signupArtisanStepTwo");
-    }
-  }, [isSuccess, navigate]);
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-        {/* Entreprise */}
         <fieldset className="flex flex-col gap-4">
           <legend className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
-            Entreprise
+            {isEditMode ? "Modifier mon profil entreprise" : "Entreprise"}
           </legend>
           <FormField
             label="Nom de société"
@@ -62,7 +77,6 @@ export function SignupArtisanFormStepTwoForm() {
             placeholder="123 456 789 00012"
             {...register("siret")}
           />
-
           <FormField
             label="IBAN"
             error={errors.IBAN?.message}
@@ -82,7 +96,7 @@ export function SignupArtisanFormStepTwoForm() {
               />
             )}
           />
-          {/* Compétences */}
+
           <Controller
             name="skills"
             control={control}
@@ -96,37 +110,19 @@ export function SignupArtisanFormStepTwoForm() {
             )}
           />
         </fieldset>
+
         <button
           type="submit"
           disabled={isPending}
-          className="py-3 rounded-xl font-semibold text-white transition-all
-          bg-primary hover:bg-primary-hover
-          disabled:opacity-40 disabled:cursor-not-allowed"
+          className="py-3 rounded-xl font-semibold text-white transition-all bg-primary hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {isPending ? "Enregistrement..." : "Terminer mon inscription"}
+          {isPending
+            ? "Enregistrement..."
+            : isEditMode
+              ? "Enregistrer les modifications"
+              : "Terminer mon inscription"}
         </button>
       </form>
     </>
   );
 }
-
-/*   Récapitulatif temps réel 
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-600">
-        <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
-          Récapitulatif
-        </p>
-        <p>
-          <span className="font-medium">Nom :</span> {form.firstName}{" "}
-          {form.lastName}
-        </p>
-        <p>
-          <span className="font-medium">Email :</span> {form.email}
-        </p>
-        <p>
-          <span className="font-medium">Société :</span> {form.companyName}
-        </p>
-        <p>
-          <span className="font-medium">Compétences :</span>{" "}
-          {form.skills.join(", ") || "—"}
-        </p>
-      </div>*/

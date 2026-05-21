@@ -3,9 +3,17 @@ import api from "../../../client/client";
 import type { ClientRequest, Product } from "../clientRequest.types";
 
 export const getClientRequests = async (): Promise<ClientRequest[]> => {
-  const res = await api.get<ClientRequest[]>(`/client-requests/`);
+  try {
+    const response = await api.get("/client-requests/");
+    return response.data;
+  } catch (error: any) {
+    console.error("API error:", error?.response?.data || error.message);
 
-  return res.data;
+    throw new Error(
+      error?.response?.data?.error ||
+        "Erreur lors de la récupération des client requests",
+    );
+  }
 };
 
 export const getProductsByCategory = async (

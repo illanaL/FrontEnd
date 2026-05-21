@@ -10,14 +10,6 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
  
-api.interceptors.request.use((config)=> {
-  const token = localStorage.getItem('accessKey');
-  if(token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config;
-});
-
 /**
  * Crée un compte artisan.
  * Route : POST /artisans/signUp
@@ -29,6 +21,21 @@ export const signUpArtisan = async (
   return res.data;
 };
 
+api.interceptors.request.use((config)=> {
+  const token = localStorage.getItem('accessKey');
+  if(token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config;
+});
+/**
+ * Récupère un artisan par son id.
+ * Route : GET /artisans/:id
+ */
+export const getArtisanById = async (id: string): Promise<ArtisanResponse> => {
+  const res = await api.get<ArtisanResponse>(`/artisans/${id}`);
+  return res.data;
+};
 
  
 // ─────────────────────────────────────────────

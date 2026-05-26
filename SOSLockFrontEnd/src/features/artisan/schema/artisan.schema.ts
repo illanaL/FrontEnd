@@ -18,7 +18,7 @@ export const signupArtisanStepTwoSchema = z.object({
   companyName: z.string().min(2, "Nom de société requis").optional(),
   siret: z.string().length(14, "14 chiffres").optional(),
   IBAN: z.string().min(14, "IBAN invalide").optional(),
-  skills: z.array(z.string()).min(1, "Au moins une compétence").optional(),
+  skills: z.array(z.object({ value: z.string().nonempty('Compétence requise') })).min(1, 'Au moins une compétence requise').optional(),
   departments: z.array(z.string()).min(1, "Au moins un département").optional(),
   address: z
     .object({

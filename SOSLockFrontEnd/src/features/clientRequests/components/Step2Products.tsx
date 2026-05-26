@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { ClientRequestFormData } from "../clientRequest.types";
 import { useQuery } from "@tanstack/react-query";
-import { getProductsByCategory } from "../api/clientRequest.api";
 import { useDebounce } from "../../../hooks/useDebounce";
+import { getProductsByCategory } from "../../products/api/product.api";
 interface Props {
   formdata: ClientRequestFormData;
   update: (field: keyof ClientRequestFormData, value: unknown) => void;

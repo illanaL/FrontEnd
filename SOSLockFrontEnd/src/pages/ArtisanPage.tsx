@@ -13,9 +13,8 @@ import ArtisanPageSkeleton from "./ArtisanPageSkeleton";
 import type { FilterFormData } from "../features/clientRequests/schema/filter.schema";
 import { useWatch } from "react-hook-form";
 import { SignupArtisanFormStepTwoForm } from "../features/artisan/components/SignupArtisanStepTwoForm";
-import { useGetArtisan } from "../features/artisan/hooks/useGetArtisan";
 import { Alert } from "../components/Alert";
-import { useGetClientRequests } from "../features/clientRequests/hooks/usegetClientRequests";
+import { useGetClientRequests } from "../features/clientRequests/hooks/useGetClientRequests";
 
 const URGENT_OPTIONS: {
   value: FilterFormData["filterUrgent"];
@@ -44,13 +43,6 @@ export const ArtisanPage = () => {
     filtered,
     stats,
   } = useGetClientRequests();
-
-  const {
-    data: artisanProfile,
-    isLoading: isProfileLoading,
-    isError: isProfileError,
-    error: profileError,
-  } = useGetArtisan(artisan?.id);
 
   const [isModalOpen, toggleModal] = useToggle(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -108,7 +100,7 @@ export const ArtisanPage = () => {
   // 🔹 Gestion globale des états de chargement / erreur
   if (!artisan) return <p>Accès refusé</p>;
 
-  if (loading || isProfileLoading) {
+  if (loading) {
     return <ArtisanPageSkeleton />;
   }
 
@@ -121,12 +113,10 @@ export const ArtisanPage = () => {
     );
   }
 
-  if (isProfileError) {
+  if (error) {
     return (
       <Alert variant="error">
-        {profileError instanceof Error
-          ? profileError.message
-          : "Erreur lors du chargement du profil artisan."}
+        {"Erreur lors du chargement du profil artisan."}
       </Alert>
     );
   }
@@ -135,7 +125,7 @@ export const ArtisanPage = () => {
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>
 
-      {/* profil incomplet → alerte */}
+      {/* profil incomplet → alerte 
       {artisanProfile && !artisanProfile.isProfileComplete && (
         <div className="mb-4 flex flex-col gap-2">
           <h1 className="text-lg font-semibold">
@@ -146,7 +136,7 @@ export const ArtisanPage = () => {
             Ton profil est incomplet. Complète-le pour recevoir des demandes.
           </Alert>
         </div>
-      )}
+      )}*/}
 
       <button
         onClick={logout}

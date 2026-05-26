@@ -1,6 +1,5 @@
-import axios from "axios";
 import api from "../../../client/client";
-import type { ClientRequest, Product } from "../clientRequest.types";
+import type { ClientRequest } from "../clientRequest.types";
 
 export const getClientRequests = async (): Promise<ClientRequest[]> => {
   try {
@@ -15,21 +14,22 @@ export const getClientRequests = async (): Promise<ClientRequest[]> => {
     );
   }
 };
-
-export const getProductsByCategory = async (
-  category: string,
-): Promise<Product[]> => {
+export const getClientRequestsByArtisan = async (
+  artisanId: string,
+): Promise<ClientRequest[]> => {
   try {
-    const res = await api.get<Product[]>(`/products/category/${category}`);
-    return res.data;
-  } catch (error) {
+    const response = await api.get<ClientRequest[]>(
+      `/client-requests/artisan/${artisanId}`,
+    );
 
-    if (axios.isAxiosError(error) && error.response?.status === 400) {
-      return [];  
-    } 
+    return response.data;
+  } catch (error: any) {
+    console.error("API error:", error?.response?.data || error.message);
 
-    console.error("Error fetching products by category:", error);
-    throw error;
+    throw new Error(
+      error?.response?.data?.error ||
+        "Erreur lors de la récupération des client requests de l'artisan",
+    );
   }
 };
 

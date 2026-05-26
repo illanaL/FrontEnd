@@ -1,5 +1,5 @@
 import { FormField } from "../../../components/FormField";
-import { Controller, useForm, type SubmitHandler } from "react-hook-form";
+import { Controller, useFieldArray, useForm, type SubmitHandler } from "react-hook-form";
 import {
   signupArtisanStepTwoSchema,
   type signupArtisanStepTwoData,
@@ -41,6 +41,11 @@ export function SignupArtisanFormStepTwoForm({
         }
       : undefined,
   });
+
+  const { fields: skills, append, remove } = useFieldArray({
+        control,
+        name: [{value: 'skills'}]
+    })
 
   const onSubmit: SubmitHandler<signupArtisanStepTwoData> = (data) => {
     if (!artisan?.id) return;
@@ -107,8 +112,26 @@ export function SignupArtisanFormStepTwoForm({
                 onChange={field.onChange}
                 error={errors.skills?.message}
               />
+              
             )}
           />
+               <div className="flex flex-wrap gap-2">
+        {value.map((skill) => (
+          <span
+            key={skill}
+            className="flex items-center gap-1 px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-xs font-medium"
+          >
+            {skill}
+            <button
+              type="button"
+              onClick={() => removeSkill(skill)}
+              className="hover:text-red-500 transition-colors"
+            >
+              ✕
+            </button>
+          </span>
+        ))}
+      </div>
         </fieldset>
 
         <button

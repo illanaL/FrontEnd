@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = useCallback(
     async (data: LoginByPhoneForm) => {
       await authArtisanApi.login(data);
-      navigate("/artisans");
+      navigate("/artisans/mon-espace");
     },
     [navigate],
   );

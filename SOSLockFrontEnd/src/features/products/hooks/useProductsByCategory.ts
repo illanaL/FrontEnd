@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Product } from "../clientRequest.types";
-import { getProductsByCategory } from "../api/clientRequest.api";
+import type { Product } from "../../clientRequests/clientRequest.types";
+import { getProductsByCategory } from "../api/product.api";
 
 
 

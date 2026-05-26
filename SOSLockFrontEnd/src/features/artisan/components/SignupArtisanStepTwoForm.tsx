@@ -10,6 +10,7 @@ import { SkillsV2Field } from "../../../components/SkillFieldsV2";
 import { useUpdateArtisan } from "../hooks/useUpdateArtisan";
 import { useAuthStore } from "../../authentication/stores/authStore";
 import { useQueryClient } from "@tanstack/react-query";
+import { SkillsV3Field } from "../../../components/SkillFieldsV3";
 
 interface Props {
   onNext?: () => void;
@@ -33,19 +34,19 @@ export function SignupArtisanFormStepTwoForm({
     resolver: zodResolver(signupArtisanStepTwoSchema),
     defaultValues: isEditMode
       ? {
-          companyName: artisan?.companyName ?? "",
-          siret: artisan?.siret ?? "",
-          IBAN: artisan?.IBAN ?? "",
-          departments: artisan?.departments ?? [],
-          skills: artisan?.skills ?? [],
-        }
+        companyName: artisan?.companyName ?? "",
+        siret: artisan?.siret ?? "",
+        IBAN: artisan?.IBAN ?? "",
+        departments: artisan?.departments ?? [],
+        skills: artisan?.skills.map((skill) => ({ value: skill })) ?? [],
+      }
       : undefined,
   });
 
   const { fields: skills, append, remove } = useFieldArray({
-        control,
-        name: [{value: 'skills'}]
-    })
+    control,
+    name: "skills"
+  })
 
   const onSubmit: SubmitHandler<signupArtisanStepTwoData> = (data) => {
     if (!artisan?.id) return;
@@ -107,31 +108,32 @@ export function SignupArtisanFormStepTwoForm({
             control={control}
             defaultValue={[]}
             render={({ field }) => (
-              <SkillsV2Field
-                value={field.value ?? []}
+              <SkillsV3Field
                 onChange={field.onChange}
                 error={errors.skills?.message}
+                append={append}
+                count={skills.length}
               />
-              
+
             )}
           />
-               <div className="flex flex-wrap gap-2">
-        {value.map((skill) => (
-          <span
-            key={skill}
-            className="flex items-center gap-1 px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-xs font-medium"
-          >
-            {skill}
-            <button
-              type="button"
-              onClick={() => removeSkill(skill)}
-              className="hover:text-red-500 transition-colors"
-            >
-              ✕
-            </button>
-          </span>
-        ))}
-      </div>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill, index) => (
+              <span
+                key={skill.id}
+                className="flex items-center gap-1 px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-xs font-medium"
+              >
+                {skill.value}
+                <button
+                  type="button"
+                  onClick={() => remove(index)}
+                  className="hover:text-red-500 transition-colors"
+                >
+                  ✕
+                </button>
+              </span>
+            ))}
+          </div>
         </fieldset>
 
         <button

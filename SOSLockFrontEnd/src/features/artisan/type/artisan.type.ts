@@ -31,7 +31,7 @@ export interface CreateArtisanInput {
   phone: string;
   siret: string;
   IBAN: string;
-  skills: string[];
+  skills: {value: string}[];
 }
 
 export interface ArtisanFormState {

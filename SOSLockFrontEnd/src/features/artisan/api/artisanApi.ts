@@ -52,7 +52,7 @@ export const updateArtisan = async (
 ): Promise<UpdateArtisanResponse> => {
   const res = await api.patch<UpdateArtisanResponse>(
     `/artisans/update/${id}`,
-    data
+    {...data, skills: data.skills.map((skill) => skill.value)}
   );
   return res.data;
 };

@@ -12,7 +12,9 @@ import { ArtisanLayout } from "./features/artisan/layout/ArtisanLayout";
 const ExoPage = lazy(() => import("./pages/ExoPage"));
 const ArtisanPage = lazy(() => import("./pages/ArtisanPage"));
 const PublicPage = lazy(() => import("./pages/PublicPage"));
-const AdminPage = lazy(() => import("./pages/AdminPage"));
+const AdminLayout = lazy(
+  () => import("./features/adminUser/layout/AdminLayout"),
+);
 const ErreurPage = lazy(() => import("./pages/Erreur"));
 const LoginArtisanPage = lazy(() => import("./pages/LoginArtisanPage"));
 const AssignedRequestsPage = lazy(
@@ -21,6 +23,13 @@ const AssignedRequestsPage = lazy(
 const MyProfilePage = lazy(
   () => import("./features/artisan/pages/MyProfilPage"),
 );
+const AdminArtisansPage = lazy(
+  () => import("./features/adminUser/pages/AdminArtisansPage"),
+);
+const AdminDashboardPage = lazy(
+  () => import("./features/adminUser/pages/AdminDashboardPage"),
+);
+
 function App() {
   return (
     <AuthProvider>
@@ -57,7 +66,15 @@ function App() {
                 </AppErrorBoundary>
               }
             />
-            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboardPage />} />
+              <Route path="artisans" element={<AdminArtisansPage />} />
+              {/*} <Route
+                path="client-requests"
+                element={<AdminClientRequestsPage />}
+              />*/}
+            </Route>
+
             <Route path="/exo" element={<ExoPage />} />
             <Route path="/demande" element={<AskClientRequest />} />
             <Route path="/signup-artisan" element={<SignupArtisanForm />} />

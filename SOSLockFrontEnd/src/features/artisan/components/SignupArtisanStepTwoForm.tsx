@@ -1,12 +1,16 @@
 import { FormField } from "../../../components/FormField";
-import { Controller, useFieldArray, useForm, type SubmitHandler } from "react-hook-form";
+import {
+  Controller,
+  useFieldArray,
+  useForm,
+  type SubmitHandler,
+} from "react-hook-form";
 import {
   signupArtisanStepTwoSchema,
   type signupArtisanStepTwoData,
 } from "../schema/artisan.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DepartmentsField } from "./DepartmentsField";
-import { SkillsV2Field } from "../../../components/SkillFieldsV2";
 import { useUpdateArtisan } from "../hooks/useUpdateArtisan";
 import { useAuthStore } from "../../authentication/stores/authStore";
 import { useQueryClient } from "@tanstack/react-query";
@@ -34,19 +38,23 @@ export function SignupArtisanFormStepTwoForm({
     resolver: zodResolver(signupArtisanStepTwoSchema),
     defaultValues: isEditMode
       ? {
-        companyName: artisan?.companyName ?? "",
-        siret: artisan?.siret ?? "",
-        IBAN: artisan?.IBAN ?? "",
-        departments: artisan?.departments ?? [],
-        skills: artisan?.skills.map((skill) => ({ value: skill })) ?? [],
-      }
+          companyName: artisan?.companyName ?? "",
+          siret: artisan?.siret ?? "",
+          IBAN: artisan?.IBAN ?? "",
+          departments: artisan?.departments ?? [],
+          skills: artisan?.skills.map((skill) => ({ value: skill })) ?? [],
+        }
       : undefined,
   });
 
-  const { fields: skills, append, remove } = useFieldArray({
+  const {
+    fields: skills,
+    append,
+    remove,
+  } = useFieldArray({
     control,
-    name: "skills"
-  })
+    name: "skills",
+  });
 
   const onSubmit: SubmitHandler<signupArtisanStepTwoData> = (data) => {
     if (!artisan?.id) return;
@@ -114,7 +122,6 @@ export function SignupArtisanFormStepTwoForm({
                 append={append}
                 count={skills.length}
               />
-
             )}
           />
           <div className="flex flex-wrap gap-2">

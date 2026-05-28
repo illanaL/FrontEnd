@@ -1,20 +1,18 @@
 import { useCallback, useRef, useState } from "react";
-import { StatsGrid } from "../components/StatsGrid";
-import { SortBar } from "../features/clientRequests/components/SortBar";
-import { ViewToggle } from "../features/clientRequests/components/ViewToggle";
-import { GridView } from "../features/clientRequests/components/GridView";
-import { ListView } from "../features/clientRequests/components/ListView";
-import { ClientRequestModal } from "../features/clientRequests/components/ClientRequestModal";
-import { Tabs } from "../components/Tabs";
-import { StatusRequest } from "../data/data";
-import { useAuth } from "../features/authentication/context/AuthContext";
-import { useToggle } from "../hooks/useToggle";
-import ArtisanPageSkeleton from "./ArtisanPageSkeleton";
-import type { FilterFormData } from "../features/clientRequests/schema/filter.schema";
+import { StatsGrid } from "../../../components/StatsGrid";
+import { SortBar } from "../../clientRequests/components/SortBar";
+import { ViewToggle } from "../../clientRequests/components/ViewToggle";
+import { GridView } from "../../clientRequests/components/GridView";
+import { ListView } from "../../clientRequests/components/ListView";
+import { ClientRequestModal } from "../../clientRequests/components/ClientRequestModal";
+import { Tabs } from "../../../components/Tabs";
+import { StatusRequest } from "../../../data/data";
+import { useToggle } from "../../../hooks/useToggle";
+import AdminDashboardClientRequestsPageSkeleton from "../../../pages/ArtisanPageSkeleton";
+import type { FilterFormData } from "../../clientRequests/schema/filter.schema";
 import { useWatch } from "react-hook-form";
-import { SignupArtisanFormStepTwoForm } from "../features/artisan/components/SignupArtisanStepTwoForm";
-import { Alert } from "../components/Alert";
-import { useGetClientRequests } from "../features/clientRequests/hooks/useGetClientRequests";
+import { Alert } from "../../../components/Alert";
+import { useGetClientRequests } from "../../clientRequests/hooks/useGetClientRequests";
 
 const URGENT_OPTIONS: {
   value: FilterFormData["filterUrgent"];
@@ -30,9 +28,7 @@ const URGENT_OPTIONS: {
   },
 ];
 
-export const ArtisanPage = () => {
-  const { artisan, logout } = useAuth();
-
+export const AdminDashbaordClientRequestPage = () => {
   const {
     loading,
     error,
@@ -97,11 +93,8 @@ export const ArtisanPage = () => {
     [viewMode, handleSelect],
   );
 
-  // 🔹 Gestion globale des états de chargement / erreur
-  if (!artisan) return <p>Accès refusé</p>;
-
   if (loading) {
-    return <ArtisanPageSkeleton />;
+    return <AdminDashboardClientRequestsPageSkeleton />;
   }
 
   if (error) {
@@ -123,49 +116,13 @@ export const ArtisanPage = () => {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-6">Tableau de bord Artisan</h1>
-
-      {/* profil incomplet → alerte 
-      {artisanProfile && !artisanProfile.isProfileComplete && (
-        <div className="mb-4 flex flex-col gap-2">
-          <h1 className="text-lg font-semibold">
-            Bonjour {artisanProfile.firstName} {artisanProfile.lastName}
-          </h1>
-
-          <Alert variant="warning">
-            Ton profil est incomplet. Complète-le pour recevoir des demandes.
-          </Alert>
-        </div>
-      )}*/}
-
-      <button
-        onClick={logout}
-        className="mb-4 inline-flex items-center rounded-lg border border-gray-200 px-3 py-1 text-sm text-gray-700 hover:bg-gray-50"
-      >
-        Déconnexion
-      </button>
+      <h1 className="text-2xl font-bold mb-6">
+        Tableau de bord des demandes d'interventions
+      </h1>
 
       <StatsGrid stats={statsDisplay} />
 
       <Tabs>
-        <Tabs.Tab label="À traiter">
-          {renderList(
-            filtered.filter((i) => i.status === StatusRequest.PENDING),
-          )}
-        </Tabs.Tab>
-
-        <Tabs.Tab label="En cours">
-          {renderList(
-            filtered.filter((i) => i.status === StatusRequest.ASSIGNED),
-          )}
-        </Tabs.Tab>
-
-        <Tabs.Tab label="Terminées">
-          {renderList(
-            filtered.filter((i) => i.status === StatusRequest.COMPLETED),
-          )}
-        </Tabs.Tab>
-
         <Tabs.Tab label="Vue Globale (Filtres)" onSelect={focusSearch}>
           <div className="flex flex-col gap-4 mb-6">
             <input
@@ -205,9 +162,22 @@ export const ArtisanPage = () => {
           </div>
           {renderList(filtered)}
         </Tabs.Tab>
+        <Tabs.Tab label="À traiter">
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.PENDING),
+          )}
+        </Tabs.Tab>
 
-        <Tabs.Tab label="Profil">
-          <SignupArtisanFormStepTwoForm isEditMode />
+        <Tabs.Tab label="En cours">
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.ASSIGNED),
+          )}
+        </Tabs.Tab>
+
+        <Tabs.Tab label="Terminées">
+          {renderList(
+            filtered.filter((i) => i.status === StatusRequest.COMPLETED),
+          )}
         </Tabs.Tab>
       </Tabs>
 
@@ -220,4 +190,4 @@ export const ArtisanPage = () => {
   );
 };
 
-export default ArtisanPage;
+export default AdminDashbaordClientRequestPage;

@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { useAuth } from "../../authentication/context/AuthContext";
 import { useClientRequestsByArtisan } from "../../clientRequests/hooks/useClientRequestsByArtisan";
 import { useToggle } from "../../../hooks/useToggle";
-import ArtisanPageSkeleton from "../../../pages/ArtisanPageSkeleton";
+import AdminDashboardClientRequestsPageSkeleton from "../../../pages/ArtisanPageSkeleton";
 import { Alert } from "../../../components/Alert";
 import { ViewToggle } from "../../clientRequests/components/ViewToggle";
 import { GridView } from "../../clientRequests/components/GridView";
@@ -41,7 +41,7 @@ export const AssignedRequestsPage = () => {
 
   const selected = requests.find((r) => r.id === selectedId) ?? null;
 
-  if (isLoading) return <ArtisanPageSkeleton />;
+  if (isLoading) return <AdminDashboardClientRequestsPageSkeleton />;
 
   if (isError) {
     return (

@@ -8,9 +8,12 @@ import { lazy, Suspense } from "react";
 import { Spinner } from "./components/Spinner";
 import { ProtectedRoute } from "./features/authentication/components/ProtectedRoute";
 import { ArtisanLayout } from "./features/artisan/layout/ArtisanLayout";
+import AdminDashbaordClientRequestPage from "./features/adminUser/pages/AdminDashbaordClientRequestPage";
 
 const ExoPage = lazy(() => import("./pages/ExoPage"));
-const ArtisanPage = lazy(() => import("./pages/ArtisanPage"));
+const ArtisanPage = lazy(
+  () => import("./features/adminUser/pages/AdminDashbaordClientRequestPage"),
+);
 const PublicPage = lazy(() => import("./pages/PublicPage"));
 const AdminLayout = lazy(
   () => import("./features/adminUser/layout/AdminLayout"),
@@ -39,7 +42,6 @@ function App() {
         }
       >
         <Routes>
-          {/* ── Routes avec Layout global ── */}
           <Route
             element={
               <Layout>
@@ -69,10 +71,10 @@ function App() {
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboardPage />} />
               <Route path="artisans" element={<AdminArtisansPage />} />
-              {/*} <Route
+              <Route
                 path="client-requests"
-                element={<AdminClientRequestsPage />}
-              />*/}
+                element={<AdminDashbaordClientRequestPage />}
+              />
             </Route>
 
             <Route path="/exo" element={<ExoPage />} />

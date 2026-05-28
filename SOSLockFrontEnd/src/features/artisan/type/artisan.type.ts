@@ -92,3 +92,16 @@ export interface InactivateArtisanResponse {
 }
 
 export type ApiErrorResponse = { error: string };
+
+export type ArtisanFilters = {
+  search?: string;
+  department?: string;
+  activeFilter?: "all" | "active" | "inactive";
+  profileFilter?: "all" | "complete" | "incomplete";
+  showDeleted?: boolean;
+}
+
+export type AdminArtisanQueryParams = ArtisanFilters & {
+  page?: number;
+  limit?: number;
+};

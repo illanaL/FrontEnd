@@ -1,22 +1,20 @@
-import { useDeferredValue, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import {
   filterArtisanSchema,
   type FilterArtisanForm,
 } from "../schema/filterArtisanSchema";
 
 import { useAdminArtisansQuery } from "../queries/useAdminGetAllArtisans";
+import { useAdminDeletedArtisansQuery } from "../queries/useAdminGetDeletedArtisans";
+import type { AdminArtisanQueryParams } from "../../artisan/type/artisan.type";
 
-export const useAdminArtisans = () => {
-  const {
-    data: artisans = [],
-    isPending,
-    isError,
-    error,
-  } = useAdminArtisansQuery();
+export const useAdminArtisans = ({ showDeleted }: { showDeleted: boolean }) => {
+  const [page, setPage] = useState(1);
+  const limit = 10;
 
+  // Formulaire des filtres
   const form = useForm<FilterArtisanForm>({
     resolver: zodResolver(filterArtisanSchema),
     defaultValues: {
@@ -27,68 +25,49 @@ export const useAdminArtisans = () => {
     },
   });
 
-  const {
-    search,
-    department,
-    activeFilter,
-    profileFilter,
-  } = useWatch({
+ 
+  const { search, department, activeFilter, profileFilter } = useWatch({
     control: form.control,
   });
 
-  const deferredSearch = useDeferredValue(search ?? "");
+  useEffect(() => {
+    setPage(1);
+  }, [search, department, activeFilter, profileFilter, showDeleted]);
 
+ 
+  const filters: AdminArtisanQueryParams = {
+    page,
+    limit,
+    search: search || undefined,
+    department: department || undefined,
+    activeFilter: activeFilter || "all",
+    profileFilter: profileFilter || "all",
+    showDeleted,
+  };
+
+
+  const query = showDeleted
+    ? useAdminDeletedArtisansQuery({ page, limit })
+    : useAdminArtisansQuery(filters);
+
+  const { data, isPending, isError, error } = query;
+
+  const artisans = data?.data ?? [];
+
+ 
   const availableDepartments = useMemo(() => {
-    return [
-      ...new Set(
-        artisans.flatMap((artisan) => artisan.departments ?? [])
-      ),
-    ].sort();
+    return [...new Set(artisans.flatMap((a) => a.departments ?? []))].sort();
   }, [artisans]);
 
-  const filteredArtisans = useMemo(() => {
-    const searchLower = deferredSearch.toLowerCase();
-
-    return artisans.filter((artisan) => {
-      const matchesSearch =
-        !deferredSearch ||
-        artisan.firstName.toLowerCase().includes(searchLower) ||
-        artisan.lastName.toLowerCase().includes(searchLower);
-
-      const matchesDepartment =
-        !department ||
-        (artisan.departments ?? []).includes(department);
-
-      const matchesActive =
-        activeFilter === "all" ||
-        (activeFilter === "active" && artisan.isActive) ||
-        (activeFilter === "inactive" && !artisan.isActive);
-
-      const matchesProfile =
-        profileFilter === "all" ||
-        (profileFilter === "complete" &&
-          artisan.isProfileComplete) ||
-        (profileFilter === "incomplete" &&
-          !artisan.isProfileComplete);
-
-      return (
-        matchesSearch &&
-        matchesDepartment &&
-        matchesActive &&
-        matchesProfile
-      );
-    });
-  }, [
-    artisans,
-    deferredSearch,
-    department,
-    activeFilter,
-    profileFilter,
-  ]);
-
   return {
-    artisans: filteredArtisans,
-    total: artisans.length,
+    artisans,
+    total: data?.total ?? 0,
+    totalActive: data?.totalActive ?? 0,
+    totalInactive: data?.totalInactive ?? 0,
+    totalIncomplete: data?.totalIncomplete ?? 0,
+    totalPages: data?.totalPages ?? 0,
+    page,
+    setPage,
     isPending,
     isError,
     error,

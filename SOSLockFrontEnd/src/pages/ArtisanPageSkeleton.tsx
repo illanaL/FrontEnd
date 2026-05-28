@@ -2,7 +2,7 @@ import { Skeleton } from "../components/Skeleton";
 import { StatsGridSkeleton } from "../components/StatsGridSkeleton";
 import { ListViewSkeleton } from "../features/clientRequests/components/ListViewSkeleton";
 
-export const ArtisanPageSkeleton = () => {
+export const AdminDashboardClientRequestsPageSkeleton = () => {
   return (
     <div className="p-8">
       {/* h1 "Tableau de bord Artisan" */}
@@ -25,4 +25,4 @@ export const ArtisanPageSkeleton = () => {
     </div>
   );
 };
-export default ArtisanPageSkeleton;
+export default AdminDashboardClientRequestsPageSkeleton;

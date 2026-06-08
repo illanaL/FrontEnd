@@ -8,7 +8,7 @@ import { ClientRequestModal } from "../../clientRequests/components/ClientReques
 import { Tabs } from "../../../components/Tabs";
 import { StatusRequest } from "../../../data/data";
 import { useToggle } from "../../../hooks/useToggle";
-import AdminDashboardClientRequestsPageSkeleton from "../../../pages/ArtisanPageSkeleton";
+import AdminDashboardClientRequestsPageSkeleton from "../../artisan/pages/ArtisanPageSkeleton";
 import type { FilterFormData } from "../../clientRequests/schema/filter.schema";
 import { useWatch } from "react-hook-form";
 import { Alert } from "../../../components/Alert";

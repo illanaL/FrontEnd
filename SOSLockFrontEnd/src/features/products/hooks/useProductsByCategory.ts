@@ -1,32 +1,18 @@
-import { useEffect, useState } from "react";
-import type { Product } from "../../clientRequests/clientRequest.types";
 import { getProductsByCategory } from "../api/product.api";
+import { productsKeys } from "../queries/keys";
+import type { Category, Product } from "../type/products.type";
+import { useQuery } from "@tanstack/react-query";
 
-
-
-export const useProductsByCategory = (category :string) => {
-    const [products, setProducts] = useState<Product[]>([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)  
-    
-
-    useEffect(() => {
-
-        if(!category) return
-        const load = async () => {
-            try {
-                setLoading(true)
-                setError(null)
-                const data = await getProductsByCategory(category)
-                setProducts(data)
-            }catch (err: unknown) {
-                if (err instanceof Error) setError(err.message)
-            }finally{
-                setLoading(false)
-            }
-        }
-        load();
-    }, [category])
-        return {products, loading, error}
+export const useProductsByCategory = (category : Category | null) => {
+    return useQuery<Product[]> ({
+        queryKey: productsKeys.byCategory(category),
+        queryFn: async () => {
+            if(!category) return [];
+            return getProductsByCategory(category)
+        },
+        enabled: !!category,
+        // Évite l'effet de clignotement blanc (loader) quand on change de catégorie
+        placeholderData: (previousData) => previousData, 
+    })
     
 }

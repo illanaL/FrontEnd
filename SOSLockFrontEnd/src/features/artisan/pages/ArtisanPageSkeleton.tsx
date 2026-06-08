@@ -1,6 +1,6 @@
-import { Skeleton } from "../components/Skeleton";
-import { StatsGridSkeleton } from "../components/StatsGridSkeleton";
-import { ListViewSkeleton } from "../features/clientRequests/components/ListViewSkeleton";
+import { Skeleton } from "../../../components/Skeleton";
+import { StatsGridSkeleton } from "../../../components/StatsGridSkeleton";
+import { ListViewSkeleton } from "../../clientRequests/components/ListViewSkeleton";
 
 export const AdminDashboardClientRequestsPageSkeleton = () => {
   return (

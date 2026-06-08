@@ -30,7 +30,6 @@ function Tab({
   onSelect,
   tabId,
   panelId,
-  index,
 }: PropsWithChildren<TabProps>) {
   /**
    * Raccourcis clavier ARIA Tabs :

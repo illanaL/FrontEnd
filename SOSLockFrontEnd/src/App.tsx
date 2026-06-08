@@ -1,7 +1,6 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import { AuthProvider } from "./features/authentication/context/AuthContext";
 import { AppErrorBoundary } from "./components/ErrorBoundary";
-import { AskClientRequest } from "./pages/AskClientRequest";
 import { SignupArtisanForm } from "./features/artisan/components/SignupArtisanForm";
 import { Layout } from "./components/Layout";
 import { lazy, Suspense } from "react";
@@ -9,12 +8,14 @@ import { Spinner } from "./components/Spinner";
 import { ProtectedRoute } from "./features/authentication/components/ProtectedRoute";
 import { ArtisanLayout } from "./features/artisan/layout/ArtisanLayout";
 import AdminDashbaordClientRequestPage from "./features/adminUser/pages/AdminDashbaordClientRequestPage";
+import TarifsPage from "./features/public/page/TarifsPage";
+import ZonesInterventionPage from "./features/public/page/ZonesInterventionPage";
 
 const ExoPage = lazy(() => import("./pages/ExoPage"));
 const ArtisanPage = lazy(
   () => import("./features/adminUser/pages/AdminDashbaordClientRequestPage"),
 );
-const PublicPage = lazy(() => import("./pages/PublicPage"));
+//const PublicPage = lazy(() => import("./pages/PublicPage"));
 const AdminLayout = lazy(
   () => import("./features/adminUser/layout/AdminLayout"),
 );
@@ -31,6 +32,12 @@ const AdminArtisansPage = lazy(
 );
 const AdminDashboardPage = lazy(
   () => import("./features/adminUser/pages/AdminDashboardPage"),
+);
+const HomePage = lazy(() => import("./features/public/page/HomePage"));
+const ServicePage = lazy(() => import("./features/public/page/ServicesPage"));
+
+const AskClientRequest = lazy(
+  () => import("./features/clientRequests/pages/AskClientRequest"),
 );
 
 function App() {
@@ -49,7 +56,11 @@ function App() {
               </Layout>
             }
           >
-            <Route path="/" element={<PublicPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/ask-client-request" element={<AskClientRequest />} />
+            <Route path="/services" element={<ServicePage />} />
+            <Route path="/tarifs" element={<TarifsPage />} />
+            <Route path="/zones" element={<ZonesInterventionPage />} />
             <Route
               path="/artisans/signIn"
               element={

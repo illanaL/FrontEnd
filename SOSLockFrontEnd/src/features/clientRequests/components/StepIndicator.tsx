@@ -21,8 +21,8 @@ export const StepIndicator = ({ currentStep }: Props) => {
                 i < currentStep
                   ? "bg-green-500 text-white"
                   : i === currentStep
-                    ? "bg-teal-700 text-white"
-                    : "bg-teal-100 text-teal-400"
+                    ? "bg-sos-700 text-white"
+                    : "bg-sos-100 text-sos-400"
               }`}
             >
               {i < currentStep ? "✓" : i + 1}
@@ -33,8 +33,8 @@ export const StepIndicator = ({ currentStep }: Props) => {
                 i < currentStep
                   ? "text-green-600 font-medium"
                   : i === currentStep
-                    ? "text-teal-700 font-semibold"
-                    : "text-teal-400"
+                    ? "text-sos-700 font-semibold"
+                    : "text-sos-400"
               }`}
             >
               {label}
@@ -43,7 +43,7 @@ export const StepIndicator = ({ currentStep }: Props) => {
           {i < STEPS.length - 1 && (
             <div
               className={`w-10 h-0.5 mb-5 transition-all
-              ${i < currentStep ? "bg-green-500" : "bg-teal-200"}`}
+              ${i < currentStep ? "bg-green-500" : "bg-sos-200"}`}
             />
           )}
         </div>

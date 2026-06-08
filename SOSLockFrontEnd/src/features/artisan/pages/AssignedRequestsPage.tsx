@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { useAuth } from "../../authentication/context/AuthContext";
 import { useClientRequestsByArtisan } from "../../clientRequests/hooks/useClientRequestsByArtisan";
 import { useToggle } from "../../../hooks/useToggle";
-import AdminDashboardClientRequestsPageSkeleton from "../../../pages/ArtisanPageSkeleton";
+import AdminDashboardClientRequestsPageSkeleton from "./ArtisanPageSkeleton";
 import { Alert } from "../../../components/Alert";
 import { ViewToggle } from "../../clientRequests/components/ViewToggle";
 import { GridView } from "../../clientRequests/components/GridView";

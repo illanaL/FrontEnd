@@ -56,8 +56,7 @@ function Accordion({ children }: PropsWithChildren) {
  * @param value - Identifiant unique de l'item
  */
 function AccordionItem({
-  value,
-  children,
+    children,
 }: PropsWithChildren<{ value: string }>) {
   return (
     /* role="listitem" lie cet item au role="list" parent */

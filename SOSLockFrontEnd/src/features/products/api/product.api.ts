@@ -1,10 +1,10 @@
 import axios from "axios";
-import type { Product } from "../../clientRequests/clientRequest.types";
 import api from "../../../client/client";
+import type { Category, Product } from "../type/products.type";
 
 
 export const getProductsByCategory = async (
-  category: string,
+  category: Category,
 ): Promise<Product[]> => {
   try {
     const res = await api.get<Product[]>(`/products/category/${category}`);

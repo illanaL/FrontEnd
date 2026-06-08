@@ -5,7 +5,7 @@ import type { ClientRequestFormData } from "../clientRequest.types";
 const MAX_STEP = 3;
 
 const INITIAL_STATE: ClientRequestFormData = {
-  categoryId: "",
+  categoryId: null,
   productIds: [],
   isUrgent: false,
   firstName: "",
@@ -29,6 +29,7 @@ interface ClientRequestStoreState {
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
   nextStep: () => void;
   prevStep: () => void;
+  setStep: (step: number) => void;
   reset: () => void;
 }
 
@@ -60,6 +61,12 @@ export const useClientRequestStore = create<ClientRequestStoreState>()(
             (state) => ({ step: Math.max(0, state.step - 1) }),
             false,
             "prevStep",
+          ),
+        setStep: (step) => 
+          set(
+            ()=> ({ step: Math.max(0,Math.min(MAX_STEP, step))}),
+            false,
+            "setStep",
           ),
 
         reset: () => set({ step: 0, formData: INITIAL_STATE }, false, "reset"),

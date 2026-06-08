@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
+
+
+  
 @theme {
+  --color-sos-50: oklch(0.95 0.02 237);
+  --color-sos-100: oklch(0.90 0.03 237);
+  --color-sos-200: oklch(0.82 0.04 237);
+  --color-sos-300: oklch(0.70 0.05 237);
+  --color-sos-400: oklch(0.60 0.05 237);
+  --color-sos-500: oklch(0.51 0.05 237);
+  --color-sos-600: oklch(0.45 0.05 237);
+  --color-sos-700: oklch(0.38 0.05 237); 
+  --color-sos-800: oklch(0.30 0.04 237);
+  --color-sos-900: oklch(0.24 0.04 237);
 
-  --color-teal-50: oklch(0.95 0.02 237);
-  --color-teal-100: oklch(0.90 0.03 237);
-  --color-teal-200: oklch(0.82 0.04 237);
-  --color-teal-300: oklch(0.70 0.05 237);
-  --color-teal-400: oklch(0.60 0.05 237);
-  --color-teal-500: oklch(0.51 0.05 237);
-  --color-teal-600: oklch(0.45 0.05 237);
-  --color-teal-700: oklch(0.38 0.05 237); 
-  --color-teal-800: oklch(0.30 0.04 237);
-  --color-teal-900: oklch(0.24 0.04 237);
+  --color-sos-primary: var(--color-sos-700);
+  --color-sos-primary-hover: var(--color-sos-800);
 
-  --color-primary: var(--color-teal-700);
-  --color-primary-hover: var(--color-teal-800);
+  --color-sos-bg: white;
+  --color-sos-bg-soft: var(--color-sos-50);
 
-  --color-bg: white;
-  --color-bg-soft: var(--color-teal-50);
+  --color-sos-text: var(--color-sos-900);
+  --color-sos-text-light: var(--color-sos-100);
 
-  --color-text: var(--color-teal-900);
-  --color-text-light: var(--color-teal-100);
-
-  --color-border: var(--color-teal-200);
-
+  --color-sos-border: var(--color-sos-200);
+/*
 
   --animate-fade-in: fadeIn 500ms ease-out forwards;
   --animate-slide-up: slideUp 400ms ease-out forwards;
@@ -31,17 +33,134 @@
 
 
 [data-theme="dark"] {
-  --color-bg: var(--color-teal-900);
+  --color-bg: var(--color-sos-900);
   --color-bg-soft: var(--color-teal-800);
 
   --color-text: white;
-  --color-text-light: var(--color-teal-200);
+  --color-text-light: var(--color-sos-200);
 
-  --color-primary: var(--color-teal-400);
-  --color-primary-hover: var(--color-teal-300);
+  --color-primary: var(--color-sos-400);
+  --color-primary-hover: var(--color-sos-300);
 
-  --color-border: var(--color-teal-700);
+  --color-border: var(--color-sos-700);
+}*/
+
+
+
+  /* ─── Colors ─── */
+  --color-on-error-container: #93000a;
+  --color-outline: #737780;
+  --color-on-error: #ffffff;
+  --color-surface-variant: #dce2f7;
+  --color-error: #ba1a1a;
+  --color-surface-container-highest: #dce2f7;
+  --color-secondary-container: #316bf3;
+  --color-surface-tint: #3a5f94;
+  --color-inverse-primary: #a7c8ff;
+  --color-primary: #001e40;
+  --color-secondary: #0051d5;
+  --color-on-tertiary: #ffffff;
+  --color-background: #f9f9ff;
+  --color-surface-container: #e9edff;
+  --color-emergency-red: #DC2626;
+  --color-tertiary: #291c00;
+  --color-error-container: #ffdad6;
+  --color-on-primary-container: #799dd6;
+  --color-secondary-fixed: #dbe1ff;
+  --color-tertiary-container: #433000;
+  --color-on-primary-fixed-variant: #1f477b;
+  --color-primary-fixed: #d5e3ff;
+  --color-surface-bright: #f9f9ff;
+  --color-primary-container: #003366;
+  --color-primary-fixed-dim: #a7c8ff;
+  --color-on-primary-fixed: #001b3c;
+  --color-on-secondary: #ffffff;
+  --color-surface: #f9f9ff;
+  --color-inverse-surface: #293040;
+  --color-on-background: #141b2b;
+  --color-on-surface: #141b2b;
+  --color-surface-container-lowest: #ffffff;
+  --color-outline-variant: #c3c6d1;
+  --color-surface-alt: #F9FBFF;
+  --color-on-surface-variant: #43474f;
+  --color-secondary-fixed-dim: #b4c5ff;
+  --color-on-primary: #ffffff;
+  --color-on-secondary-container: #fefcff;
+  --color-on-secondary-fixed: #00174b;
+  --color-tertiary-fixed: #ffdf9f;
+  --color-on-tertiary-container: #c59300;
+  --color-inverse-on-surface: #edf0ff;
+  --color-on-secondary-fixed-variant: #003ea8;
+  --color-on-tertiary-fixed: #261a00;
+  --color-success-green: #059669;
+  --color-surface-container-high: #e1e8fd;
+  --color-surface-dim: #d3daef;
+  --color-surface-container-low: #f1f3ff;
+  --color-tertiary-fixed-dim: #f9bd22;
+  --color-on-tertiary-fixed-variant: #5c4300;
+
+  /* ─── Border Radius ─── */
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* ─── Spacing ─── */
+  --spacing-gutter: 24px;
+  --spacing-max-width: 1280px;
+  --spacing-base: 8px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+
+  /* ─── Font Families ─── */
+  --font-headline-md: "Hanken Grotesk";
+  --font-body-lg: "Hanken Grotesk";
+  --font-label-md: "JetBrains Mono";
+  --font-headline-lg-mobile: "Hanken Grotesk";
+  --font-headline-xl: "Hanken Grotesk";
+  --font-label-sm: "JetBrains Mono";
+  --font-body-md: "Hanken Grotesk";
+  --font-headline-lg: "Hanken Grotesk";
+
+  /* ─── Font Sizes (avec line-height, letter-spacing, font-weight) ─── */
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--letter-spacing: 0.05em;
+  --text-label-md--font-weight: 500;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 36px;
+  --text-headline-lg-mobile--font-weight: 700;
+
+  --text-headline-xl: 48px;
+  --text-headline-xl--line-height: 56px;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 800;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--font-weight: 600;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 700;
 }
+
+/* ─── Dark mode ─── */
+@variant dark (&:where(.dark, .dark *));
 
 @keyframes fadeIn {
   from {
@@ -61,4 +180,5 @@
     opacity: 1;
     transform: translateY(0);
   }
+    
 }

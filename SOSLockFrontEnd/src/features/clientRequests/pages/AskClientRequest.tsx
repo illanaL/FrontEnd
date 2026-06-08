@@ -1,10 +1,11 @@
-import { Step1Category } from "../features/clientRequests/components/Step1Category";
-import { Step2Products } from "../features/clientRequests/components/Step2Products";
-import { StepButton } from "../features/clientRequests/components/StepButton";
-import { StepIndicator } from "../features/clientRequests/components/StepIndicator";
-import { useClientRequestStore } from "../features/clientRequests/stores/useClientRequestStore";
+import { Step1Category } from "../components/Step1Category";
+import { Step2Products } from "../components/Step2Products";
+import { Step3Contact } from "../components/Step3Contact";
+import { StepButton } from "../components/StepButton";
+import { StepIndicator } from "../components/StepIndicator";
+import { useClientRequestStore } from "../stores/useClientRequestStore";
 
-export const AskClientRequest = () => {
+export default function AskClientRequest() {
   const step = useClientRequestStore((state) => state.step);
   const formData = useClientRequestStore((state) => state.formData);
   const productIds = useClientRequestStore(
@@ -15,9 +16,14 @@ export const AskClientRequest = () => {
   const prevStep = useClientRequestStore((state) => state.prevStep);
   const reset = useClientRequestStore((state) => state.reset);
 
+  // Vérification de la validité locale pour activer/désactiver le bouton "Suivant" global
   const canGoNext = () => {
-    if (step === 0) return formData.categoryId !== "";
+    if (step === 0)
+      return formData.categoryId !== null && formData.categoryId !== undefined;
     if (step === 1) return productIds.length > 0;
+
+    if (step === 2) return true;
+
     return true;
   };
 
@@ -47,9 +53,11 @@ export const AskClientRequest = () => {
           {step === 0 && <Step1Category formdata={formData} update={update} />}
           {step === 1 && <Step2Products formdata={formData} update={update} />}
           {step === 2 && (
-            <p className="text-text/50 text-center py-10">
-              3ème étape — à venir
-            </p>
+            <Step3Contact
+              formdata={formData}
+              update={update}
+              onNext={nextStep}
+            />
           )}
           {step === 3 && (
             <p className="text-text/50 text-center py-10">
@@ -58,13 +66,16 @@ export const AskClientRequest = () => {
           )}
         </div>
 
+        {/* Ton StepButton reste intact et s'adapte automatiquement */}
         <StepButton
           step={step}
           prevStep={prevStep}
           nextStep={nextStep}
           canGoNext={canGoNext()}
+          form={step === 2 ? "contact-step-form" : undefined}
+          type={step === 2 ? "submit" : "button"}
         />
       </div>
     </div>
   );
-};
+}

@@ -301,11 +301,11 @@ export default function HeroPublic() {
               </div>
 
               {/* Input Ville */}
-              <div className="relative w-full md:w-64 text-left">
+             {/*  <div className="relative w-full md:w-64 text-left">
                 <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-fixed-dim z-10">
                   location_on
                 </span>
-                <input
+               <input
                   id="city-input"
                   {...register("city", { required: true })}
                   className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 text-body-md font-body-md text-white placeholder:text-white/30 focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-transparent outline-none transition-all ${
@@ -319,7 +319,7 @@ export default function HeroPublic() {
                     Veuillez renseigner votre ville
                   </span>
                 )}
-              </div>
+              </div>*/}
 
               {/* Bouton de secours si saisie manuelle sans clic sur forfait */}
               <button

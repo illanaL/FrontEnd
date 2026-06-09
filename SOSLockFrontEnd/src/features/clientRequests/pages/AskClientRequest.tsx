@@ -1,6 +1,7 @@
 import { Step1Category } from "../components/Step1Category";
 import { Step2Products } from "../components/Step2Products";
 import { Step3Contact } from "../components/Step3Contact";
+import { Step4Contact } from "../components/Step4Contact";
 import { StepButton } from "../components/StepButton";
 import { StepIndicator } from "../components/StepIndicator";
 import { useClientRequestStore } from "../stores/useClientRequestStore";
@@ -16,7 +17,6 @@ export default function AskClientRequest() {
   const prevStep = useClientRequestStore((state) => state.prevStep);
   const reset = useClientRequestStore((state) => state.reset);
 
-  // Vérification de la validité locale pour activer/désactiver le bouton "Suivant" global
   const canGoNext = () => {
     if (step === 0)
       return formData.categoryId !== null && formData.categoryId !== undefined;
@@ -26,6 +26,8 @@ export default function AskClientRequest() {
 
     return true;
   };
+
+  const isLastStep = step === 3;
 
   return (
     <div className="min-h-screen bg-bg-soft">
@@ -59,22 +61,43 @@ export default function AskClientRequest() {
               onNext={nextStep}
             />
           )}
-          {step === 3 && (
-            <p className="text-text/50 text-center py-10">
-              4ème étape — à venir
-            </p>
-          )}
+          {step === 3 && <Step4Contact />}
         </div>
 
-        {/* Ton StepButton reste intact et s'adapte automatiquement */}
-        <StepButton
-          step={step}
-          prevStep={prevStep}
-          nextStep={nextStep}
-          canGoNext={canGoNext()}
-          form={step === 2 ? "contact-step-form" : undefined}
-          type={step === 2 ? "submit" : "button"}
-        />
+        {!isLastStep && (
+          <StepButton
+            step={step}
+            prevStep={prevStep}
+            nextStep={nextStep}
+            canGoNext={canGoNext()}
+            form={step === 2 ? "contact-step-form" : undefined}
+            type={step === 2 ? "submit" : "button"}
+          />
+        )}
+
+        {isLastStep && (
+          <button
+            type="button"
+            onClick={prevStep}
+            className="self-start flex items-center gap-1.5 text-sm text-text/50 hover:text-text transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
+            </svg>
+            Étape précédente
+          </button>
+        )}
       </div>
     </div>
   );

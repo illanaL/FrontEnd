@@ -33,3 +33,46 @@ export const getClientRequestsByArtisan = async (
   }
 };
 
+export interface CreateClientRequestPayload {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  addressRequest: {
+    number: string;
+    street: string;
+    zipCode: string;
+    city: string;
+  };
+  description: string;
+  photos?: string[];
+  preferredDate?: Date;
+  isUrgent: boolean;
+  productIds: string[];
+}
+
+export interface CreateClientRequestResponse {
+  clientRequest: ClientRequest;
+  checkoutUrl: string;
+  sessionId: string;
+  quoteId: string;
+}
+
+export const createClientRequest = async (
+  payload: CreateClientRequestPayload,
+): Promise<CreateClientRequestResponse> => {
+  try {
+    const response = await api.post<CreateClientRequestResponse>(
+      "/client-requests",
+      payload,
+    );
+    return response.data;
+  } catch (error: any) {
+    throw new Error(
+      error?.response?.data?.error ||
+        "Erreur lors de la création de la demande",
+    );
+  }
+};
+

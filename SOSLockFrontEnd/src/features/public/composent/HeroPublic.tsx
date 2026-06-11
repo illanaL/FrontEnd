@@ -168,6 +168,61 @@ export default function HeroPublic() {
           </h1>
         </div>
 
+          {/* Saisie Manuelle */}
+          <div className="glass-panel p-6 rounded-3xl shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col md:flex-row gap-4 items-start w-full">
+              {/* Input Saisie Libre */}
+              <div className="relative flex-1 w-full text-left">
+                <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-fixed-dim z-10">
+                  {selectedProduct ? "assignment_turned_in" : "search"}
+                </span>
+                <input
+                  {...register("searchQuery", { required: !selectedProduct })}
+                  autoComplete="off"
+                  className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 text-body-md font-body-md text-white placeholder:text-white/30 focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-transparent outline-none transition-all ${
+                    errors.searchQuery ? "border-red-500" : "border-white/10"
+                  } ${selectedProduct ? "text-tertiary-fixed-dim font-bold" : ""}`}
+                  placeholder={
+                    selectedProduct
+                      ? `Sélectionné : ${selectedProduct.name} (${selectedProduct.price})`
+                      : "Filtrer ou décrire votre problème sur-mesure..."
+                  }
+                  type="text"
+                />
+              </div>
+
+              {/* Input Ville */}
+              {/*  <div className="relative w-full md:w-64 text-left">
+                <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-fixed-dim z-10">
+                  location_on
+                </span>
+               <input
+                  id="city-input"
+                  {...register("city", { required: true })}
+                  className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 text-body-md font-body-md text-white placeholder:text-white/30 focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-transparent outline-none transition-all ${
+                    errors.city ? "border-red-500" : "border-white/10"
+                  }`}
+                  placeholder="Ville (Ex: Paris)"
+                  type="text"
+                />
+                {errors.city && (
+                  <span className="text-red-400 text-xs absolute left-2 -bottom-5">
+                    Veuillez renseigner votre ville
+                  </span>
+                )}
+              </div>*/}
+
+              {/* Bouton de secours si saisie manuelle sans clic sur forfait */}
+              <button
+                type="submit"
+                className="w-full md:w-auto bg-tertiary-fixed-dim text-primary px-10 py-5 rounded-2xl font-headline-md text-headline-md hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg h-16.5 self-start font-bold"
+              >
+                <span className="material-symbols-outlined">bolt</span>
+                Intervenir
+              </button>
+            </div>
+          </div>
+
         {/* Configurator Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-5xl mx-auto">
           {/* Grille des Catégories */}
@@ -277,60 +332,7 @@ export default function HeroPublic() {
             </div>
           </div>
 
-          {/* Saisie Manuelle et Ville */}
-          <div className="glass-panel p-6 rounded-3xl shadow-2xl relative overflow-hidden">
-            <div className="flex flex-col md:flex-row gap-4 items-start w-full">
-              {/* Input Saisie Libre */}
-              <div className="relative flex-1 w-full text-left">
-                <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-fixed-dim z-10">
-                  {selectedProduct ? "assignment_turned_in" : "search"}
-                </span>
-                <input
-                  {...register("searchQuery", { required: !selectedProduct })}
-                  autoComplete="off"
-                  className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 text-body-md font-body-md text-white placeholder:text-white/30 focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-transparent outline-none transition-all ${
-                    errors.searchQuery ? "border-red-500" : "border-white/10"
-                  } ${selectedProduct ? "text-tertiary-fixed-dim font-bold" : ""}`}
-                  placeholder={
-                    selectedProduct
-                      ? `Sélectionné : ${selectedProduct.name} (${selectedProduct.price})`
-                      : "Filtrer ou décrire votre problème sur-mesure..."
-                  }
-                  type="text"
-                />
-              </div>
-
-              {/* Input Ville */}
-             {/*  <div className="relative w-full md:w-64 text-left">
-                <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-fixed-dim z-10">
-                  location_on
-                </span>
-               <input
-                  id="city-input"
-                  {...register("city", { required: true })}
-                  className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 text-body-md font-body-md text-white placeholder:text-white/30 focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-transparent outline-none transition-all ${
-                    errors.city ? "border-red-500" : "border-white/10"
-                  }`}
-                  placeholder="Ville (Ex: Paris)"
-                  type="text"
-                />
-                {errors.city && (
-                  <span className="text-red-400 text-xs absolute left-2 -bottom-5">
-                    Veuillez renseigner votre ville
-                  </span>
-                )}
-              </div>*/}
-
-              {/* Bouton de secours si saisie manuelle sans clic sur forfait */}
-              <button
-                type="submit"
-                className="w-full md:w-auto bg-tertiary-fixed-dim text-primary px-10 py-5 rounded-2xl font-headline-md text-headline-md hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg h-16.5 self-start font-bold"
-              >
-                <span className="material-symbols-outlined">bolt</span>
-                Intervenir
-              </button>
-            </div>
-          </div>
+        
         </form>
       </div>
     </section>

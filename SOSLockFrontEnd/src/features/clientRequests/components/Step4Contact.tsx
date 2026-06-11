@@ -35,12 +35,12 @@ export const Step4Contact = () => {
     setIsSubmitting(true);
 
     try {
-        const user = await signUpUser({
-            firstName: data.firstName,
-            lastName: data.lastName,
-            email: data.email,
-            phone: data.phone,
-        }) 
+      const user = await signUpUser({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+      });
 
       const response = await createClientRequest({
         userId: user.id,
@@ -52,8 +52,8 @@ export const Step4Contact = () => {
         description: data.description ?? "",
         photos: data.photos ?? [],
         preferredDate: data.preferredDate
-        ? new Date(data.preferredDate)
-        : undefined,
+          ? new Date(data.preferredDate)
+          : undefined,
         isUrgent: data.isUrgent,
         productIds: data.productIds,
       });
@@ -130,21 +130,26 @@ export const Step4Contact = () => {
       <div className="rounded-xl border border-border bg-bg-soft px-4 py-3 flex flex-col gap-1 text-sm text-text/70">
         <p className="font-medium text-text mb-1">Récapitulatif</p>
         <p>
-          <span className="text-text/40">Nom :</span> {formData.firstName}{" "}
-          {formData.lastName}
+          <span className="text-text/40">Nom :</span>
+          {formData.lastName.toUpperCase()}{" "}
+          {formData.firstName.charAt(0).toUpperCase() +
+            formData.firstName.slice(1).toLowerCase()}
         </p>
         <p>
           <span className="text-text/40">Prestations :</span>{" "}
           {formData.productIds.length} sélectionnée
           {formData.productIds.length > 1 ? "s" : ""}
         </p>
-        <p>
-          <span className="text-text/40">Urgence :</span>{" "}
-          {formData.isUrgent ? "Oui 🚨" : "Non"}
-        </p>
+        {formData.isUrgent && (
+          <p>
+            <span className="text-text/40">Urgence : </span>
+            Oui 🚨
+          </p>
+        )}
+
         {formData.photos && formData.photos.length > 0 && (
           <p>
-            <span className="text-text/40">Photos :</span>{" "}
+            <span className="text-text/40">Photos : </span>
             {formData.photos.length} ajoutée
             {formData.photos.length > 1 ? "s" : ""}
           </p>

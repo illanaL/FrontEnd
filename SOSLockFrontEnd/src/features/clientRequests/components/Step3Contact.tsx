@@ -60,9 +60,16 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     },
   });
 
+  const { isAuthenticated } = useUserAuth()
+
   const currentAddress = watch("addressRequest");
   const currentEmail = watch("email");
   const currentPhone = watch("phone");
+
+  useEffect(() => {
+    console.log("Email changed:", currentEmail);
+    console.log("Phone changed:", currentPhone);
+  }, [currentEmail, currentPhone])
 
   useEffect(() => {
     if (formData.addressRequest?.city) {
@@ -103,7 +110,8 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     setShowSuggestions(false);
   };
 
-  const handleEmailBlur = async (email: string) => {
+
+  const checkEmailExistsAndOpenModal = async (email: string) => {
     if (!email || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) return;
     setIsCheckingEmail(true);
     const exists = await checkEmailExists(email);
@@ -112,6 +120,11 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
   };
 
   const onSubmit = (data: Step3FormData) => {
+    // If the re is no authenticated User open model
+    if (!isAuthenticated) {
+      checkEmailExistsAndOpenModal(data.email);
+      return;
+    }
     Object.entries(data).forEach(([key, value]) => {
       update(key as keyof ClientRequestFormData, value);
     });
@@ -184,7 +197,7 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
               type="email"
               placeholder="Ex: jean.dupont@email.com"
               {...register("email")}
-              onBlur={(e) => handleEmailBlur(e.target.value)}
+              // onBlur={(e) => handleEmailBlur(e.target.value)}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
                 errors.email ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}

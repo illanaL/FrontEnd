@@ -12,9 +12,9 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DepartmentsField } from "./DepartmentsField";
 import { useUpdateArtisan } from "../hooks/useUpdateArtisan";
-import { useAuthStore } from "../../authentication/stores/authStore";
 import { useQueryClient } from "@tanstack/react-query";
 import { SkillsV3Field } from "../../../components/SkillFieldsV3";
+import { useArtisanAuth } from "../../authentication/hooks/useArtisanAuth";
 
 interface Props {
   onNext?: () => void;
@@ -26,7 +26,7 @@ export function SignupArtisanFormStepTwoForm({
   isEditMode = false,
 }: Props) {
   const { isPending, mutate: update } = useUpdateArtisan();
-  const artisan = useAuthStore((s) => s.artisan);
+  const artisan = useArtisanAuth((s) => s.artisan);
   const queryClient = useQueryClient();
 
   const {
@@ -42,7 +42,7 @@ export function SignupArtisanFormStepTwoForm({
           siret: artisan?.siret ?? "",
           IBAN: artisan?.IBAN ?? "",
           departments: artisan?.departments ?? [],
-          skills: artisan?.skills.map((skill) => ({ value: skill })) ?? [],
+          skills: artisan?.skills.map((skill) => ({ value: skill as any})) ?? [],
         }
       : undefined,
   });

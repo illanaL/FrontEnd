@@ -39,7 +39,7 @@ export const clientRequestFormSchema = z.object({
       /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
       "Numéro de téléphone français invalide"
     ),
-  email: z.string().email("Adresse email invalide"),
+  email: z.email("Adresse email invalide"),
   addressRequest: addressRequestSchema,
   description: z
     .string()
@@ -55,3 +55,15 @@ export const clientRequestFormSchema = z.object({
 export type FilterFormData = z.infer<typeof filterSchema>;
 export type ClientRequestFormData = z.infer<typeof clientRequestFormSchema>;
 export type AddressRequestData = z.infer<typeof addressRequestSchema>;
+
+//.pick() prend un objet où les clés sont les champs que tu veux garder, et la valeur true signifie simplement "inclure ce champ".
+export const step3Schema = clientRequestFormSchema.pick({
+  firstName: true,
+  lastName: true,
+  phone: true,
+  email: true,
+  addressRequest: true,
+  description: true,
+});
+
+export type Step3FormData = z.infer<typeof step3Schema>;

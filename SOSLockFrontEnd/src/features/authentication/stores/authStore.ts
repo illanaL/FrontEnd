@@ -1,54 +1,37 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-
 import type { Artisan } from "../../artisan/type/artisan.type";
+import type { AdminUser } from "../../adminUser/type/adminUser.type";
 
 type Role = "artisan" | "user" | "admin";
 
-interface AuthState {
+export interface ArtisanAuthState {
   artisan: Artisan | null;
   token: string | null;
   isAuthenticated: boolean;
   role: Role | null;
 
-  login: (artisan: Artisan, token: string, role: Role) => void;
+  login: (artisan: Artisan, token: string, role: "artisan") => void;
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      artisan: null,
-      token: null,
-      isAuthenticated: false,
-      role: null,
+export interface UserAuthState {
+  userId: string | null;
+  email: string | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  role: "user" | null;
 
-      
-      login: (artisan, token, role) =>
-        set(() => {
-          localStorage.setItem("accessKey", token); 
-          return {
-            artisan,
-            token,
-            role,
-            isAuthenticated: true,
-          };
-        }),
+  login: (userId: string, token: string, email?: string) => void;
+  loginGuest: (userId: string, email: string) => void;
+  logout: () => void;
+}
 
-      
-      logout: () =>
-        set(() => {
-          localStorage.removeItem("accessKey");
-          return {
-            artisan: null,
-            token: null,
-            role: null,
-            isAuthenticated: false,
-          };
-        }),
-    }),
-    {
-      name: "auth-state",
-    }
-  )
-);
+
+export interface AdminAuthState {
+  admin: AdminUser | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  role: "admin" | null;
+
+  login: (admin: AdminUser, token: string) => void;
+  logout: () => void;
+}

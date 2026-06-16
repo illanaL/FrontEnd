@@ -203,7 +203,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface p-8 rounded-2xl shadow-2xl text-primary text-center w-64 border border-outline-variant">
-                <p className="text-4xl font-black mb-1">98%</p>
+                <p className="text-4xl font-black mb-1">?</p>
                 <p className="font-label-md text-label-md uppercase text-on-surface-variant">
                   Satisfaction
                 </p>
@@ -224,132 +224,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- SECTION AVIS CLIENTS --- */}
-      <section className="py-24 bg-surface-alt overflow-hidden">
-        <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <h2 className="font-headline-lg text-headline-lg text-primary mb-2">
-                Ils nous ont fait confiance
-              </h2>
-              <p className="text-on-surface-variant">
-                Plus de 10 000 interventions réussies cette année.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button
-                className="p-3 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors"
-                aria-label="Avis précédent"
-              >
-                <span className="material-symbols-outlined">arrow_back</span>
-              </button>
-              <button
-                className="p-3 rounded-full bg-primary text-on-primary hover:opacity-90 transition-colors"
-                aria-label="Avis suivant"
-              >
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-base">
-            {/* Carte Avis 1 */}
-            <div className="bg-surface p-8 rounded-xl border border-outline-variant hover:border-secondary transition-colors group">
-              <div className="flex text-tertiary-fixed-dim mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    star
-                  </span>
-                ))}
-              </div>
-              <p className="font-body-md text-on-surface italic mb-6">
-                "Intervention en plein dimanche soir à 23h pour une porte
-                claquée avec les clés à l'intérieur. Le serrurier est arrivé en
-                15 min chrono. Travail propre et prix annoncé respecté. Je
-                recommande !"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary">
-                  JP
-                </div>
-                <div>
-                  <p className="font-bold text-on-surface">Jean-Pierre M.</p>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">
-                    Paris 15ème
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Carte Avis 2 */}
-            <div className="bg-surface p-8 rounded-xl border border-outline-variant hover:border-secondary transition-colors group">
-              <div className="flex text-tertiary-fixed-dim mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    star
-                  </span>
-                ))}
-              </div>
-              <p className="font-body-md text-on-surface italic mb-6">
-                "Après un cambriolage, SOSLock a envoyé quelqu'un pour sécuriser
-                ma porte immédiatement. Le serrurier était très pédagogue et m'a
-                installé un blindage de qualité. Un grand merci pour votre
-                réactivité."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary">
-                  SL
-                </div>
-                <div>
-                  <p className="font-bold text-on-surface">Sandrine L.</p>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">
-                    Lyon
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Carte Avis 3 */}
-            <div className="bg-surface p-8 rounded-xl border border-outline-variant hover:border-secondary transition-colors group">
-              <div className="flex text-tertiary-fixed-dim mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    star
-                  </span>
-                ))}
-              </div>
-              <p className="font-body-md text-on-surface italic mb-6">
-                "Remplacement de serrure simple et efficace. Devis en ligne
-                clair, rendez-vous pris le lendemain. Artisan ponctuel et
-                sympathique. Rien à redire sur la qualité du matériel."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary">
-                  AM
-                </div>
-                <div>
-                  <p className="font-bold text-on-surface">Antoine M.</p>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">
-                    Bordeaux
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* --- SECTION CTA --- */}
       <section className="py-16 px-margin-mobile md:px-margin-desktop">

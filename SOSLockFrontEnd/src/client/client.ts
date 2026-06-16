@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useAuthStore } from "../features/authentication/stores/authStore";
+import { useArtisanAuth } from "../features/authentication/hooks/useArtisanAuth";
 
 const api = axios.create({
   baseURL: "https://soslockfrance-3381.apps.hostingguru.io",
@@ -8,12 +8,13 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const token = useAuthStore.getState().token;
+  const token = useArtisanAuth.getState().token;
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+
 api.interceptors.response.use(
     (response) => response,
     async (error) => {
@@ -22,12 +23,11 @@ api.interceptors.response.use(
             originalRequest._retry = true
             try {
                 const { data } = await api.post('/auth/refresh')
-                const currentRole = useAuthStore.getState().role;
-                useAuthStore.getState().login(data.user, data.token, currentRole!)
+                useArtisanAuth.getState().login(data.user, data.token, "artisan")
                 originalRequest.headers.Authorization = `Bearer ${data.token}`
                 return api(originalRequest)
             } catch {
-                useAuthStore.getState().logout()
+                useArtisanAuth.getState().logout()
                 window.location.href = '/login'
             }
         }

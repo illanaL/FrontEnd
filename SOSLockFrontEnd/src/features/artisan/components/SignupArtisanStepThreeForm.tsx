@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../authentication/stores/authStore";
+import { useArtisanAuth } from "../../authentication/hooks/useArtisanAuth";
 
 export function SignupArtisanStepThreeForm() {
   const navigate = useNavigate();
-  const artisan = useAuthStore((s) => s.artisan);
+  const artisan = useArtisanAuth((s) => s.artisan);
 
   return (
     <div className="flex flex-col items-center gap-6 py-8 text-center">

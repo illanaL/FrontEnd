@@ -40,6 +40,7 @@ export const Step4Contact = () => {
         lastName: data.lastName,
         email: data.email,
         phone: data.phone,
+        password: "password",
       });
 
       const response = await createClientRequest({
@@ -53,7 +54,7 @@ export const Step4Contact = () => {
         photos: data.photos ?? [],
         preferredDate: data.preferredDate
           ? new Date(data.preferredDate)
-          : undefined,
+          : new Date(),
         isUrgent: data.isUrgent,
         productIds: data.productIds,
       });

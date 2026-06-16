@@ -1,6 +1,6 @@
-import { useAuthStore } from "../../authentication/stores/authStore";
 import { signUpArtisan } from "../api/artisanApi";
 import { useMutation } from "@tanstack/react-query";
+import { useArtisanAuth } from "../../authentication/hooks/useArtisanAuth";
 
 
 
@@ -11,7 +11,7 @@ export const useSignupArtisan = () => {
       const { accessKey, ...artisan } = data;
 
       if (accessKey) {
-        useAuthStore.getState().login(artisan, accessKey, "artisan");
+        useArtisanAuth.getState().login(artisan, accessKey, "artisan");
       }
     },
     onError: (error) => {

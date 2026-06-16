@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { UserMenu } from "../../user/components/UserMenu";
 
 export default function HeaderPublic() {
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -34,6 +35,7 @@ export default function HeaderPublic() {
 
         {/* Actions de contact */}
         <div className="flex items-center gap-4">
+          <UserMenu />
           <button className="hidden lg:flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all duration-150">
             <span className="material-symbols-outlined">phone_in_talk</span>
             Appeler un dépanneur

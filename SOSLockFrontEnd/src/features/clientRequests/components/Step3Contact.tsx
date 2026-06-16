@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { ClientRequestFormData } from "../clientRequest.types";
 import { useDebounce } from "../../../hooks/useDebounce";
+import { checkEmailExists } from "../../user/api/users.api";
+import { EmailCheckModals } from "./EmailCheckModals";
+import { step3Schema, type Step3FormData } from "../schema/filter.schema";
+import { useUserAuth } from "../../authentication/hooks/useUserAuthMutations";
+
+
 
 interface Props {
   formdata: ClientRequestFormData;
   update: (field: keyof ClientRequestFormData, value: unknown) => void;
   onNext: () => void;
 }
-
-type ContactFormInputs = Pick<
-  ClientRequestFormData,
-  | "firstName"
-  | "lastName"
-  | "phone"
-  | "email"
-  | "addressRequest"
-  | "description"
->;
 
 interface GouvAddressFeature {
   properties: {
@@ -34,6 +31,8 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
   const [suggestions, setSuggestions] = useState<GouvAddressFeature[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [emailModalType, setEmailModalType] = useState<"login" | "register" | null>(null);
+  const [isCheckingEmail, setIsCheckingEmail] = useState(false);
 
   const debouncedAddressSearch = useDebounce(addressSearch, 300);
 
@@ -43,8 +42,9 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     setValue,
     watch,
     formState: { errors },
-  } = useForm<ContactFormInputs>({
+  } = useForm<Step3FormData>({
     mode: "onChange",
+    resolver: zodResolver(step3Schema),
     defaultValues: {
       firstName: formData.firstName || "",
       lastName: formData.lastName || "",
@@ -61,8 +61,9 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
   });
 
   const currentAddress = watch("addressRequest");
+  const currentEmail = watch("email");
+  const currentPhone = watch("phone");
 
-  // Initialisation du champ de recherche si une adresse existe déjà (Retour en arrière)
   useEffect(() => {
     if (formData.addressRequest?.city) {
       const { number, street, zipCode, city } = formData.addressRequest;
@@ -70,20 +71,16 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     }
   }, [formData.addressRequest]);
 
-  // Recherche API Gouv
   useEffect(() => {
     if (debouncedAddressSearch.trim().length < 4) {
       setSuggestions([]);
       return;
     }
-
     const fetchAddresses = async () => {
       setIsSearching(true);
       try {
         const response = await fetch(
-          `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(
-            debouncedAddressSearch,
-          )}&limit=5`,
+          `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(debouncedAddressSearch)}&limit=5`,
         );
         const data = await response.json();
         setSuggestions(data.features || []);
@@ -93,25 +90,28 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
         setIsSearching(false);
       }
     };
-
     fetchAddresses();
   }, [debouncedAddressSearch]);
 
   const handleSelectAddress = (feature: GouvAddressFeature) => {
     const { housenumber, street, postcode, city, label } = feature.properties;
-
-    // Mise à jour des valeurs cachées dans React Hook Form
     setValue("addressRequest.number", housenumber || "1");
     setValue("addressRequest.street", street || label);
     setValue("addressRequest.zipCode", postcode);
     setValue("addressRequest.city", city, { shouldValidate: true });
-
     setAddressSearch(label);
     setShowSuggestions(false);
   };
 
-  // Sauvegarde globale uniquement lors de la soumission finale REUSSIE
-  const onSubmit = (data: ContactFormInputs) => {
+  const handleEmailBlur = async (email: string) => {
+    if (!email || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) return;
+    setIsCheckingEmail(true);
+    const exists = await checkEmailExists(email);
+    setIsCheckingEmail(false);
+    setEmailModalType(exists ? "login" : "register");
+  };
+
+  const onSubmit = (data: Step3FormData) => {
     Object.entries(data).forEach(([key, value]) => {
       update(key as keyof ClientRequestFormData, value);
     });
@@ -134,109 +134,67 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-5"
       >
-        {/* --- SECTION NOM & PRÉNOM --- */}
+        {/* --- NOM & PRÉNOM --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-sos-900 mb-1">
-              Prénom
-            </label>
+            <label className="block text-sm font-semibold text-sos-900 mb-1">Prénom</label>
             <input
               type="text"
               placeholder="Ex: Jean"
-              {...register("firstName", { required: "Le prénom est requis" })}
+              {...register("firstName")}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
-                errors.firstName
-                  ? "border-red-400 focus:ring-2 focus:ring-red-200"
-                  : "border-sos-200 focus:ring-2 focus:ring-sos-300"
+                errors.firstName ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}
             />
-            {errors.firstName && (
-              <p className="text-xs text-red-500 mt-1">
-                {errors.firstName.message}
-              </p>
-            )}
+            {errors.firstName && <p className="text-xs text-red-500 mt-1">{errors.firstName.message}</p>}
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-sos-900 mb-1">
-              Nom
-            </label>
+            <label className="block text-sm font-semibold text-sos-900 mb-1">Nom</label>
             <input
               type="text"
               placeholder="Ex: Dupont"
-              {...register("lastName", { required: "Le nom est requis" })}
+              {...register("lastName")}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
-                errors.lastName
-                  ? "border-red-400 focus:ring-2 focus:ring-red-200"
-                  : "border-sos-200 focus:ring-2 focus:ring-sos-300"
+                errors.lastName ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}
             />
-            {errors.lastName && (
-              <p className="text-xs text-red-500 mt-1">
-                {errors.lastName.message}
-              </p>
-            )}
+            {errors.lastName && <p className="text-xs text-red-500 mt-1">{errors.lastName.message}</p>}
           </div>
         </div>
 
-        {/* --- SECTION CONTACT (TEL & EMAIL) --- */}
+        {/* --- TÉLÉPHONE & EMAIL --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-sos-900 mb-1">
-              Téléphone
-            </label>
+            <label className="block text-sm font-semibold text-sos-900 mb-1">Téléphone</label>
             <input
               type="tel"
               placeholder="Ex: 0612345678"
-              {...register("phone", {
-                required: "Le numéro de téléphone est requis",
-                pattern: {
-                  value: /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
-                  message: "Format de téléphone invalide",
-                },
-              })}
+              {...register("phone")}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
-                errors.phone
-                  ? "border-red-400 focus:ring-2 focus:ring-red-200"
-                  : "border-sos-200 focus:ring-2 focus:ring-sos-300"
+                errors.phone ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}
             />
-            {errors.phone && (
-              <p className="text-xs text-red-500 mt-1">
-                {errors.phone.message}
-              </p>
-            )}
+            {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-sos-900 mb-1">
-              Adresse Email
-            </label>
+            <label className="block text-sm font-semibold text-sos-900 mb-1">Adresse Email</label>
             <input
               type="email"
               placeholder="Ex: jean.dupont@email.com"
-              {...register("email", {
-                required: "L'adresse email est requise",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Adresse email invalide",
-                },
-              })}
+              {...register("email")}
+              onBlur={(e) => handleEmailBlur(e.target.value)}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
-                errors.email
-                  ? "border-red-400 focus:ring-2 focus:ring-red-200"
-                  : "border-sos-200 focus:ring-2 focus:ring-sos-300"
+                errors.email ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}
             />
-            {errors.email && (
-              <p className="text-xs text-red-500 mt-1">
-                {errors.email.message}
-              </p>
-            )}
+            {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
+            {isCheckingEmail && <p className="text-xs text-teal-500 mt-1 animate-pulse">Vérification…</p>}
           </div>
         </div>
 
-        {/* --- AUTOCOMPLÉTION ADRESSE .GOUV --- */}
+        {/* --- AUTOCOMPLÉTION ADRESSE --- */}
         <div className="relative">
           <label className="block text-sm font-semibold text-sos-900 mb-1">
             Rechercher votre adresse complète
@@ -244,22 +202,15 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
           <input
             type="text"
             value={addressSearch}
-            onChange={(e) => {
-              setAddressSearch(e.target.value);
-              setShowSuggestions(true);
-            }}
+            onChange={(e) => { setAddressSearch(e.target.value); setShowSuggestions(true); }}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 250)}
             placeholder="Commencez à taper votre adresse (ex: 10 rue de Rivoli...)"
             className="w-full border border-sos-200 rounded-xl px-4 py-3 text-sm text-sos-900 outline-none focus:ring-2 focus:ring-sos-300 transition-all"
           />
           {isSearching && (
-            <span className="absolute right-3 top-9 text-xs text-sos-400 animate-pulse">
-              Recherche...
-            </span>
+            <span className="absolute right-3 top-9 text-xs text-sos-400 animate-pulse">Recherche...</span>
           )}
-
-          {/* Liste déroulante des résultats du gouvernement */}
           {showSuggestions && suggestions.length > 0 && (
             <div className="absolute z-50 left-0 right-0 mt-1 bg-white border border-sos-200 rounded-xl shadow-xl max-h-56 overflow-y-auto">
               {suggestions.map((feature, index) => (
@@ -276,51 +227,23 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
           )}
         </div>
 
-        {/* --- APERÇU DE L'ADRESSE --- */}
+        {/* --- APERÇU ADRESSE --- */}
         {currentAddress?.city && (
           <div className="bg-sos-50/70 border border-sos-100 p-4 rounded-xl text-xs text-sos-700 grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <div>
-              <span className="font-bold block text-sos-400 uppercase">
-                N° :
-              </span>{" "}
-              {currentAddress.number}
-            </div>
-            <div>
-              <span className="font-bold block text-sos-400 uppercase">
-                Rue :
-              </span>{" "}
-              {currentAddress.street}
-            </div>
-            <div>
-              <span className="font-bold block text-sos-400 uppercase">
-                Code Postal :
-              </span>{" "}
-              {currentAddress.zipCode}
-            </div>
-            <div>
-              <span className="font-bold block text-sos-400 uppercase">
-                Ville :
-              </span>{" "}
-              {currentAddress.city}
-            </div>
+            <div><span className="font-bold block text-sos-400 uppercase">N° :</span>{currentAddress.number}</div>
+            <div><span className="font-bold block text-sos-400 uppercase">Rue :</span>{currentAddress.street}</div>
+            <div><span className="font-bold block text-sos-400 uppercase">Code Postal :</span>{currentAddress.zipCode}</div>
+            <div><span className="font-bold block text-sos-400 uppercase">Ville :</span>{currentAddress.city}</div>
           </div>
         )}
 
-        {/* Input masqué de validation de l'adresse */}
-        <input
-          type="hidden"
-          {...register("addressRequest.city", {
-            required:
-              "Veuillez sélectionner une adresse dans la liste déroulante",
-          })}
-        />
+        {/* Input masqué validation adresse */}
+        <input type="hidden" {...register("addressRequest.city")} />
         {errors.addressRequest?.city && (
-          <p className="text-xs text-red-500 mt-1">
-            {errors.addressRequest.city.message}
-          </p>
+          <p className="text-xs text-red-500 mt-1">{errors.addressRequest.city.message}</p>
         )}
 
-        {/* --- DETAILS COMPLÉMENTAIRES --- */}
+        {/* --- DESCRIPTION --- */}
         <div>
           <label className="block text-sm font-semibold text-sos-900 mb-1">
             Précisions complémentaires (Optionnel)
@@ -331,8 +254,20 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
             {...register("description")}
             className="w-full border border-sos-200 rounded-xl px-4 py-3 text-sm text-sos-900 outline-none focus:ring-2 focus:ring-sos-300 transition-all resize-none"
           />
+          {errors.description && <p className="text-xs text-red-500 mt-1">{errors.description.message}</p>}
         </div>
       </form>
+
+      {/* --- MODALES EMAIL --- */}
+      <EmailCheckModals
+        email={currentEmail ?? ""}
+        phone={currentPhone ?? ""} 
+        modalType={emailModalType}
+        onClose={() => setEmailModalType(null)}
+        onSuccess={(userId) => {
+          useUserAuth.getState().loginGuest(userId, currentEmail ?? "");
+        }}
+      />
     </div>
   );
 };

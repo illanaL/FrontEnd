@@ -7,10 +7,10 @@ import {
   loginByPhoneSchema,
   type LoginByPhoneForm,
 } from "../features/authentication/schema/login.schema";
-import { authArtisanApi } from "../features/authentication/api/authArtisan.api";
 import { useNavigate } from "react-router-dom";
+import { authUserApi } from "../features/authentication/api/authUser.api";
 
-export const LoginArtisanPage = () => {
+export const LoginUserPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   
@@ -26,8 +26,8 @@ export const LoginArtisanPage = () => {
   const onSubmit: SubmitHandler<LoginByPhoneForm> = async (data) => {
     setServerError(null);
     try {
-      await authArtisanApi.login(data);
-      navigate("/artisan/dashboard");
+      await authUserApi.login(data);
+      navigate("/user/dashboard");
 
     } catch (e: any) {
       setServerError(e.response?.data?.message || e.message || "Une erreur est survenue lors de la connexion.");
@@ -36,7 +36,7 @@ export const LoginArtisanPage = () => {
 
   return (
     <div className="p-8 max-w-md mx-auto text-center">
-      <h1 className="text-xl font-bold mb-4">Connexion Artisan</h1>
+      <h1 className="text-xl font-bold mb-4">Connexion Client</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <FormField
@@ -82,4 +82,4 @@ export const LoginArtisanPage = () => {
   );
 };
 
-export default LoginArtisanPage;
+export default LoginUserPage;

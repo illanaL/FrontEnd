@@ -20,14 +20,7 @@ FROM nginx:alpine AS runner
 COPY --from=builder /home/soslock/frontend/app/dist /usr/share/nginx/html
 
 # Config nginx pour React Router (SPA - gère les routes côté client)
-RUN echo 'server { \
-  listen 80; \
-  location / { \
-    root /usr/share/nginx/html; \
-    index index.html; \
-    try_files $uri $uri/ /index.html; \
-  } \
-}' > /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

@@ -12,6 +12,7 @@ export type Artisan = {
   skills: string[];
   isProfileComplete: boolean;
 };
+
 export interface Address {
   number: string;
   street: string;

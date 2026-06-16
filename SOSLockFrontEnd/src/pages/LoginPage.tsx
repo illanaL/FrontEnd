@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useAuth } from "../features/authentication/context/AuthContext";
+/*import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useArtisanAuth } from "../features/authentication/hooks/useArtisanAuth";
 
 export const LoginPage = () => {
   const [phone, setPhone] = useState("");
@@ -10,12 +10,12 @@ export const LoginPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const { login } = useAuth();
+  const { login } = useArtisanAuth();
 
   const handleLogin = async () => {
     try {
       setLoading(true);
-      await login({ phone, password });
+      await login(phone, password, "artisan" as any);
     } catch (e: any) {
       alert(e.message);
     } finally {
@@ -64,4 +64,4 @@ export const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginPage;*/

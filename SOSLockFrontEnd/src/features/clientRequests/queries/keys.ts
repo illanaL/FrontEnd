@@ -6,4 +6,5 @@ export const clientRequestKeys = {
     [...clientRequestKeys.all, "products", categoryId] as const,
   byArtisan: (artisanId: string) =>
     [...clientRequestKeys.all, "artisan", artisanId] as const,
+  byUser: (userId: string) => [...clientRequestKeys.all, "user", userId] as const,
 };

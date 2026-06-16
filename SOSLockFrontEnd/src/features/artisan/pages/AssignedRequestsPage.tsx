@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { useAuth } from "../../authentication/context/AuthContext";
 import { useClientRequestsByArtisan } from "../../clientRequests/hooks/useClientRequestsByArtisan";
 import { useToggle } from "../../../hooks/useToggle";
 import AdminDashboardClientRequestsPageSkeleton from "./ArtisanPageSkeleton";
@@ -9,9 +8,10 @@ import { GridView } from "../../clientRequests/components/GridView";
 import { ListView } from "../../clientRequests/components/ListView";
 import { ClientRequestModal } from "../../clientRequests/components/ClientRequestModal";
 import { API_BASE_URL } from "../../../config/api.config";
+import { useArtisanAuth } from "../../authentication/hooks/useArtisanAuth";
 
 export const AssignedRequestsPage = () => {
-  const { artisan } = useAuth();
+  const { artisan } = useArtisanAuth();
   const artisanId = artisan?.id ?? "";
 
   const {

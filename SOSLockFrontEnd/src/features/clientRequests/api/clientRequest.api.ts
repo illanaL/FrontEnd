@@ -76,3 +76,21 @@ export const createClientRequest = async (
   }
 };
 
+export const getClientRequestsByUser = async (
+  userId: string,
+): Promise<ClientRequest[]> => {
+  try {
+    const response = await api.get<ClientRequest[]>(
+      `/client-requests/user/${userId}`,
+    );
+
+    return response.data;
+  } catch (error: any) {
+    console.error("API error:", error?.response?.data || error.message);
+
+    throw new Error(
+      error?.response?.data?.error ||
+        "Erreur lors de la récupération des client requests de l'utilisateur",
+    );
+  }
+};

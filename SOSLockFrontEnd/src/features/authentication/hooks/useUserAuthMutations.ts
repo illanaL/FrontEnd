@@ -10,17 +10,17 @@ import { create } from "zustand";
 export const useUserAuth = create<UserAuthState>()(
   persist(
     (set) => ({
-      userId: null,
+      user: null,
       email: null,
       token: null,
       isAuthenticated: false,
       role: null,
 
-      login: (userId, token, email) =>
+      login: (user, token, email) =>
         set(() => {
           localStorage.setItem("accessKey", token);
           return {
-            userId,
+            user,
             email: email ?? null,
             token,
             role: "user" as const,
@@ -28,20 +28,12 @@ export const useUserAuth = create<UserAuthState>()(
           };
         }),
 
-      loginGuest: (userId, email) =>
-        set(() => ({
-          userId,
-          email,
-          token: null,
-          role: "user" as const,
-          isAuthenticated: true,
-        })),
 
       logout: () =>
         set(() => {
           localStorage.removeItem("accessKey");
           return {
-            userId: null,
+            user: null,
             email: null,
             token: null,
             role: null,
@@ -54,13 +46,13 @@ export const useUserAuth = create<UserAuthState>()(
 );
 
 export const useRegisterUser = () => {
-  const loginGuest = useUserAuth((s) => s.loginGuest);
+  const login = useUserAuth((s) => s.login);
 
   return useMutation({
     mutationKey: userKeys.register(),
     mutationFn: signUpUser,
     onSuccess: (data) => {
-      loginGuest(data.id, data.email);
+      login(data.user, data.accessKey);
     },
     onError: (error) => {
       console.error("Erreur lors de l'inscription :", error);
@@ -75,7 +67,7 @@ export const useLoginUser = () => {
     mutationKey: userKeys.login(),
     mutationFn: loginUser,
     onSuccess: (data) => {
-      login(data.userId, data.accessKey);
+      login(data.user, data.accessKey, );
     },
     onError: (error) => {
       console.error("Erreur lors de la connexion :", error);

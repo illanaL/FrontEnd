@@ -1,22 +1,25 @@
 import { useForm } from "react-hook-form";
 import { Modal } from "../../../components/Modal";
 import { useRegisterUser, useLoginUser } from "../../authentication/hooks/useUserAuthMutations";
+import type { LoginUserResponse, SignUpUserResponse } from "../../user/type/user.type";
+import { GoogleAuthButton } from "../../../components/GoogleAuthButton";
 
 interface EmailCheckModalsProps {
   email: string;
   phone: string;
   modalType: "login" | "register" | null;
   onClose: () => void;
-  onSuccess: (userId: string) => void;
+  onSuccess: (user: SignUpUserResponse | LoginUserResponse) => void;
 }
 
-// ── Modale Register ───────────────────────────────────────────────
 interface RegisterForm {
   phone: string;
   password: string;
   confirmPassword: string;
 }
 
+
+// ── Modale Register ───────────────────────────────────────────────
 function RegisterModal({
   email,
   phone,
@@ -26,7 +29,7 @@ function RegisterModal({
   email: string;
   phone: string;
   onClose: () => void;
-  onSuccess: (userId: string) => void;
+  onSuccess: (user: SignUpUserResponse) => void;
 }) {
   const {
     register,
@@ -34,9 +37,7 @@ function RegisterModal({
     watch,
     formState: { errors },
   } = useForm<RegisterForm>({
-    defaultValues: {
-      phone,
-    },
+    defaultValues: { phone },
   });
 
   const { mutate, isPending, error } = useRegisterUser();
@@ -52,7 +53,7 @@ function RegisterModal({
       },
       {
         onSuccess: (user) => {
-          onSuccess(user.id);
+          onSuccess(user);
           onClose();
         },
       },
@@ -66,30 +67,24 @@ function RegisterModal({
       title="Créer votre compte"
       footer={
         <div className="flex gap-2 justify-end">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 text-sm text-text/60 hover:text-text transition-colors"
-          >
+          <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-text/60 hover:text-text">
             Annuler
           </button>
-          <button
-            type="submit"
-            form="register-modal-form"
-            disabled={isPending}
-            className="px-4 py-2 text-sm font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors"
-          >
+          <button type="submit" form="register-modal-form" disabled={isPending} className="px-4 py-2 text-sm font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50">
             {isPending ? "Création…" : "Créer mon compte"}
           </button>
         </div>
       }
     >
-      <form
-        id="register-modal-form"
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4"
-      >
-        {/* Email en lecture seule — déjà saisi dans Step3 */}
+      <form id="register-modal-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <GoogleAuthButton />
+
+        <div className="flex items-center my-1">
+          <div className="w-full border-t border-neutral-200"></div>
+          <span className="px-2 text-xs text-neutral-400">ou avec mot de passe</span>
+          <div className="w-full border-t border-neutral-200"></div>
+        </div>
+
         <div className="rounded-lg bg-neutral-50 border border-neutral-200 px-3 py-2">
           <p className="text-xs text-neutral-400">Email</p>
           <p className="text-sm font-medium text-neutral-700">{email}</p>
@@ -109,15 +104,11 @@ function RegisterModal({
             })}
             className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-300"
           />
-          {errors.phone && (
-            <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold mb-1">
-            Mot de passe
-          </label>
+          <label className="block text-sm font-semibold mb-1">Mot de passe</label>
           <input
             type="password"
             placeholder="Min. 8 caractères"
@@ -127,38 +118,24 @@ function RegisterModal({
             })}
             className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-300"
           />
-          {errors.password && (
-            <p className="text-xs text-red-500 mt-1">
-              {errors.password.message}
-            </p>
-          )}
+          {errors.password && <p className="text-xs text-red-500 mt-1">{errors.password.message}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold mb-1">
-            Confirmer le mot de passe
-          </label>
+          <label className="block text-sm font-semibold mb-1">Confirmer le mot de passe</label>
           <input
             type="password"
             placeholder="Répétez le mot de passe"
             {...register("confirmPassword", {
               required: "La confirmation est requise",
-              validate: (val) =>
-                val === watch("password") ||
-                "Les mots de passe ne correspondent pas",
+              validate: (val) => val === watch("password") || "Les mots de passe ne correspondent pas",
             })}
             className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-300"
           />
-          {errors.confirmPassword && (
-            <p className="text-xs text-red-500 mt-1">
-              {errors.confirmPassword.message}
-            </p>
-          )}
+          {errors.confirmPassword && <p className="text-xs text-red-500 mt-1">{errors.confirmPassword.message}</p>}
         </div>
 
-        {error && (
-          <p className="text-xs text-red-600">{error.message}</p>
-        )}
+        {error && <p className="text-xs text-red-600">{error.message}</p>}
       </form>
     </Modal>
   );
@@ -175,7 +152,7 @@ function LoginModal({
   onSuccess,
 }: {
   onClose: () => void;
-  onSuccess: (userId: string) => void;
+  onSuccess: (user: LoginUserResponse) => void;
 }) {
   const {
     register,
@@ -192,19 +169,10 @@ function LoginModal({
       title="Se connecter"
       footer={
         <div className="flex gap-2 justify-end">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 text-sm text-text/60 hover:text-text transition-colors"
-          >
+          <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-text/60 hover:text-text">
             Annuler
           </button>
-          <button
-            type="submit"
-            form="login-modal-form"
-            disabled={isPending}
-            className="px-4 py-2 text-sm font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors"
-          >
+          <button type="submit" form="login-modal-form" disabled={isPending} className="px-4 py-2 text-sm font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50">
             {isPending ? "Connexion…" : "Se connecter"}
           </button>
         </div>
@@ -215,13 +183,21 @@ function LoginModal({
         onSubmit={handleSubmit((data) =>
           mutate(data, {
             onSuccess: (response) => {
-              onSuccess(response.userId);
+              onSuccess(response);
               onClose();
             },
           }),
         )}
         className="flex flex-col gap-4"
       >
+        <GoogleAuthButton />
+
+        <div className="flex items-center my-1">
+          <div className="w-full border-t border-neutral-200"></div>
+          <span className="px-2 text-xs text-neutral-400">ou avec vos identifiants</span>
+          <div className="w-full border-t border-neutral-200"></div>
+        </div>
+
         <div>
           <label className="block text-sm font-semibold mb-1">Téléphone</label>
           <input
@@ -230,49 +206,34 @@ function LoginModal({
             {...register("phone", { required: "Le téléphone est requis" })}
             className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-300"
           />
-          {errors.phone && (
-            <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold mb-1">
-            Mot de passe
-          </label>
+          <label className="block text-sm font-semibold mb-1">Mot de passe</label>
           <input
             type="password"
-            {...register("password", {
-              required: "Le mot de passe est requis",
-            })}
+            {...register("password", { required: "Le mot de passe est requis" })}
             className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-300"
           />
-          {errors.password && (
-            <p className="text-xs text-red-500 mt-1">
-              {errors.password.message}
-            </p>
-          )}
+          {errors.password && <p className="text-xs text-red-500 mt-1">{errors.password.message}</p>}
         </div>
 
-        {error && (
-          <p className="text-xs text-red-600">{error.message}</p>
-        )}
+        {error && <p className="text-xs text-red-600">{error.message}</p>}
       </form>
     </Modal>
   );
 }
 
-// ── Export principal ──────────────────────────────────────────────
 export function EmailCheckModals({
   email,
-  phone,   // ← destructure
+  phone,
   modalType,
   onClose,
   onSuccess,
 }: EmailCheckModalsProps) {
   if (modalType === "register") {
-    return (
-      <RegisterModal email={email} phone={phone} onClose={onClose} onSuccess={onSuccess} />
-    );
+    return <RegisterModal email={email} phone={phone} onClose={onClose} onSuccess={onSuccess} />;
   }
   if (modalType === "login") {
     return <LoginModal onClose={onClose} onSuccess={onSuccess} />;

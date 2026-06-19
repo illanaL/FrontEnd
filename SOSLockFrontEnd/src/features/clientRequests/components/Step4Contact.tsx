@@ -44,7 +44,7 @@ export const Step4Contact = () => {
       });
 
       const response = await createClientRequest({
-        userId: user.id,
+        userId: user.user.id,
         firstName: data.firstName,
         lastName: data.lastName,
         phone: data.phone,

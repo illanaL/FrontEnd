@@ -9,6 +9,7 @@ import {
 } from "../features/authentication/schema/login.schema";
 import { useNavigate } from "react-router-dom";
 import { authUserApi } from "../features/authentication/api/authUser.api";
+import { GoogleAuthButton } from "../components/GoogleAuthButton";
 
 export const LoginUserPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,12 +29,12 @@ export const LoginUserPage = () => {
     try {
       await authUserApi.login(data);
       navigate("/user/dashboard");
-
     } catch (e: any) {
       setServerError(e.response?.data?.message || e.message || "Une erreur est survenue lors de la connexion.");
     }
   };
 
+ 
   return (
     <div className="p-8 max-w-md mx-auto text-center">
       <h1 className="text-xl font-bold mb-4">Connexion Client</h1>
@@ -47,7 +48,6 @@ export const LoginUserPage = () => {
           {...register("phone")}
         />
 
-        {/* Champ password : FormField + bouton toggle superposé */}
         <div className="relative">
           <FormField
             label="Mot de passe"
@@ -78,6 +78,18 @@ export const LoginUserPage = () => {
           {isSubmitting ? "Connexion..." : "Se connecter"}
         </button>
       </form>
+
+      {/* ─── SÉPARATEUR VISUEL ─── */}
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-gray-300"></div>
+        </div>
+        <div className="relative flex justify-center text-sm">
+          <span className="px-2 bg-white text-gray-500">ou</span>
+        </div>
+      </div>
+
+     <GoogleAuthButton />
     </div>
   );
 };

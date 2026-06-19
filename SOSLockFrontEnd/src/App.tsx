@@ -7,7 +7,8 @@ import { Spinner } from "./components/Spinner";
 import { ArtisanLayout } from "./features/artisan/layout/ArtisanLayout";
 import { ArtisanProtectedRoute } from "./features/authentication/guards/ArtisanProtectedRoute";
 import { UserProtectedRoute } from "./features/authentication/guards/UserProtectedRoute";
-
+// ------Auth --------
+const OAuthSuccessPage = lazy(() => import("./features/authentication/pages/OAuthSuccessPage"));
 // -------Users-------
 const DashboardUserPage = lazy(
   () => import("./features/user/pages/DashboardUserPage"),
@@ -76,6 +77,7 @@ function App() {
             <Route path="/services" element={<ServicePage />} />
             <Route path="/tarifs" element={<TarifsPage />} />
             <Route path="/zones" element={<ZonesInterventionPage />} />
+            <Route path="/oauth-success" element={<OAuthSuccessPage />} />
              <Route
               path="/users/signIn"
               element={

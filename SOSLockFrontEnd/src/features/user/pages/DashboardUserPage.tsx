@@ -1,4 +1,5 @@
 import { useUserAuth } from "../../authentication/hooks/useUserAuthMutations";
+import { AskInterventionButton } from "../../clientRequests/components/AskInterventionButton";
 import { useGetClientRequestsByUser } from "../../clientRequests/hooks/useGetClientRequestsByUser";
 
 const STATUS_CONFIG = {
@@ -31,10 +32,11 @@ const STATUS_CONFIG = {
 
 export default function DashboardUserPage() {   
 
-  const { userId } = useUserAuth();
-  if(!userId) {
+  const { user } = useUserAuth();
+  if(!user) {
     return (
       <div className="min-h-screen bg-bg-soft flex items-center justify-center">
+        
         <div className="flex flex-col items-center gap-3">
           <svg
             className="h-8 w-8 animate-spin text-teal-600"
@@ -51,11 +53,12 @@ export default function DashboardUserPage() {
     );
   }
 
-  const { data: requests, isPending, error } = useGetClientRequestsByUser(userId);
+  const { data: requests, isPending, error } = useGetClientRequestsByUser(user.id);
 
   if (isPending) {
     return (
       <div className="min-h-screen bg-bg-soft flex items-center justify-center">
+       
         <div className="flex flex-col items-center gap-3">
           <svg
             className="h-8 w-8 animate-spin text-teal-600"
@@ -88,9 +91,12 @@ export default function DashboardUserPage() {
 
         {/* Header */}
         <div>
+            <div className="flex justify-between items-center">
           <h1 className="text-2xl font-extrabold text-text">
             Mes demandes d'intervention
           </h1>
+          <AskInterventionButton variant="outline" size="lg" />
+          </div>
           <p className="text-sm text-text/50 mt-1">
             Suivez l'état de vos demandes en temps réel
           </p>
@@ -126,8 +132,13 @@ export default function DashboardUserPage() {
                           year: "numeric",
                         })}
                       </p>
+                      <p className="font-semibold text-text text-sm">
+                        Nom : {request.lastName} {request.firstName}
+                      </p>
                       <p className="font-semibold text-text">
-                        {request.addressRequest.street},{" "}
+                        Adresse :  
+                        {" "}{request.addressRequest.number}{" "}
+                         {request.addressRequest.street},{" "}
                         {request.addressRequest.zipCode}{" "}
                         {request.addressRequest.city}
                       </p>
@@ -220,7 +231,9 @@ export default function DashboardUserPage() {
                 </div>
               );
             })}
+             
           </div>
+          
         )}
       </div>
     </div>

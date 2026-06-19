@@ -36,6 +36,8 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
 
   const debouncedAddressSearch = useDebounce(addressSearch, 300);
 
+  const { isAuthenticated, user } = useUserAuth()
+
   const {
     register,
     handleSubmit,
@@ -46,10 +48,10 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     mode: "onChange",
     resolver: zodResolver(step3Schema),
     defaultValues: {
-      firstName: formData.firstName || "",
-      lastName: formData.lastName || "",
-      phone: formData.phone || "",
-      email: formData.email || "",
+      firstName: isAuthenticated && user ? user.firstName || "" : formData.firstName || "",
+      lastName: isAuthenticated && user ? user.lastName || "" : formData.lastName || "",
+      phone: isAuthenticated && user ? user.phone || "" : formData.phone || "",
+      email: isAuthenticated && user ? user.email || "" : formData.email || "",
       description: formData.description || "",
       addressRequest: {
         number: formData.addressRequest?.number || "",
@@ -60,7 +62,7 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
     },
   });
 
-  const { isAuthenticated } = useUserAuth()
+  
 
   const currentAddress = watch("addressRequest");
   const currentEmail = watch("email");
@@ -194,11 +196,15 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
           <div>
             <label className="block text-sm font-semibold text-sos-900 mb-1">Adresse Email</label>
             <input
+              disabled={isAuthenticated && user ? true : false}
+
               type="email"
               placeholder="Ex: jean.dupont@email.com"
               {...register("email")}
               // onBlur={(e) => handleEmailBlur(e.target.value)}
               className={`w-full border rounded-xl px-4 py-3 text-sm text-sos-900 outline-none transition-all ${
+                isAuthenticated && user ? "bg-gray-100 border-sos-200 cursor-not-allowed" : ""
+              } ${
                 errors.email ? "border-red-400 focus:ring-2 focus:ring-red-200" : "border-sos-200 focus:ring-2 focus:ring-sos-300"
               }`}
             />
@@ -277,8 +283,8 @@ export const Step3Contact = ({ formdata: formData, update, onNext }: Props) => {
         phone={currentPhone ?? ""} 
         modalType={emailModalType}
         onClose={() => setEmailModalType(null)}
-        onSuccess={(userId) => {
-          useUserAuth.getState().loginGuest(userId, currentEmail ?? "");
+        onSuccess={(data) => {
+          useUserAuth.getState().login(data.user, data.accessKey);
         }}
       />
     </div>

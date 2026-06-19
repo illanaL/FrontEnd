@@ -10,7 +10,7 @@ const getInitials = (email?: string | null) => {
 };
 
 export const UserMenu = () => {
-  const { email, isAuthenticated, logout } = useUserAuth();
+  const { user, isAuthenticated, logout } = useUserAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -25,8 +25,6 @@ export const UserMenu = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const initials = getInitials(email);
 
   const handleLogin = () => {
     navigate("/welcome");
@@ -59,9 +57,9 @@ export const UserMenu = () => {
         className="flex items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors"
       >
         <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold select-none">
-          {initials}
+            {getInitials(user?.email)}
         </div>
-        <span className="text-sm font-medium text-gray-700">{email}</span>
+        <span className="text-sm font-medium text-gray-700">{user?.email ?? "Mon compte"}</span>
         <svg
           className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
           fill="none"
@@ -81,13 +79,13 @@ export const UserMenu = () => {
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-1 z-50">
           {/* En-tête identité */}
           <div className="px-4 py-2.5 border-b border-gray-100">
-            <p className="text-sm font-semibold text-gray-900">{email}</p>
+            <p className="text-sm font-semibold text-gray-900">{user?.email ?? "Utilisateur"}</p>
             <p className="text-xs text-gray-400">Utilisateur connecté</p>
           </div>
 
           <button
             onClick={() => {
-              navigate("/user/historique");
+              navigate("/user/dashboard");
               setIsOpen(false);
             }}
             className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"

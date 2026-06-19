@@ -1,10 +1,5 @@
 import type { Address } from "../../artisan/type/artisan.type";
 
-export interface UserLoginResponse {
-  userId: string;
-  accessKey: string;
-}
-
 export interface SignUpUserPayload {
   firstName: string;
   lastName: string;
@@ -14,8 +9,8 @@ export interface SignUpUserPayload {
 }
 
 export interface SignUpUserResponse {
-  id: string;
-  email: string;
+  user: User;
+  accessKey: string;
 }
 
 export interface LoginUserPayload {
@@ -24,7 +19,7 @@ export interface LoginUserPayload {
 }
 
 export interface LoginUserResponse {
-  userId: string;
+  user: User;
   accessKey: string;
 }
 

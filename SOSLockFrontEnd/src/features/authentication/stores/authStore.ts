@@ -1,5 +1,6 @@
 import type { Artisan } from "../../artisan/type/artisan.type";
 import type { AdminUser } from "../../adminUser/type/adminUser.type";
+import type { User } from "../../user/type/user.type";
 
 type Role = "artisan" | "user" | "admin";
 
@@ -14,14 +15,13 @@ export interface ArtisanAuthState {
 }
 
 export interface UserAuthState {
-  userId: string | null;
+  user: User | null;
   email: string | null;
   token: string | null;
   isAuthenticated: boolean;
   role: "user" | null;
 
-  login: (userId: string, token: string, email?: string) => void;
-  loginGuest: (userId: string, email: string) => void;
+  login: (user: User, token: string, email?: string) => void;
   logout: () => void;
 }
 
